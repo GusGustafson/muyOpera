@@ -4,6 +4,7 @@ import PrivateRoute from "./components/router/PrivateRoute";
 import Layout from "./components/Layout";
 import Landing from "./views/Landing";
 import Home from "./views/Home";
+import Registration from "./views/Registration";
 import UserLoggedIn from "./views/UserLoggedIn";
 import NotFound from "./views/NotFound";
 import AuthContextProvider from "./contexts/AuthContext";
@@ -19,13 +20,14 @@ export default function App() {
           <Route element={<PublicRoute />}>
             <Route element={<Layout />}>
               <Route path="/home" element={<Home />} />
+              <Route path="/registration" element={<Registration />} />
             </Route>
           </Route>
 
           {/* Rutas privadas */}
           <Route element={<PrivateRoute />}>
             <Route element={<Layout />}>
-              <Route path="/userloggedin" element={<UserLoggedIn />} />
+              <Route path="/userLoggedIn" element={<UserLoggedIn />} />
             </Route>
           </Route>
 

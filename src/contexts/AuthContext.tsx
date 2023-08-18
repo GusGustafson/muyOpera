@@ -31,7 +31,8 @@ export default function AuthContextProvider({
   children: ReactNode;
 }) {
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem(USER_KEY) || "{}")
+    // JSON.parse(localStorage.getItem(USER_KEY) || "{}")
+    localStorage.getItem(USER_KEY) || null
   );
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -52,7 +53,7 @@ export default function AuthContextProvider({
       });
       if (response.ok) {
         const token = await response.json();
-        const user = jwtDecode(token.jwt);
+        const user: string | null = jwtDecode(token.jwt);
         console.log("Usuario logueado correctamente");
         setUser(user);
         localStorage.setItem(USER_KEY, JSON.stringify(user));
@@ -60,6 +61,7 @@ export default function AuthContextProvider({
         setErrorMessage(null);
       } else {
         console.log("Usuario no válido");
+        alert("Los datos no son correctos. Inténtelo de nuevo.");
         // setErrorMessage("Email o contraseña incorrectos.");
         setErrorMessage(null);
       }

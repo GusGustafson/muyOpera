@@ -71,6 +71,9 @@ small,
   font-size: 0.8rem;
 }
 
+.registro{
+  font-style: oblique;
+}
 
 /* COMPONENTES */
 /* Header */
@@ -95,9 +98,13 @@ header .container{
 /* Caja */
 
 .caja.destacado{
-  border-color: blue;
+  border-color: orangered;
+  border-style: solid;
   border-radius: 32px;
-  margin-top: 8px;
+  margin: 128px;
+  padding: 8px;
+  background-color: rgb(254, 216, 133);
+  font-size: large;
 }
 
 

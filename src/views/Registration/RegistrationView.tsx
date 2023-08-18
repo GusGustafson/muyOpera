@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
-import Login from "../../components/Login/Login";
+import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import "../../style.css";
 
-export default function HomeView() {
+export default function RegistrationView() {
   return (
     <Box
       sx={{
@@ -20,18 +20,16 @@ export default function HomeView() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Inicie sesión</h3>
+              <h3>Registro</h3>
               <p>
-                Introduzca sus credenciales para levantar el telón y disfrutar
-                de todas las opciones que le ofrece muyÓpera:
+                Regístrese para disfrutar de todas las opciones que le ofrece
+                muyÓpera:
               </p>
-              <Login />
+              <RegistrationForm />
               <br />
-              <div className="registro">
-                <Link to="/registration">
-                  ¿Aún no tiene cuenta? Haga clic aquí para registrarse.
-                </Link>
-              </div>
+              <Link to="/home">
+                ¿Ya hizo el registro? Haga clic aquí para iniciar sesión.
+              </Link>
             </div>
           </div>
         </div>

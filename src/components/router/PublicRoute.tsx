@@ -5,8 +5,11 @@ export default function PublicRoute() {
 
   const { user } = useAuthContext();
 
-  if (!user) {
-    return <Navigate to="/home" />;
+  // if (!user) {
+  //   return <Navigate to="/home" />;
+  // }
+  if (user) {
+    return <Navigate to="/userLoggedIn" />;
   }
 
   return (
