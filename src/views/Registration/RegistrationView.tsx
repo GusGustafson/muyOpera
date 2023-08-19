@@ -27,9 +27,11 @@ export default function RegistrationView() {
               </p>
               <RegistrationForm />
               <br />
-              <Link to="/home">
-                ¿Ya hizo el registro? Haga clic aquí para iniciar sesión.
-              </Link>
+              <div className="registro">
+                <Link to="/home">
+                  ¿Ya hizo el registro? Haga clic aquí para iniciar sesión.
+                </Link>
+              </div>
             </div>
           </div>
         </div>

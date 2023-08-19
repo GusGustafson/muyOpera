@@ -17,8 +17,8 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        // mx: "auto",
-        // width: "50%",
+        mx: "auto",
+        width: "75%",
       }}
     >
       <Form onSubmit={handleSubmit}>

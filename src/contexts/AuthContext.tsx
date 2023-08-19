@@ -3,10 +3,21 @@ import jwtDecode from "jwt-decode";
 
 interface AuthContextType {
   user: string | null;
-  errorMessage: null;
-  login: (credentials: { email: string; password: string }) => void;
+  errorMessage: string | null;
+  login: ({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) => Promise<void>;
   logout: () => void;
-  registration: (userData: {
+  registration: ({
+    name,
+    surname,
+    email,
+    password,
+  }: {
     name: string;
     surname: string;
     email: string;
@@ -17,9 +28,9 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType>({
   user: null,
   errorMessage: null,
-  login: (): void => {},
+  login: async (): Promise<void> => {},
   logout: () => {},
-  registration: () => {},
+  registration: async (): Promise<void> => {},
 });
 
 const USER_KEY = "U_K";
@@ -34,7 +45,7 @@ export default function AuthContextProvider({
     // JSON.parse(localStorage.getItem(USER_KEY) || "{}")
     localStorage.getItem(USER_KEY) || null
   );
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function login({
     email,
@@ -62,8 +73,7 @@ export default function AuthContextProvider({
       } else {
         console.log("Usuario no válido");
         alert("Los datos no son correctos. Inténtelo de nuevo.");
-        // setErrorMessage("Email o contraseña incorrectos.");
-        setErrorMessage(null);
+        setErrorMessage("Los datos no son correctos.");
       }
     } catch (error) {
       console.log("Error al iniciar sesión", error);
@@ -87,13 +97,39 @@ export default function AuthContextProvider({
     surname: string;
     email: string;
     password: string;
-  }) {
+  }): Promise<void> {
     try {
       // Es mejor no usar esta forma de obtener los datos del formulario. Si funciona bien, elimina lo comentado.
-      // name = document.getElementById("regName").value;
-      // surname = document.getElementById("regSurname").value;
-      // email = document.getElementById("regEmail").value;
-      // password = document.getElementById("regPassword").value;
+      // Parece que no funciona con esto (sí va con lo que va a continuación):
+      // name = document.getElementById("name").value;
+      // surname = document.getElementById("surname").value;
+      // email = document.getElementById("email").value;
+      // password = document.getElementById("password").value;
+
+      const nameInput = document.getElementById(
+        "name"
+      ) as HTMLInputElement | null;
+      if (nameInput) {
+        name = nameInput.value;
+      }
+      const surnameInput = document.getElementById(
+        "surname"
+      ) as HTMLInputElement | null;
+      if (surnameInput) {
+        surname = surnameInput.value;
+      }
+      const emailInput = document.getElementById(
+        "email"
+      ) as HTMLInputElement | null;
+      if (emailInput) {
+        email = emailInput.value;
+      }
+      const passwordInput = document.getElementById(
+        "password"
+      ) as HTMLInputElement | null;
+      if (passwordInput) {
+        password = passwordInput.value;
+      }
 
       const response = await fetch("http://localhost:3000/user/", {
         method: "POST",
@@ -104,35 +140,20 @@ export default function AuthContextProvider({
       });
       if (response.ok) {
         console.log("Usuario nuevo registrado correctamente");
+        alert("Usuario nuevo registrado correctamente");
         await login({ email, password });
         setErrorMessage(null);
       } else {
         console.log("Datos de registro de usuario no válidos");
-        // setErrorMessage("Datos para registro incorrectos.");
-        setErrorMessage(null);
+        alert("Datos de registro de usuario no válidos");
+        setErrorMessage("Datos de registro de usuario no válidos");
       }
     } catch (error) {
       console.log("Error al registrar usuario", error);
     }
   }
 
-  interface Value {
-    user: string | null;
-    errorMessage: null;
-    login: ({ email, password }: {
-      email: string;
-      password: string;
-  }) => Promise<void>;
-  logout: () => void;
-  registration: ({ name, surname, email, password }: {
-      name: string;
-      surname: string;
-      email: string;
-      password: string;
-  }) => void;
-  }
-
-  const value: Value = {
+  const value: AuthContextType = {
     user,
     errorMessage,
     login,
