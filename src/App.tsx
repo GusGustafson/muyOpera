@@ -6,6 +6,7 @@ import Landing from "./views/Landing";
 import Home from "./views/Home";
 import Registration from "./views/Registration";
 import UserLoggedIn from "./views/UserLoggedIn";
+import MyAccount from "./views/MyAccount";
 import NotFound from "./views/NotFound";
 import AuthContextProvider from "./contexts/AuthContext";
 
@@ -28,6 +29,7 @@ export default function App() {
           <Route element={<PrivateRoute />}>
             <Route element={<Layout />}>
               <Route path="/userLoggedIn" element={<UserLoggedIn />} />
+              <Route path="/myAccount" element={<MyAccount />} />
             </Route>
           </Route>
 

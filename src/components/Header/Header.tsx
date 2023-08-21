@@ -10,7 +10,7 @@ export default function Header() {
         </div>
         <div className="container d-flex col-md-auto">
           <h2>
-            <span className="main-color">muyÓpera</span>
+            <span className="main-color" id="muyOperaTitle">muyÓpera</span>
           </h2>
         </div>
         <div className="container col-md-auto text-warning">

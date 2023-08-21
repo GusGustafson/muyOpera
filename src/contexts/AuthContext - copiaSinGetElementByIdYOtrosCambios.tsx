@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, ReactNode } from "react";
 import jwtDecode from "jwt-decode";
 
-interface UserDataWithID {
+interface UserData {
   id: number;
   name: string;
   surname: string;
@@ -10,7 +10,7 @@ interface UserDataWithID {
 }
 
 interface AuthContextType {
-  user: string | null;
+  user: UserData | null;
   errorMessage: string | null;
   login: ({
     email,
@@ -20,18 +20,14 @@ interface AuthContextType {
     password: string;
   }) => Promise<void>;
   logout: () => void;
-  registration: ({
-    name,
-    surname,
-    email,
-    password,
-  }: {
+  registration: (userData: {
+    id: number;
     name: string;
     surname: string;
     email: string;
     password: string;
   }) => void;
-  updateUserData: (userData: UserDataWithID) => void;
+  updateUserData: (userData: UserData) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -43,6 +39,7 @@ const AuthContext = createContext<AuthContextType>({
   updateUserData: async (): Promise<void> => {},
 });
 
+
 const USER_KEY = "U_K";
 const USER_TOKEN = "U_T";
 
@@ -51,8 +48,8 @@ export default function AuthContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [user, setUser] = useState<string | null>(
-    localStorage.getItem(USER_KEY) || null
+  const [user, setUser] = useState<UserData | null>(
+    JSON.parse(localStorage.getItem(USER_KEY) || "null")
   );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -72,12 +69,12 @@ export default function AuthContextProvider({
         body: JSON.stringify({ email, password }),
       });
       if (response.ok) {
-        const token = await response.json();
-        const user: string | null = jwtDecode(token.jwt);
+        const tokenData = await response.json();
+        const decodedToken: UserData | null = jwtDecode(tokenData.jwt);
         console.log("Usuario logueado correctamente");
-        setUser(user);
-        localStorage.setItem(USER_KEY, JSON.stringify(user));
-        localStorage.setItem(USER_TOKEN, token.jwt);
+        setUser(decodedToken);
+        localStorage.setItem(USER_KEY, JSON.stringify(decodedToken));
+        localStorage.setItem(USER_TOKEN, tokenData.jwt);
         setErrorMessage(null);
       } else {
         console.log("Usuario no válido");
@@ -96,19 +93,9 @@ export default function AuthContextProvider({
     setUser(null);
   }
 
-  async function registration({
-    name,
-    surname,
-    email,
-    password,
-  }: {
-    name: string;
-    surname: string;
-    email: string;
-    password: string;
-  }): Promise<void> {
+  async function registration(userData: UserData): Promise<void> {
     try {
-      const nameInput = document.getElementById(
+      /* const nameInput = document.getElementById(
         "name"
       ) as HTMLInputElement | null;
       if (nameInput) {
@@ -131,19 +118,19 @@ export default function AuthContextProvider({
       ) as HTMLInputElement | null;
       if (passwordInput) {
         password = passwordInput.value;
-      }
+      } */
 
       const response = await fetch("http://localhost:3000/user/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, surname, email, password }),
+        body: JSON.stringify(userData),
       });
       if (response.ok) {
         console.log("Usuario nuevo registrado correctamente");
         alert("Usuario nuevo registrado correctamente");
-        await login({ email, password });
+        await login({ email: userData.email, password: userData.password });
         setErrorMessage(null);
       } else {
         console.log("Datos de registro de usuario no válidos");
@@ -155,9 +142,9 @@ export default function AuthContextProvider({
     }
   }
 
-  async function updateUserData(userData: UserDataWithID): Promise<void> {
+  async function updateUserData(updatedUserData: UserData): Promise<void> {
     try {
-      const nameInput = document.getElementById(
+      /* const nameInput = document.getElementById(
         "name"
       ) as HTMLInputElement | null;
       if (nameInput) {
@@ -180,31 +167,31 @@ export default function AuthContextProvider({
       ) as HTMLInputElement | null;
       if (passwordInput) {
         userData.password = passwordInput.value;
-      }
+      } */
 
       const token = localStorage.getItem(USER_TOKEN);
-      const userJSON = localStorage.getItem(USER_KEY);
-      const userArray: UserDataWithID | null = userJSON
-        ? JSON.parse(userJSON)
-        : null;
-      const response = await fetch(
-        `http://localhost:3000/user/${userArray!.id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(userData), // Aquí es donde fallaba. No enviaba bien el objeto userData por ponerlo entre llaves.
-        }
-      );
+      /* const userJSON = localStorage.getItem(USER_KEY);
+      const userArray: UserData | null = userJSON ? JSON.parse(userJSON) : null;
+      console.log(token);
+      console.log(userArray);
+      console.log(userData); */
+      console.log(user);
+      console.log(updatedUserData);
+      const response = await fetch(`http://localhost:3000/user/${user?.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ updatedUserData }), // Aquí es donde falla. No envía bien el objeto userData. ¿Puede estar el fallo en stringify?
+      });
       if (response.ok) {
         console.log("Datos de usuario actualizados correctamente");
         alert(
           "Datos de usuario actualizados correctamente. Por seguridad, vuelva a iniciar sesión con sus datos de usuario actualizados."
         );
         setUser(null);
-        localStorage.setItem(USER_KEY, userData.email);
+        localStorage.setItem(USER_KEY, JSON.stringify(updatedUserData.email));
         setErrorMessage(null);
         logout();
       } else {

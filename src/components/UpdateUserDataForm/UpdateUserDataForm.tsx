@@ -1,39 +1,43 @@
 import { useState } from "react";
 // import { Formik, useFormik, FormikHelpers } from "formik";
 import { Formik, FormikHelpers, FormikProps } from "formik";
-import { RegistrationFormSchema } from "./RegistrationFormSchema";
-import RegistrationFormView from "./RegistrationFormView";
+import { UpdateUserDataFormSchema } from "./UpdateUserDataFormSchema";
+import UpdateUserDataFormView from "./UpdateUserDataFormView";
 // import { initialValues } from "./utils/form";
 import { useAuthContext } from "../../contexts/AuthContext";
 
+const USER_KEY = "U_K";
+
 type InitialValues = {
+  id: number;
   name: string;
   surname: string;
   email: string;
   password: string;
 };
 
-export default function RegistrationForm() {
-  const { registration } = useAuthContext();
+export default function UpdateUserDataForm() {
+  const { updateUserData } = useAuthContext();
+
+  const userJSON = localStorage.getItem(USER_KEY);
+  const user: InitialValues | null = userJSON ? JSON.parse(userJSON) : null;
+
   const initialValues: InitialValues = {
-    name: "",
-    surname: "",
-    email: "",
-    password: "",
+    id: user!.id,
+    name: user!.name,
+    surname: user!.surname,
+    email: user!.email,
+    password: user!.password,
   };
 
-  //   const { values, touched, errors, handleChange, handleSubmit, isSubmitting } = useFormik({
-  //       initialValues,
-  //       validationSchema: RegistrationFormSchema,
-  //       onSubmit,
-  //     });
-
-  const [auth, setAuth] = useState<InitialValues>({
-    name: "",
-    surname: "",
-    email: "",
-    password: "",
-  });
+  // const [auth, setAuth] = useState<InitialValues>({
+  //   id: 0,
+  //   name: "",
+  //   surname: "",
+  //   email: "",
+  //   password: "",
+  // });
+  const [auth, setAuth] = useState<InitialValues>(initialValues);
 
   function handleAuth(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
@@ -48,20 +52,20 @@ export default function RegistrationForm() {
     values: InitialValues,
     actions: FormikHelpers<InitialValues>
   ) {
-    registration(auth);
+    updateUserData(auth);
     actions.resetForm();
   }
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={RegistrationFormSchema}
+      validationSchema={UpdateUserDataFormSchema}
       auth={auth}
       onChange={handleAuth}
       onSubmit={onSubmit}
     >
       {(props: FormikProps<InitialValues>) => (
-        <RegistrationFormView formik={props} />
+        <UpdateUserDataFormView formik={props} />
       )}
     </Formik>
   );
