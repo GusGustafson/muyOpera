@@ -37,7 +37,7 @@ export default function MyAccountView() {
               <p>
                 Modifique aquí cualquier dato de su cuenta:
               </p>
-              <p>Usuario que ha iniciado sesión: {user?.id} {user?.name} {user?.surname} {user?.email}</p>
+              {/* <p>Usuario que ha iniciado sesión: {user?.id} {user?.name} {user?.surname} {user?.email}</p> */}
               <UpdateUserDataForm />
               <br />
               <div className="registro">

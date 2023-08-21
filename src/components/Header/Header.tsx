@@ -13,7 +13,7 @@ export default function Header() {
             <span className="main-color" id="muyOperaTitle">muyÓpera</span>
           </h2>
         </div>
-        <div className="container col-md-auto text-warning">
+        <div className="container col-md-auto pb-0 text-warning">
           <h4>
             La forma más fácil de encontrar los principales eventos líricos
           </h4>
