@@ -18,7 +18,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
         flexDirection: "column",
         alignItems: "center",
         mx: "auto",
-        width: "75%",
+        width: "80%",
       }}
     >
       <Form onSubmit={handleSubmit}>

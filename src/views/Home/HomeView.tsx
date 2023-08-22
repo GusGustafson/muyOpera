@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
-import madrid from "../../assets/theatres/TeatroReal_Madrid_small2.jpg";
-import malaga from "../../assets/theatres/TeatroCervantes_Malaga_small2.jpg";
-import oviedo from "../../assets/theatres/TeatroCampoamor_Oviedo_small2.jpg";
-import barcelona from "../../assets/theatres/TeatreDelLiceu_Barcelona_small.jpg";
-import sevilla from "../../assets/theatres/TeatroMaestranza_Sevilla_small2.jpg";
-import lasPalmas from "../../assets/theatres/AuditorioAlfredoKraus_LasPalmas_small2.jpg";
-import Header from '../../components/Header/Header';
+// import madrid from "../../assets/theatres/TeatroReal_Madrid_small2.jpg";
+// import malaga from "../../assets/theatres/TeatroCervantes_Malaga_small2.jpg";
+// import oviedo from "../../assets/theatres/TeatroCampoamor_Oviedo_small2.jpg";
+// import barcelona from "../../assets/theatres/TeatreDelLiceu_Barcelona_small.jpg";
+// import sevilla from "../../assets/theatres/TeatroMaestranza_Sevilla_small2.jpg";
+// import lasPalmas from "../../assets/theatres/AuditorioAlfredoKraus_LasPalmas_small2.jpg";
+import Header from "../../components/Header/Header";
+import FramerMotion from "../../components/FramerMotion/FramerMotion";
 import Login from "../../components/Login/Login";
-import Carousel from "nuka-carousel";
+// import Carousel from "nuka-carousel";
 import "../../style.css";
 
 export default function HomeView() {
@@ -25,7 +26,7 @@ export default function HomeView() {
       }}
     >
       <Header />
-      <Box
+      {/* <Box
         sx={{
           maxHeight: "400px",
           minHeight: "400px",
@@ -41,8 +42,14 @@ export default function HomeView() {
         <img src={barcelona} />
         <img src={sevilla} />
         <img src={lasPalmas} />
-        {/* <img src="/image5.png" /> */}
       </Carousel>
+      </Box> */}
+      <Box
+        sx={{
+          mt: 2,
+        }}
+      >
+        <FramerMotion />
       </Box>
       <div className="container text-center">
         <div className="row">

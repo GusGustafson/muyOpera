@@ -18,7 +18,7 @@ export default function LoginView({ formik }: LoginViewProps) {
         flexDirection: "column",
         alignItems: "center",
         mx: "auto",
-        width: "75%",
+        width: "80%",
       }}
     >
       <Form onSubmit={handleSubmit}>

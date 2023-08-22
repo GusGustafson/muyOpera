@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap"); */
+
+.App-header {
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  padding-bottom: 2rem;
+}
+.carousel-images {
+  position: relative;
+  border-radius: 16px;
+  height: 400px;
+  /* max-width: 650px; */
+  max-width: 533px;
+  margin: auto;
+  overflow: hidden;
+}
+.carousel-images img {
+  width: 99%;
+  height: 99%;
+  border-radius: 16px;
+  border: burlywood solid 2px;
+}
+.slide_direction {
+  display: flex;
+  justify-content: space-between;
+}
+.left,
+.right {
+  background-color: burlywood;
+  color: #fff;
+  padding: 2px 8px 8px 8px;
+  margin: 0 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 10px;
+  height: 30px;
+  width: 30px;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+.carousel-indicator {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.dot {
+  background-color: #333;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.active {
+  background-color: burlywood;
+}

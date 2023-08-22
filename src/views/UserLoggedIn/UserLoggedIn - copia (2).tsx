@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
-import Header from "../../components/Header/Header";
+import Header from '../../components/Header/Header';
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 
 export default function UserLoggedIn() {
+
   return (
     <Box
       sx={{
@@ -17,6 +18,7 @@ export default function UserLoggedIn() {
     >
       <Header />
       <Navbar_User />
+      
     </Box>
   );
 }
