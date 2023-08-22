@@ -34,7 +34,7 @@ img {
 
 .menu a{
   text-decoration: none;
-  color: blue;
+  color: white;
 }
 
 p {
@@ -140,7 +140,7 @@ input{
   border-color: orangered;
   border-style: solid;
   border-radius: 32px;
-  margin: 128px;
+  margin: 16px;
   padding: 16px;
   background-color: rgb(254, 216, 133);
   font-size: large;
@@ -159,7 +159,8 @@ input{
 #navegacion{
   font-weight: 500;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: space-around;
   padding: 8px;
 }
 

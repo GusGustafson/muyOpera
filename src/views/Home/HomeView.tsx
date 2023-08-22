@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
+import madrid from "../../assets/theatres/TeatroReal_Madrid_small2.jpg";
+import malaga from "../../assets/theatres/TeatroCervantes_Malaga_small2.jpg";
+import oviedo from "../../assets/theatres/TeatroCampoamor_Oviedo_small2.jpg";
+import barcelona from "../../assets/theatres/TeatreDelLiceu_Barcelona_small.jpg";
+import sevilla from "../../assets/theatres/TeatroMaestranza_Sevilla_small2.jpg";
+import lasPalmas from "../../assets/theatres/AuditorioAlfredoKraus_LasPalmas_small2.jpg";
+import Header from '../../components/Header/Header';
 import Login from "../../components/Login/Login";
+import Carousel from "nuka-carousel";
 import "../../style.css";
 
 export default function HomeView() {
@@ -16,6 +24,26 @@ export default function HomeView() {
         width: "100%",
       }}
     >
+      <Header />
+      <Box
+        sx={{
+          maxHeight: "400px",
+          minHeight: "400px",
+          width: "50%",
+          ml: 87,
+          mt: 2,
+        }}
+        >
+      <Carousel autoplay={true} wrapAround={true} withoutControls={true}  slidesToShow={1}>
+        <img src={madrid} />
+        <img src={malaga} />
+        <img src={oviedo} />
+        <img src={barcelona} />
+        <img src={sevilla} />
+        <img src={lasPalmas} />
+        {/* <img src="/image5.png" /> */}
+      </Carousel>
+      </Box>
       <div className="container text-center">
         <div className="row">
           <div className="col">

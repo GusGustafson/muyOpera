@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
+import Header from '../../components/Header/Header';
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import "../../style.css";
 
@@ -16,6 +17,7 @@ export default function RegistrationView() {
         width: "100%",
       }}
     >
+      <Header />
       <div className="container text-center">
         <div className="row">
           <div className="col">

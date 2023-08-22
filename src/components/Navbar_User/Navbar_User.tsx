@@ -10,20 +10,21 @@ export default function Navbar_User() {
   }
 
   return (
-    <nav className="container navbar" id="navegacion">
+    // <nav className="container navbar" id="navegacion">
+    <nav className="navbar" id="navegacion">
       <div className="col-izq">
         <ul className="menu d-flex gap-4">
           <li>
-            <Link to="/theatres">-Teatros-</Link>
+            <Link to="/theatres">Teatros</Link>
           </li>
           <li>
-            <Link to="/operas">-Óperas-</Link>
+            <Link to="/operas">Óperas</Link>
           </li>
           <li>
-            <Link to="/singers">-Cantantes-</Link>
+            <Link to="/singers">Cantantes</Link>
           </li>
           <li>
-            <Link to="/finder">-Buscador avanzado-</Link>
+            <Link to="/finder">Buscador avanzado</Link>
           </li>
         </ul>
       </div>
@@ -31,11 +32,11 @@ export default function Navbar_User() {
       <div className="col-der">
         <ul className="menu d-flex gap-4">
           <li>
-            <Link to="/myAccount">-Mi cuenta-</Link>
+            <Link to="/myAccount">Mi cuenta</Link>
           </li>
           <li>
             <Link to="/home" onClick={loggingOut}>
-              -Cerrar sesión-
+              Cerrar sesión
             </Link>
           </li>
         </ul>
