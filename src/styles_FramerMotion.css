@@ -52,11 +52,11 @@
   gap: 16px;
 }
 .dot {
-  background-color: #333;
+  background-color: burlywood;
   width: 8px;
   height: 8px;
   border-radius: 50%;
 }
 .active {
-  background-color: burlywood;
+  background-color: orange;
 }

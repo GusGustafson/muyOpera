@@ -8,7 +8,8 @@ import background from "../../assets/background.jpg";
 // import sevilla from "../../assets/theatres/TeatroMaestranza_Sevilla_small2.jpg";
 // import lasPalmas from "../../assets/theatres/AuditorioAlfredoKraus_LasPalmas_small2.jpg";
 import Header from "../../components/Header/Header";
-import FramerMotion from "../../components/FramerMotion/FramerMotion";
+import FramerMotion_Theatres from "../../components/FramerMotion_Theatres/FramerMotion_Theatres";
+import FramerMotion_Operas from "../../components/FramerMotion_Operas/FramerMotion_Operas";
 import Login from "../../components/Login/Login";
 // import Carousel from "nuka-carousel";
 import "../../style.css";
@@ -44,13 +45,20 @@ export default function HomeView() {
         <img src={lasPalmas} />
       </Carousel>
       </Box> */}
-      <Box
+
+      {/* <Box
         sx={{
           mt: 2,
         }}
       >
         <FramerMotion />
-      </Box>
+      </Box> */}
+
+      <div className="container d-flex justify-content-evenly mt-3">
+        <FramerMotion_Theatres />
+        <FramerMotion_Operas />
+      </div>
+
       <div className="container text-center">
         <div className="row">
           <div className="col">
