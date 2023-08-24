@@ -7,6 +7,7 @@ import Home from "./views/Home";
 import Registration from "./views/Registration";
 import UserLoggedIn from "./views/UserLoggedIn";
 import Theatres from "./views/Theatres";
+import Operas from "./views/Operas";
 import MyAccount from "./views/MyAccount";
 import NotFound from "./views/NotFound";
 import AuthContextProvider from "./contexts/AuthContext";
@@ -31,6 +32,7 @@ export default function App() {
             <Route element={<Layout />}>
               <Route path="/userLoggedIn" element={<UserLoggedIn />} />
               <Route path="/theatres" element={<Theatres />} />
+              <Route path="/operas" element={<Operas />} />
               <Route path="/myAccount" element={<MyAccount />} />
             </Route>
           </Route>

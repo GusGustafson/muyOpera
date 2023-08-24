@@ -1,3 +1,9 @@
+/* Paleta de colores MELANIE:
+#F8E356
+#FF4F8B
+#E3B1F6
+*/
+
 :root {
   html {
     font-size: 100%;
@@ -84,6 +90,7 @@ small,
 
 header{
   background-color: rgb(217, 38, 38);
+  /* background-color: #FF4F8B; */
 }
 
 header .container{
@@ -143,6 +150,7 @@ input{
   margin: 16px;
   padding: 16px;
   background-color: rgb(254, 216, 133);
+  /* background-color: #F8E356; */
   font-size: large;
 }
 
@@ -174,6 +182,49 @@ input{
     flex-direction: column;
   }
 }
+
+/* Card --> Borrable si solo uso MUI para las cards */
+
+.card {
+  border: 2px solid var(--gris);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenido-producto{
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-titulo,
+.card-titulo .precio,
+.card-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card h5{
+  margin: 0;
+}
+
+.rating{
+  color: var(--gris);
+}
+
+.card-actions{
+  gap: 16px;
+}
+
+.card-actions .anadir{
+  width: 100%;
+}
+
+
 
 /* HELPERS */
 
