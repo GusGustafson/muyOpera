@@ -1,25 +1,26 @@
 import { Box, Grid } from "@mui/material";
-import Card_Opera from "../../components/Card_Opera/Card_Opera";
+import Card_Singer from "../../components/Card_Singer/Card_Singer";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 
-interface Opera {
-  id: number;
-  image: string;
-  name: string;
-  composer: string;
-  language: string;
-  date: number;
+interface Singer {
+    id: number;
+    image: string;
+    name: string;
+    surname: string;
+    voice: string;
+    birthYear: number;
+    nationality: string;
 }
 
-interface OperasViewProps {
-  operas: Opera[];
+interface SingersViewProps {
+    singers: Singer[];
 }
 
-const OperasView: React.FC<OperasViewProps> = ({
+const SingersView: React.FC<SingersViewProps> = ({
   // Si no ponemos las llaves, se cree que es un objeto, no una función.
-  operas,
+  singers,
   // page,
   // totalPages,
   // onChange,
@@ -48,16 +49,17 @@ const OperasView: React.FC<OperasViewProps> = ({
         {/* <SearchBar onChange={onSearch} value={searchValue} /> */}
 
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
-          {operas.map((opera) => {
-            const { id, name, composer, language, date, image } = opera;
+          {singers.map((singer) => {
+            const { id, name, surname, voice, birthYear, nationality, image } = singer;
             return (
               <Grid item xs={12} md={4} key={id}>
-                <Card_Opera
+                <Card_Singer
                   id={id}
                   name={name}
-                  composer={composer}
-                  language={language}
-                  date={date}
+                  surname={surname}
+                  voice={voice}
+                  birthYear={birthYear}
+                  nationality={nationality}
                   image={image}
                 />
               </Grid>
@@ -69,23 +71,23 @@ const OperasView: React.FC<OperasViewProps> = ({
 
       {/* ESTO QUE SIGUE ES EL OTRO TIPO DE CARD. LO DESCARTO POR EL DE FRAMER MOTION.
       <div className="container d-flex justify-content-evenly mt-5">
-        {operas.map((opera) => (
-          <div key={opera.id} className="card" style={{ width: "24rem" }}>
-            <img src={opera.image} alt="ópera" />
+        {singers.map((singer) => (
+          <div key={singer.id} className="card" style={{ width: "24rem" }}>
+            <img src={singer.image} alt=" imagen de cantante" />
             <div className="contenido-producto">
               <div className="card-titulo">
-                <h5>{opera.name}</h5>
+                <h5>{singer.name} {singer.surname}</h5>
               </div>
-              <p>Compositor: {opera.composer}</p>
-              <p>Idioma: {opera.language}</p>
-              <p>Fecha: {opera.date}</p>
+              <p>Voz: {singer.voice}</p>
+              <p>Año de nacimiento: {singer.birthYear}</p>
+              <p>Nacionalidad: {singer.nationality}</p>
             </div>
           </div>
         ))}
       </div> */}
-      
+
     </Box>
   );
 };
 
-export default OperasView;
+export default SingersView;

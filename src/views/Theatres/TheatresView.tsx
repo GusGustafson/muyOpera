@@ -46,7 +46,7 @@ const TheatresView: React.FC<TheatresViewProps> = ({
         }}
       >
         {/* <SearchBar onChange={onSearch} value={searchValue} /> */}
-        
+
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
           {theatres.map((theatre) => {
             const { id, name, city, address, aphoras, image } = theatre;
@@ -67,27 +67,25 @@ const TheatresView: React.FC<TheatresViewProps> = ({
         {/* <Pagination totalPages={totalPages} page={page} onChange={onChange} /> */}
       </Box>
 
-      <div className="container d-flex justify-content-evenly mt-5" >
-      {/* Esta línea de arriba la incluyo para que me ponga las cards una junto a otra, no una encima de otra. */}
-      {theatres.map((theatre) => (
-        <div key={theatre.id} className="card" style={{ width: "24rem" }}>
-        <img
-            src={theatre.image}
-            alt="teatro"
-        />
-        <div className="contenido-producto">
-            <div className="card-titulo">
-            <h5>{theatre.name}</h5>
+      {/* ESTO QUE SIGUE ES EL OTRO TIPO DE CARD. LO DESCARTO POR EL DE FRAMER MOTION.
+      <div className="container d-flex justify-content-evenly mt-5">
+        {theatres.map((theatre) => (
+          <div key={theatre.id} className="card" style={{ width: "24rem" }}>
+            <img src={theatre.image} alt=" imagen de teatro" />
+            <div className="contenido-producto">
+              <div className="card-titulo">
+                <h5>{theatre.name}</h5>
+              </div>
+              <p>Ciudad: {theatre.city}</p>
+              <p>Dirección: {theatre.address}</p>
+              <p>Aforo: {theatre.aphoras}</p>
             </div>
-            <p>Ciudad: {theatre.city}</p>
-            <p>Dirección: {theatre.address}</p>
-            <p>Aforo: {theatre.aphoras}</p>
-        </div>
-        </div>
-      ))}
-    </div>
+          </div>
+        ))}
+      </div> */}
+
     </Box>
   );
-}
+};
 
 export default TheatresView;

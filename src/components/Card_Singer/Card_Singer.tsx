@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 
-import { images } from "../FramerMotion_Theatres/image-data";
+import { images } from "./image-data";
 
 const cardStyles = (
   <GlobalStyles
@@ -19,26 +19,27 @@ const cardStyles = (
   />
 );
 
-interface Card_Theatre {
+interface Card_Singer {
   id: number;
   image: string;
   name: string;
-  city: string;
-  address: string;
-  aphoras: number;
+  surname: string;
+  voice: string;
+  birthYear: number;
+  nationality: string;
 }
 
-export default function Card_Theatre({
+export default function Card_Singer({
   id,
   image,
   name,
-  city,
-  address,
-  aphoras,
-}: Card_Theatre) {
+  surname,
+  voice,
+  birthYear,
+  nationality,
+}: Card_Singer) {
   return (
     <>
-            {cardStyles}
       <Container>
         <Box mb={2}>
           <CardMUI sx={{ maxWidth: 400 }}>
@@ -46,19 +47,20 @@ export default function Card_Theatre({
             <CardMedia
               sx={{ height: 300 }}
               image={images[id - 1]}
-              title={name}
+              title={surname}
             />
+            {cardStyles}
             {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}
             <CardContent>
               <Typography variant="h5" component="div">
-                {name}
+                {name} {surname}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Ciudad: {city}
+                Voz: {voice}
                 <br />
-                Dirección: {address}
+                Año de nacimiento: {birthYear}
                 <br />
-                Aforo: {aphoras} espectadores
+                Nacionalidad: {nationality}
               </Typography>
             </CardContent>
             <div className="cardButton">
@@ -69,7 +71,7 @@ export default function Card_Theatre({
                   color="warning"
                   fullWidth
                 >
-                  <Link to={`${id}`}>Detalles del teatro (¿quitar?)</Link>
+                  <Link to={`${id}`}>Detalles del cantante (¿quitar?)</Link>
                 </Button>
               </CardActions>
             </div>

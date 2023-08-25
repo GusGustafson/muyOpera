@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
-import TheatresView from "./TheatresView";
+import SingersView from "./SingersView";
 
-interface Theatre {
+interface Singer {
   id: number;
-  name: string;
-  city: string;
-  address: string;
-  aphoras: number;
   image: string;
+  name: string;
+  surname: string;
+  voice: string;
+  birthYear: number;
+  nationality: string;
 }
 
-export default function Theatres() {
+export default function Singers() {
   // Aquí va toda la lógica (llamadas a API, cálculos...)
-  const [theatres, setTheatres] = useState<Theatre[] | null>(null);
+  const [singers, setSingers] = useState<Singer[] | null>(null);
   // const [page, setPage] = useState(1);
   // const [searchValue, setSearchValue] = useState("");
   // const [message, setMessage] = useState("");
@@ -29,12 +30,12 @@ export default function Theatres() {
 
   useEffect(
     () => {
-      // De aquí salen los teatros, que se los pasamos a la vista del return.
+      // De aquí salen los cantantes, que se los pasamos a la vista del return.
       async function fetchData() {
         try {
           const response = await fetch(
             // `http://rickandmortyapi.com/api/character/?page=${page}&name=${searchValue}`
-            "http://localhost:3000/theatre/allTheatres/",
+            "http://localhost:3000/singer/allSingers/",
             {
               method: "GET",
               headers: {
@@ -44,19 +45,19 @@ export default function Theatres() {
             }
           );
           if (!response.ok) {
-            // setMessage("Teatro no encontrado");
-            setTheatres(null);
-            alert("Teatro no encontrado");
+            // setMessage("Cantante no encontrado");
+            setSingers(null);
+            alert("Cantante no encontrado");
           } else {
-            // const data: TheatresResponse = await response.json();
-            const data: Theatre[] = await response.json();
-            setTheatres(data);
+            // const data: SingersResponse = await response.json();
+            const data: Singer[] = await response.json();
+            setSingers(data);
             // setMessage(null);
             console.log(data);
           }
         } catch (error) {
-          console.error("Error al obtener los teatros:", error);
-          setTheatres(null);
+          console.error("Error al obtener los cantantes:", error);
+          setSingers(null);
         }
       }
       fetchData();
@@ -68,10 +69,10 @@ export default function Theatres() {
   // que se ejecute ese useEffect en todos y cada uno de los render que haga con el setCharacters.
 
   return (
-    <TheatresView
-      theatres={theatres || []}
+    <SingersView
+      singers={singers || []}
       // page={page}
-      // totalPages={theatres?.info.pages}
+      // totalPages={singers?.info.pages}
       // onChange={handleChange}
       // onSearch={onSearchCharacter}
       // searchValue={searchValue}
