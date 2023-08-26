@@ -37,46 +37,39 @@ export default function Card_Theatre({
   aphoras,
 }: Card_Theatre) {
   return (
-    <>
-            {cardStyles}
-      <Container>
-        <Box mb={2}>
-          <CardMUI sx={{ maxWidth: 400 }}>
-            {/* Esta siguiente línea es un apaño mientras no consiga que acceda a las imágenes de la BD: */}
-            <CardMedia
-              sx={{ height: 300 }}
-              image={images[id - 1]}
-              title={name}
-            />
-            {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}
-            <CardContent>
-              <Typography variant="h5" component="div">
-                {name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Ciudad: {city}
-                <br />
-                Dirección: {address}
-                <br />
-                Aforo: {aphoras} espectadores
-              </Typography>
-            </CardContent>
-            <div className="cardButton">
-              <CardActions>
-                <Button
-                  size="small"
-                  variant="contained"
-                  color="warning"
-                  fullWidth
-                >
-                  <Link to={`${id}`}>Detalles del teatro (¿quitar?)</Link>
-                </Button>
-              </CardActions>
-            </div>
-          </CardMUI>
-        </Box>
-      </Container>
-      {/* <Outlet /> */}
-    </>
+    <Container>
+      <Box mb={2}>
+        <CardMUI sx={{ maxWidth: 400 }}>
+          {/* Esta siguiente línea es un apaño mientras no consiga que acceda a las imágenes de la BD: */}
+          <CardMedia sx={{ height: 300 }} image={images[id - 1]} title={name} />
+          {cardStyles}
+          {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}
+          <CardContent>
+            <Typography variant="h5" component="div">
+              {name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Ciudad: {city}
+              <br />
+              Dirección: {address}
+              <br />
+              Aforo: {aphoras} espectadores
+            </Typography>
+          </CardContent>
+          <div className="cardButton">
+            <CardActions>
+              <Button
+                size="small"
+                variant="contained"
+                color="warning"
+                fullWidth
+              >
+                <Link to={`${id}`}>Detalles del teatro (¿quitar?)</Link>
+              </Button>
+            </CardActions>
+          </div>
+        </CardMUI>
+      </Box>
+    </Container>
   );
 }

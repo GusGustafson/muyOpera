@@ -37,46 +37,39 @@ export default function Card_Opera({
   date,
 }: Card_Opera) {
   return (
-    <>
-      <Container>
-        <Box mb={2}>
-          <CardMUI sx={{ maxWidth: 400 }}>
-            {/* Esta siguiente línea es un apaño mientras no consiga que acceda a las imágenes de la BD: */}
-            <CardMedia
-              sx={{ height: 300 }}
-              image={images[id - 1]}
-              title={name}
-            />
-            {cardStyles}
-            {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}
-            <CardContent>
-              <Typography variant="h5" component="div">
-                {name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Compositor: {composer}
-                <br />
-                Idioma: {language}
-                <br />
-                Fecha: {date}
-              </Typography>
-            </CardContent>
-            <div className="cardButton">
-              <CardActions>
-                <Button
-                  size="small"
-                  variant="contained"
-                  color="warning"
-                  fullWidth
-                >
-                  <Link to={`${id}`}>Detalles de la ópera (¿quitar?)</Link>
-                </Button>
-              </CardActions>
-            </div>
-          </CardMUI>
-        </Box>
-      </Container>
-      {/* <Outlet /> */}
-    </>
+    <Container>
+      <Box mb={2}>
+        <CardMUI sx={{ maxWidth: 400 }}>
+          {/* Esta siguiente línea es un apaño mientras no consiga que acceda a las imágenes de la BD: */}
+          <CardMedia sx={{ height: 300 }} image={images[id - 1]} title={name} />
+          {cardStyles}
+          {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}
+          <CardContent>
+            <Typography variant="h5" component="div">
+              {name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Compositor: {composer}
+              <br />
+              Idioma: {language}
+              <br />
+              Fecha: {date}
+            </Typography>
+          </CardContent>
+          <div className="cardButton">
+            <CardActions>
+              <Button
+                size="small"
+                variant="contained"
+                color="warning"
+                fullWidth
+              >
+                <Link to={`${id}`}>Detalles de la ópera (¿quitar?)</Link>
+              </Button>
+            </CardActions>
+          </div>
+        </CardMUI>
+      </Box>
+    </Container>
   );
 }

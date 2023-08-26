@@ -1,19 +1,26 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 
-export default function PrivateRoute() {
+interface PrivateRouteProps {
+  allowedRoles: number[];
+}
+
+export default function PrivateRoute({ allowedRoles }: PrivateRouteProps) {
+  const location = useLocation();
   const { user } = useAuthContext();
 
   // if (user) {
   //   return <Navigate to="/userLoggedIn" />;
   // }
-  if (!user) {
-    return <Navigate to="/home" />;
-  }
+  // if (!user) {
+  //   return <Navigate to="/home" />;
+  // }
 
-  return (
-    <div>
-      <Outlet />
-    </div>
+  return allowedRoles?.includes(user?.userRole) ? (
+    <Outlet />
+  ) : user ? (
+    <Navigate to="/unauthorized" state={{ from: location }} replace />
+  ) : (
+    <Navigate to="/" state={{ from: location }} replace />
   );
 }

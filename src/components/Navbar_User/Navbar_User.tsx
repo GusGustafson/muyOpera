@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { roles } from "../../const/roles";
 import "../../style.css";
 
 export default function Navbar_User() {
-  const { logout } = useAuthContext();
+  const { logout, user } = useAuthContext();
 
   function loggingOut() {
     logout();
@@ -31,6 +32,13 @@ export default function Navbar_User() {
 
       <div className="col-der">
         <ul className="menu d-flex gap-4">
+
+          <li>
+          {user!.userRole === roles.ADMIN ? (
+              <Link to="/admin">ADMIN</Link>
+            ) : null}
+          </li>
+
           <li>
             <Link to="/myAccount">Mi cuenta</Link>
           </li>

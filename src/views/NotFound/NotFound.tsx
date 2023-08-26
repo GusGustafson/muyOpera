@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
-import Header from '../../components/Header/Header';
+import Header from "../../components/Header/Header";
 
 export default function NotFound() {
   return (
     <>
-    <Header />
+      <Header />
       <br />
       <h1>
         <em>La página no existe</em>
@@ -13,7 +13,7 @@ export default function NotFound() {
       <br />
       <Link to="/home">
         <Button variant="contained">
-          Haga clic aquí para volver a la entrada principal
+          Haga clic aquí para volver a la página principal
         </Button>
       </Link>
     </>

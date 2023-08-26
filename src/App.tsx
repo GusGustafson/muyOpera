@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PublicRoute from "./components/router/PublicRoute";
-import PrivateRoute from "./components/router/PrivateRoute";
-import Layout from "./components/Layout";
+import AuthContextProvider from "./contexts/AuthContext";
 import Landing from "./views/Landing";
 import Home from "./views/Home";
 import Registration from "./views/Registration";
@@ -10,8 +8,14 @@ import Theatres from "./views/Theatres";
 import Operas from "./views/Operas";
 import Singers from "./views/Singers";
 import MyAccount from "./views/MyAccount";
+import Admin from "./views/Admin";
+import Unauthorized from "./views/Unauthorized";
 import NotFound from "./views/NotFound";
-import AuthContextProvider from "./contexts/AuthContext";
+import Layout from "./components/Layout";
+import PublicRoute from "./components/router/PublicRoute";
+import PrivateRoute from "./components/router/PrivateRoute";
+import { roles } from "./const/roles";
+
 
 export default function App() {
   return (
@@ -27,9 +31,10 @@ export default function App() {
               <Route path="/registration" element={<Registration />} />
             </Route>
           </Route>
+          <Route path="unauthorized" element={<Unauthorized />} />
 
           {/* Rutas privadas */}
-          <Route element={<PrivateRoute />}>
+          <Route element={<PrivateRoute allowedRoles={roles.ALL_USERS} />}>
             <Route element={<Layout />}>
               <Route path="/userLoggedIn" element={<UserLoggedIn />} />
               <Route path="/theatres" element={<Theatres />} />
@@ -37,6 +42,12 @@ export default function App() {
               <Route path="/singers" element={<Singers />} />
               <Route path="/myAccount" element={<MyAccount />} />
             </Route>
+          </Route>
+          <Route
+            path="admin"
+            element={<PrivateRoute allowedRoles={[roles.ADMIN]} />}
+          >
+            <Route index element={<Admin />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

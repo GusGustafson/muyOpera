@@ -10,7 +10,9 @@ interface UserDataWithID {
 }
 
 interface AuthContextType {
-  user: string | null;
+  // user: string | null; // Tengo que incluir "userRole" o dará fallo de TS en la línea 21 de PrivateRoute.tsx.
+  // user: { userRole: number } | string | null; // Si lo pongo así, dará fallo de TS en la línea 21 de PrivateRoute.tsx.
+  user: userRole | string | null;
   errorMessage: string | null;
   login: ({
     email,
