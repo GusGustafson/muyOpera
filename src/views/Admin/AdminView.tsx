@@ -2,10 +2,12 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
-import UpdateUserDataForm from "../../components/UpdateUserDataForm/UpdateUserDataForm";
+import SearchUserForm from "../../components/SearchUserForm/SearchUserForm";
+import SearchUserPage from "../../components/SearchUserPage/SearchUserPage";
 import "../../style.css";
 
 const USER_KEY = "U_K";
+// const FOUND_USER = "F_U";
 
 interface User {
   id: number;
@@ -14,39 +16,51 @@ interface User {
   email: string;
 }
 
+// interface FoundUser {
+//   id: number;
+//   name: string;
+//   surname: string;
+//   email: string;
+//   userRole: number;
+//   regDate: string;
+//   updDate: string;
+// }
+
 export default function AdminView() {
   const userJSON = localStorage.getItem(USER_KEY);
   const user: User | null = userJSON ? JSON.parse(userJSON) : null;
   console.log(user);
+  // const foundUserJSON = localStorage.getItem(FOUND_USER);
+  // const foundUser: FoundUser | null = foundUserJSON ? JSON.parse(foundUserJSON) : null;
+  // console.log(foundUser);
 
   return (
-    <Box
-      sx={{
-        backgroundImage: `url(${background})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        width: "100%",
-      }}
-    >
-      <Header />
-      <Navbar_User />
-      <div className="container text-center">
-        <div className="row">
-          <div className="col">
-            <div className="caja destacado">
-              <h3>Actualización de datos de usuario</h3>
-              <p>Modifica cualquier dato del usuario seleccionado:</p>
-              {/* HAY QUE CAMBIAR ESTE FORMULARIO POR EL DEL ADMINISTRADOR: */}
-              {/* <UpdateUserDataForm /> */}
-              <p>---FORMULARIO DE CAMBIO DE DATOS---</p>
-              <p>Haz clic en este botón para eliminar la cuenta del usuario seleccionado:</p>
-              <p>---BOTÓN PARA ELIMINAR LA CUENTA DEL USUARIO---</p>
+    <>
+      <Box
+        sx={{
+          backgroundImage: `url(${background})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+          width: "100%",
+        }}
+      >
+        <Header />
+        <Navbar_User />
+        {/* <div className="container text-center">
+          <div className="row">
+            <div className="col">
+              <div className="caja destacado">
+                <h3>Búsqueda de usuario</h3>
+                <p>Introduce un email para buscar ese usuario:</p>
+                <SearchUserForm />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </Box>
+        </div> */}
+      <SearchUserPage />
+      </Box>
+    </>
   );
 }

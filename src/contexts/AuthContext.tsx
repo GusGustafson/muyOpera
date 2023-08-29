@@ -34,6 +34,8 @@ interface AuthContextType {
     password: string;
   }) => void;
   updateUserData: (userData: UserDataWithID) => void;
+  searchUser: (email: string) => void;
+  deleteUser: (id: number) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -43,10 +45,13 @@ const AuthContext = createContext<AuthContextType>({
   logout: () => {},
   registration: async (): Promise<void> => {},
   updateUserData: async (): Promise<void> => {},
+  searchUser: async (): Promise<void> => {},
+  deleteUser: async (): Promise<void> => {},
 });
 
 const USER_KEY = "U_K";
 const USER_TOKEN = "U_T";
+const FOUND_USER = "F_U";
 
 export default function AuthContextProvider({
   children,
@@ -95,6 +100,7 @@ export default function AuthContextProvider({
   function logout() {
     localStorage.removeItem(USER_KEY);
     localStorage.removeItem(USER_TOKEN);
+    localStorage.removeItem(FOUND_USER);
     setUser(null);
   }
 
@@ -219,6 +225,90 @@ export default function AuthContextProvider({
     }
   }
 
+  async function searchUser(email: string): Promise<void> {
+    try {
+      const emailInput = document.getElementById(
+        "email"
+      ) as HTMLInputElement | null;
+      if (emailInput) {
+        email = emailInput.value;
+      }
+
+      const response = await fetch(
+        `http://localhost:3000/user/${email}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+          // body: JSON.stringify(userData), // Aquí es donde fallaba. No enviaba bien el objeto userData por ponerlo entre llaves.
+        }
+      );
+      if (response.ok) {
+        const userData: UserDataWithID = await response.json();
+        console.log("Usuario localizado correctamente");
+        alert(
+          "Usuario localizado correctamente."
+        );
+        // setUser(null);
+        localStorage.setItem(FOUND_USER, JSON.stringify(userData));
+        setErrorMessage(null);
+        // logout();
+      } else {
+        console.log("Datos de búsqueda no válidos");
+        alert("Datos de búsqueda no válidos");
+        setErrorMessage("Búsqueda incorrecta");
+      }
+    } catch (error) {
+      console.log("Error al buscar el usuario", error);
+    }
+  }
+
+  async function deleteUser(id: number): Promise<void> {
+    try {
+      const idInput = document.getElementById(
+        "userFoundId"
+      ) as HTMLInputElement | null;
+
+      if (idInput) {
+        const inputValue = idInput.value;
+        const numericValue = parseInt(inputValue, 10);
+        if (!isNaN(numericValue)) {
+          id = numericValue;
+      }}
+
+      const token = localStorage.getItem(USER_TOKEN);
+
+      const response = await fetch(
+        `http://localhost:3000/user/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          // body: JSON.stringify(userData), // Aquí es donde fallaba. No enviaba bien el objeto userData por ponerlo entre llaves.
+        }
+      );
+      if (response.ok) {
+        console.log("Cuenta de usuario eliminada correctamente");
+        alert(
+          "Cuenta de usuario eliminada correctamente."
+        );
+        localStorage.removeItem(FOUND_USER);
+        setErrorMessage(null);
+      } else {
+        console.log("Datos de eliminación no válidos");
+        alert("Datos de eliminación no válidos");
+        setErrorMessage("Eliminación incorrecta");
+      }
+    } catch (error) {
+      console.log("Error al buscar el usuario", error);
+    }
+  }
+
+
   const value: AuthContextType = {
     user,
     errorMessage,
@@ -226,6 +316,8 @@ export default function AuthContextProvider({
     logout,
     registration,
     updateUserData,
+    searchUser,
+    deleteUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

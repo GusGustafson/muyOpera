@@ -9,6 +9,7 @@ import Operas from "./views/Operas";
 import Singers from "./views/Singers";
 import MyAccount from "./views/MyAccount";
 import Admin from "./views/Admin";
+import DeleteUser from "./views/DeleteUser";
 import Unauthorized from "./views/Unauthorized";
 import NotFound from "./views/NotFound";
 import Layout from "./components/Layout";
@@ -48,6 +49,12 @@ export default function App() {
             element={<PrivateRoute allowedRoles={[roles.ADMIN]} />}
           >
             <Route index element={<Admin />} />
+          </Route>
+          <Route
+            path="deleteUser"
+            element={<PrivateRoute allowedRoles={[roles.ADMIN]} />}
+          >
+            <Route index element={<DeleteUser />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />
