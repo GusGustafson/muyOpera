@@ -59,7 +59,7 @@ export default function SearchUserPageView({
               <Form onSubmit={handleSubmit}>
                 <TextField
                   margin="dense"
-                  color="secondary"
+                  color="warning"
                   //   required
                   fullWidth
                   id="email"
@@ -80,7 +80,7 @@ export default function SearchUserPageView({
                   variant="contained"
                   sx={{ mt: 1 }}
                   size="large"
-                  color="secondary"
+                  color="warning"
                   onClick={onSubmit_Search}
                 >
                   Buscar usuario

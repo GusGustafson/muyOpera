@@ -24,7 +24,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
       <Form onSubmit={handleSubmit}>
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="name"
@@ -39,7 +39,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="surname"
@@ -54,7 +54,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="email"
@@ -70,7 +70,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="password"
@@ -96,7 +96,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
           variant="contained"
           sx={{ mt: 1 }}
           size="large"
-          color="secondary"
+          color="warning"
         >
           Actualizar datos
         </Button>

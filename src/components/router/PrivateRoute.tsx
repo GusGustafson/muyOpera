@@ -9,18 +9,21 @@ export default function PrivateRoute({ allowedRoles }: PrivateRouteProps) {
   const location = useLocation();
   const { user } = useAuthContext();
 
-  // if (user) {
-  //   return <Navigate to="/userLoggedIn" />;
-  // }
-  // if (!user) {
-  //   return <Navigate to="/home" />;
-  // }
+  // OPCIÓN 1:
+  if (!user) {
+    return <Navigate to="/" state={{ from: location }} replace />;
+  }
+  if (!allowedRoles?.includes(user.userRole)) {
+    return <Navigate to="/unauthorized" state={{ from: location }} replace />;
+  }
+  return <Outlet />;
 
-  return allowedRoles?.includes(user?.userRole) ? (
-    <Outlet />
-  ) : user ? (
-    <Navigate to="/unauthorized" state={{ from: location }} replace />
-  ) : (
-    <Navigate to="/" state={{ from: location }} replace />
-  );
+  // OPCIÓN 2:
+  // return allowedRoles?.includes(user?.userRole) ? (
+  //   <Outlet />
+  // ) : user ? (
+  //   <Navigate to="/unauthorized" state={{ from: location }} replace />
+  // ) : (
+  //   <Navigate to="/" state={{ from: location }} replace />
+  // );
 }

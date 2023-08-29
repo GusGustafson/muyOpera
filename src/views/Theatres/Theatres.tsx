@@ -33,14 +33,12 @@ export default function Theatres() {
       async function fetchData() {
         try {
           const response = await fetch(
-            // `http://rickandmortyapi.com/api/character/?page=${page}&name=${searchValue}`
             "http://localhost:3000/theatre/allTheatres/",
             {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
               },
-              // body: JSON.stringify({ email, password }),
             }
           );
           if (!response.ok) {

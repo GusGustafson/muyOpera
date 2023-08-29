@@ -21,7 +21,7 @@ export default function Unauthorized() {
       <p>No tiene autorización para acceder a la página solicitada.</p>
       <br />
       <Link to="/home" onClick={loggingOut}>
-        <Button variant="contained">
+        <Button variant="contained" color="warning">
           Haga clic aquí para ir al inicio de sesión
         </Button>
       </Link>

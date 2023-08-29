@@ -24,7 +24,7 @@ export default function LoginView({ formik }: LoginViewProps) {
       <Form onSubmit={handleSubmit}>
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="email"
@@ -39,7 +39,7 @@ export default function LoginView({ formik }: LoginViewProps) {
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="password"
@@ -63,7 +63,7 @@ export default function LoginView({ formik }: LoginViewProps) {
           variant="contained"
           sx={{ mt: 1 }}
           size="large"
-          color="secondary"
+          color="warning"
         >
           Iniciar sesión
         </Button>

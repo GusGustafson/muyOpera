@@ -11,7 +11,7 @@ interface UserDataWithID {
 
 interface AuthContextType {
   // user: string | null; // Tengo que incluir "userRole" o dará fallo de TS en la línea 21 de PrivateRoute.tsx.
-  // user: { userRole: number } | string | null; // Si lo pongo así, dará fallo de TS en la línea 21 de PrivateRoute.tsx.
+  // user: { userRole: number } | string | null; // Si lo pongo así, dará fallo de TS en la línea 16 o 22 de PrivateRoute.tsx.
   user: userRole | string | null;
   errorMessage: string | null;
   login: ({
@@ -256,9 +256,9 @@ export default function AuthContextProvider({
         setErrorMessage(null);
         // logout();
       } else {
-        console.log("Datos de búsqueda no válidos");
-        alert("Datos de búsqueda no válidos");
-        setErrorMessage("Búsqueda incorrecta");
+        console.log("Búsqueda fallida. Revisa la dirección e inténtalo de nuevo.");
+        alert("Búsqueda fallida. Revisa la dirección e inténtalo de nuevo.");
+        setErrorMessage("Búsqueda fallida");
       }
     } catch (error) {
       console.log("Error al buscar el usuario", error);

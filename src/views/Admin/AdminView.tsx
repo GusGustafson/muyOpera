@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
-import SearchUserForm from "../../components/SearchUserForm/SearchUserForm";
+// import SearchUserForm from "../../components/SearchUserForm/SearchUserForm";
 import SearchUserPage from "../../components/SearchUserPage/SearchUserPage";
 import "../../style.css";
 
@@ -35,7 +35,6 @@ export default function AdminView() {
   // console.log(foundUser);
 
   return (
-    <>
       <Box
         sx={{
           backgroundImage: `url(${background})`,
@@ -59,8 +58,7 @@ export default function AdminView() {
             </div>
           </div>
         </div> */}
-      <SearchUserPage />
+        <SearchUserPage />
       </Box>
-    </>
   );
 }

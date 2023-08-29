@@ -12,7 +12,7 @@ export default function NotFound() {
       </h1>
       <br />
       <Link to="/home">
-        <Button variant="contained">
+        <Button variant="contained" color="warning">
           Haga clic aquí para volver a la página principal
         </Button>
       </Link>

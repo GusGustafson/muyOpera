@@ -5,6 +5,7 @@ import Home from "./views/Home";
 import Registration from "./views/Registration";
 import UserLoggedIn from "./views/UserLoggedIn";
 import Theatres from "./views/Theatres";
+import TheatreDetails from "./views/TheatreDetails";
 import Operas from "./views/Operas";
 import Singers from "./views/Singers";
 import MyAccount from "./views/MyAccount";
@@ -16,7 +17,6 @@ import Layout from "./components/Layout";
 import PublicRoute from "./components/router/PublicRoute";
 import PrivateRoute from "./components/router/PrivateRoute";
 import { roles } from "./const/roles";
-
 
 export default function App() {
   return (
@@ -38,23 +38,21 @@ export default function App() {
           <Route element={<PrivateRoute allowedRoles={roles.ALL_USERS} />}>
             <Route element={<Layout />}>
               <Route path="/userLoggedIn" element={<UserLoggedIn />} />
-              <Route path="/theatres" element={<Theatres />} />
+              <Route path="/theatres">
+                <Route index element={<Theatres />} />
+                <Route path=":id" element={<TheatreDetails />} />
+              </Route>
               <Route path="/operas" element={<Operas />} />
               <Route path="/singers" element={<Singers />} />
               <Route path="/myAccount" element={<MyAccount />} />
             </Route>
           </Route>
-          <Route
-            path="admin"
-            element={<PrivateRoute allowedRoles={[roles.ADMIN]} />}
-          >
-            <Route index element={<Admin />} />
-          </Route>
-          <Route
-            path="deleteUser"
-            element={<PrivateRoute allowedRoles={[roles.ADMIN]} />}
-          >
-            <Route index element={<DeleteUser />} />
+
+          <Route element={<PrivateRoute allowedRoles={[roles.ADMIN]} />}>
+            <Route element={<Layout />}>
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/deleteUser" element={<DeleteUser />} />
+            </Route>
           </Route>
 
           <Route path="*" element={<NotFound />} />
