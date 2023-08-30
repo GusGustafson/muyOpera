@@ -4,34 +4,35 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 
-const THEATRE_KEY = "T_K";
+const SINGER_KEY = "S_K";
 
-interface Theatre {
+interface Singer {
   id: number;
   name: string;
-  city: string;
-  address: string;
-  aphoras: number;
+  surname: string;
+  voice: string;
+  birthyear: number;
+  nationality: string;
   image: string;
 }
 
-export default function TheatreDetails() {
-  const [theatre, setTheatre] = useState<Theatre | null>(null);
+export default function SingerDetails() {
+  const [singer, setSinger] = useState<Singer | null>(null);
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:3000/theatre/${id}`, {
+        const response = await fetch(`http://localhost:3000/singer/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         });
         if (response.ok) {
-          const data: Theatre = await response.json();
-          setTheatre(data);
-          localStorage.setItem(THEATRE_KEY, JSON.stringify(data));
+          const data: Singer = await response.json();
+          setSinger(data);
+          localStorage.setItem(SINGER_KEY, JSON.stringify(data));
         } else {
           console.error("Error al hacer fetch de los datos");
         }
@@ -42,8 +43,8 @@ export default function TheatreDetails() {
     fetchData();
   }, [id]);
 
-  function removeTheatreKey() {
-    localStorage.removeItem(THEATRE_KEY);
+  function removeSingerKey() {
+    localStorage.removeItem(SINGER_KEY);
   }
 
   return (
@@ -62,18 +63,19 @@ export default function TheatreDetails() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Información del teatro</h3>
+              <h3>Información del cantante</h3>
               <br />
-              <img src={theatre?.image} alt={theatre?.image} />
-              <h6>Imagen: {theatre?.image}</h6>
-              <h6>ID: {theatre?.id}</h6>
-              <h6>Nombre: {theatre?.name}</h6>
-              <h6>Ciudad: {theatre?.city}</h6>
-              <h6>Dirección: {theatre?.address}</h6>
-              <h6>Aforo: {theatre?.aphoras} espectadores</h6>
+              <img src={singer?.image} alt={singer?.image} />
+              <h6>Imagen: {singer?.image}</h6>
+              <h6>ID: {singer?.id}</h6>
+              <h6>Nombre: {singer?.name}</h6>
+              <h6>Apellidos: {singer?.surname}</h6>
+              <h6>Voz: {singer?.voice}</h6>
+              <h6>Año de nacimiento: {singer?.birthyear}</h6>
+              <h6>Nacionalidad: {singer?.nationality}</h6>
               <br />
               <div className="registro">
-                <Link to="/theatres" onClick={removeTheatreKey}>
+                <Link to="/singers" onClick={removeSingerKey}>
                   ¿Ha terminado de ver la información? Haga clic aquí para
                   volver atrás.
                 </Link>

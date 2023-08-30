@@ -56,7 +56,7 @@ export default function SearchUserFormView({
       <Form onSubmit={handleSubmit}>
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           //   required
           fullWidth
           id="userId"
@@ -71,7 +71,7 @@ export default function SearchUserFormView({
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           //   required
           fullWidth
           id="name"
@@ -86,7 +86,7 @@ export default function SearchUserFormView({
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           //   required
           fullWidth
           id="surname"
@@ -101,7 +101,7 @@ export default function SearchUserFormView({
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="email"
@@ -118,7 +118,7 @@ export default function SearchUserFormView({
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           //   required
           fullWidth
           id="password"
@@ -134,7 +134,7 @@ export default function SearchUserFormView({
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           //   required
           fullWidth
           id="role"
@@ -169,7 +169,7 @@ export default function SearchUserFormView({
             variant="contained"
             sx={{ mt: 1 }}
             size="large"
-            color="secondary"
+            color="warning"
             onClick={onSubmit_Search}
           >
             Buscar usuario
@@ -181,7 +181,7 @@ export default function SearchUserFormView({
             variant="contained"
             sx={{ mt: 1 }}
             size="large"
-            color="secondary"
+            color="warning"
             // onClick={onSubmit_Update}
             onClick={handleSubmit}
           >
@@ -194,7 +194,7 @@ export default function SearchUserFormView({
             variant="contained"
             sx={{ mt: 1 }}
             size="large"
-            color="secondary"
+            color="warning"
             //   onClick={loggingOut}
           >
             Eliminar cuenta de usuario

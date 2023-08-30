@@ -58,7 +58,18 @@ export default function AdminView() {
             </div>
           </div>
         </div> */}
-        <SearchUserPage />
+        <div className="container text-center">
+        <div className="row">
+          <div className="col">
+            <div className="caja destacado">
+              {/* <h3>Actualización de datos de usuario</h3> */}
+              {/* <p>Modifique aquí cualquier dato de su cuenta:</p> */}
+              <SearchUserPage />
+            </div>
+          </div>
+        </div>
+      </div>
+        {/* <SearchUserPage /> */}
       </Box>
   );
 }

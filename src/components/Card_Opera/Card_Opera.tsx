@@ -43,6 +43,7 @@ export default function Card_Opera({
           {/* Esta siguiente línea es un apaño mientras no consiga que acceda a las imágenes de la BD: */}
           <CardMedia sx={{ height: 300 }} image={images[id - 1]} title={name} />
           {cardStyles}
+          {/* Esta línea siguiente no consigue hacer que se carguen las imágenes locales. */}
           {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}
           <CardContent>
             <Typography variant="h5" component="div">
@@ -64,7 +65,7 @@ export default function Card_Opera({
                 color="warning"
                 fullWidth
               >
-                <Link to={`${id}`}>Detalles de la ópera (¿quitar?)</Link>
+                <Link to={`${id}`}>Información de la ópera</Link>
               </Button>
             </CardActions>
           </div>

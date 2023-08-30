@@ -24,7 +24,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
       <Form onSubmit={handleSubmit}>
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="name"
@@ -39,7 +39,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="surname"
@@ -53,7 +53,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="email"
@@ -68,7 +68,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
         />
         <TextField
           margin="dense"
-          color="secondary"
+          color="warning"
           required
           fullWidth
           id="password"
@@ -93,7 +93,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           variant="contained"
           sx={{ mt: 1 }}
           size="large"
-          color="secondary"
+          color="warning"
         >
           Registrar usuario
         </Button>

@@ -7,7 +7,9 @@ import UserLoggedIn from "./views/UserLoggedIn";
 import Theatres from "./views/Theatres";
 import TheatreDetails from "./views/TheatreDetails";
 import Operas from "./views/Operas";
+import OperaDetails from "./views/OperaDetails";
 import Singers from "./views/Singers";
+import SingerDetails from "./views/SingerDetails";
 import MyAccount from "./views/MyAccount";
 import Admin from "./views/Admin";
 import DeleteUser from "./views/DeleteUser";
@@ -28,8 +30,8 @@ export default function App() {
           {/* Rutas públicas */}
           <Route element={<PublicRoute />}>
             <Route element={<Layout />}>
-              <Route path="/home" element={<Home />} />
-              <Route path="/registration" element={<Registration />} />
+              <Route path="home" element={<Home />} />
+              <Route path="registration" element={<Registration />} />
             </Route>
           </Route>
           <Route path="unauthorized" element={<Unauthorized />} />
@@ -37,21 +39,27 @@ export default function App() {
           {/* Rutas privadas */}
           <Route element={<PrivateRoute allowedRoles={roles.ALL_USERS} />}>
             <Route element={<Layout />}>
-              <Route path="/userLoggedIn" element={<UserLoggedIn />} />
-              <Route path="/theatres">
+              <Route path="userLoggedIn" element={<UserLoggedIn />} />
+              <Route path="theatres">
                 <Route index element={<Theatres />} />
                 <Route path=":id" element={<TheatreDetails />} />
               </Route>
-              <Route path="/operas" element={<Operas />} />
-              <Route path="/singers" element={<Singers />} />
-              <Route path="/myAccount" element={<MyAccount />} />
+              <Route path="operas">
+                <Route index element={<Operas />} />
+                <Route path=":id" element={<OperaDetails />} />
+              </Route>
+              <Route path="singers">
+                <Route index element={<Singers />} />
+                <Route path=":id" element={<SingerDetails />} />
+              </Route>
+              <Route path="myAccount" element={<MyAccount />} />
             </Route>
           </Route>
 
           <Route element={<PrivateRoute allowedRoles={[roles.ADMIN]} />}>
             <Route element={<Layout />}>
-              <Route path="/admin" element={<Admin />} />
-              <Route path="/deleteUser" element={<DeleteUser />} />
+              <Route path="admin" element={<Admin />} />
+              <Route path="deleteUser" element={<DeleteUser />} />
             </Route>
           </Route>
 

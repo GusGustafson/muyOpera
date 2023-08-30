@@ -7,6 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 
 import { images } from "../FramerMotion_Theatres/image-data";
+import { WidthFull } from "@mui/icons-material";
 
 const cardStyles = (
   <GlobalStyles

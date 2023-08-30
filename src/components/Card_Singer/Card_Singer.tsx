@@ -43,12 +43,9 @@ export default function Card_Singer({
       <Box mb={2}>
         <CardMUI sx={{ maxWidth: 400 }}>
           {/* Esta siguiente línea es un apaño mientras no consiga que acceda a las imágenes de la BD: */}
-          <CardMedia
-            sx={{ height: 300 }}
-            image={images[id - 1]}
-            title={surname}
-          />
+          <CardMedia sx={{ height: 300 }} image={images[id - 1]} title={surname} />
           {cardStyles}
+          {/* Esta línea siguiente no consigue hacer que se carguen las imágenes locales. */}
           {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}
           <CardContent>
             <Typography variant="h5" component="div">
@@ -70,7 +67,7 @@ export default function Card_Singer({
                 color="warning"
                 fullWidth
               >
-                <Link to={`${id}`}>Detalles del cantante (¿quitar?)</Link>
+                <Link to={`${id}`}>Información del cantante</Link>
               </Button>
             </CardActions>
           </div>
