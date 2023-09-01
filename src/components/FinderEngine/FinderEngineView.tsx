@@ -7,7 +7,7 @@ interface FinderEngineViewProps {
   onSubmit_Search: () => void;
 }
 
-const FOUND_EVENT = "F_E";
+const FOUND_EVENTS = "F_E";
 
 interface FoundEvent {
   id: number;
@@ -24,9 +24,9 @@ export default function FinderEngineView({
 }: FinderEngineViewProps) {
   const { values, handleChange, handleSubmit } = formik;
 
-  const foundEventJSON = localStorage.getItem(FOUND_EVENT);
-  const foundEvent: FoundEvent | null = foundEventJSON
-    ? JSON.parse(foundEventJSON)
+  const foundEventsJSON = localStorage.getItem(FOUND_EVENTS);
+  const foundEvents: FoundEvent | null = foundEventsJSON
+    ? JSON.parse(foundEventsJSON)
     : null;
   
   return (
@@ -93,7 +93,7 @@ export default function FinderEngineView({
           autoComplete="id-singer2"
         />
         <Button
-          id="searchEventButton"
+          id="searchEventsButton"
           variant="contained"
           sx={{ mt: 1 }}
           size="large"
@@ -105,12 +105,12 @@ export default function FinderEngineView({
       </Form>
       <br />
       <h5>Eventos encontrados:</h5>
-      <p>ID: {foundEvent?.id}</p>
-      <p>Teatro: {foundEvent?.idTheatre}</p>
-      <p>Ópera: {foundEvent?.idOpera}</p>
-      <p>Cantante femenino: {foundEvent?.idSinger1}</p>
-      <p>Cantante masculino: {foundEvent?.idSinger2}</p>
-      <p>Fecha y hora: {foundEvent?.dateTime}</p>
+      <p>ID: {foundEvents?.id}</p>
+      <p>Teatro: {foundEvents?.idTheatre}</p>
+      <p>Ópera: {foundEvents?.idOpera}</p>
+      <p>Cantante femenino: {foundEvents?.idSinger1}</p>
+      <p>Cantante masculino: {foundEvents?.idSinger2}</p>
+      <p>Fecha y hora: {foundEvents?.dateTime}</p>
     </Box>
   );
 }

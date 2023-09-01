@@ -52,6 +52,7 @@ const AuthContext = createContext<AuthContextType>({
 const USER_KEY = "U_K";
 const USER_TOKEN = "U_T";
 const FOUND_USER = "F_U";
+const FOUND_EVENTS = "F_E";
 
 export default function AuthContextProvider({
   children,
@@ -101,6 +102,7 @@ export default function AuthContextProvider({
     localStorage.removeItem(USER_KEY);
     localStorage.removeItem(USER_TOKEN);
     localStorage.removeItem(FOUND_USER);
+    localStorage.removeItem(FOUND_EVENTS);
     setUser(null);
   }
 

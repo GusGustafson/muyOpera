@@ -44,7 +44,7 @@ export default function MyAccountView() {
               <br />
               <div className="registro">
                 <Link to="/userLoggedIn">
-                  ¿No desea cambiar nada? Haga clic aquí para volver atrás.
+                  ¿No desea cambiar nada? Haga clic aquí para volver a la página principal.
                 </Link>
               </div>
             </div>
