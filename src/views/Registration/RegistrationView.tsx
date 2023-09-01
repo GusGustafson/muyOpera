@@ -24,14 +24,14 @@ export default function RegistrationView() {
             <div className="caja destacado">
               <h3>Registro</h3>
               <p>
-                Regístrese para disfrutar de todas las opciones que le ofrece
-                muyÓpera:
+                Regístrese para disfrutar de todas las funcionalidades que le ofrece{" "}
+                <span><strong>muyÓpera</strong></span>:
               </p>
               <RegistrationForm />
               <br />
               <div className="registro">
                 <Link to="/home">
-                  ¿Ya hizo el registro? Haga clic aquí para iniciar sesión.
+                  ¿Ya se registró anteriormente? Haga clic aquí para iniciar sesión.
                 </Link>
               </div>
             </div>

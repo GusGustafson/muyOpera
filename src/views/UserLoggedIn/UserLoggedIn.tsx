@@ -65,7 +65,7 @@ export default function UserLoggedIn() {
           </div>
         </div>
       </div>
-      <div className="container text-center">
+      {/* <div className="container text-center">
         <iframe
           width="400"
           height="300"
@@ -73,7 +73,7 @@ export default function UserLoggedIn() {
           title="Angeles Castro - Ecco Respiro Appena.avi"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
-      </div>
+      </div> */}
     </Box>
   );
 }

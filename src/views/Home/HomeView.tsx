@@ -65,8 +65,8 @@ export default function HomeView() {
             <div className="caja destacado">
               <h3>Inicie sesión</h3>
               <p>
-                Introduzca sus credenciales para levantar el telón y disfrutar
-                de todas las opciones que le ofrece muyÓpera:
+                Introduzca sus credenciales para acceder a nuestro teatro virtual
+                y disfrutar de todo lo que le ofrece{" "}<span><strong>muyÓpera</strong></span>:
               </p>
               <Login />
               <br />
