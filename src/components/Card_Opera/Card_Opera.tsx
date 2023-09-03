@@ -24,8 +24,10 @@ interface Card_Opera {
   image: string;
   name: string;
   composer: string;
+  librettist: string;
   language: string;
   date: number;
+  duration: string;
 }
 
 export default function Card_Opera({
@@ -33,8 +35,8 @@ export default function Card_Opera({
   image,
   name,
   composer,
-  language,
-  date,
+  // language,
+  // date,
 }: Card_Opera) {
   return (
     <Container>
@@ -49,12 +51,13 @@ export default function Card_Opera({
             <Typography variant="h5" component="div">
               {name}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Compositor: {composer}
-              <br />
-              Idioma: {language}
-              <br />
-              Fecha: {date}
+            <Typography variant="body1" color="text.secondary">
+              {/* Compositor: {composer} */}
+              {composer}
+              {/* <br /> */}
+              {/* Idioma: {language} */}
+              {/* <br /> */}
+              {/* Fecha: {date} */}
             </Typography>
           </CardContent>
           <div className="cardButton">

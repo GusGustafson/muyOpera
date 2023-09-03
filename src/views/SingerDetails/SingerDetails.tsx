@@ -11,8 +11,9 @@ interface Singer {
   name: string;
   surname: string;
   voice: string;
-  birthyear: number;
+  birthYear: number;
   nationality: string;
+  website: string;
   image: string;
 }
 
@@ -67,12 +68,13 @@ export default function SingerDetails() {
               <br />
               <img src={singer?.image} alt={singer?.image} />
               <h6>Imagen: {singer?.image}</h6>
-              <h6>ID: {singer?.id}</h6>
+              {/* <h6>ID: {singer?.id}</h6> */}
               <h6>Nombre: {singer?.name}</h6>
-              <h6>Apellidos: {singer?.surname}</h6>
+              <h6>Apellido: {singer?.surname}</h6>
               <h6>Voz: {singer?.voice}</h6>
-              <h6>Año de nacimiento: {singer?.birthyear}</h6>
+              <h6>Año de nacimiento: {singer?.birthYear}</h6>
               <h6>Nacionalidad: {singer?.nationality}</h6>
+              <h6>Sitio web: <a href={singer?.website} target="_blank">{singer?.website}</a></h6>
               <br />
               <div className="registro">
                 <Link to="/singers" onClick={removeSingerKey}>

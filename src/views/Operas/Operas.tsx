@@ -6,8 +6,10 @@ interface Opera {
   image: string;
   name: string;
   composer: string;
+  librettist: string;
   language: string;
   date: number;
+  duration: string;
 }
 
 export default function Operas() {

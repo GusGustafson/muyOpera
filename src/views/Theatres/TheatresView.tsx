@@ -10,6 +10,8 @@ interface Theatre {
   city: string;
   address: string;
   aphoras: number;
+  telephone: number;
+  website: string;
   image: string;
 }
 
@@ -49,7 +51,7 @@ const TheatresView: React.FC<TheatresViewProps> = ({
 
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
           {theatres.map((theatre) => {
-            const { id, name, city, address, aphoras, image } = theatre;
+            const { id, name, city, address, aphoras, telephone, website, image } = theatre;
             return (
               <Grid item xs={12} md={4} key={id}>
                 <Card_Theatre
@@ -58,6 +60,8 @@ const TheatresView: React.FC<TheatresViewProps> = ({
                   city={city}
                   address={address}
                   aphoras={aphoras}
+                  telephone={telephone}
+                  website={website}
                   image={image}
                 />
               </Grid>

@@ -12,6 +12,7 @@ interface Singer {
     voice: string;
     birthYear: number;
     nationality: string;
+    website: string;
 }
 
 interface SingersViewProps {
@@ -50,7 +51,7 @@ const SingersView: React.FC<SingersViewProps> = ({
 
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
           {singers.map((singer) => {
-            const { id, name, surname, voice, birthYear, nationality, image } = singer;
+            const { id, name, surname, voice, birthYear, nationality, website, image } = singer;
             return (
               <Grid item xs={12} md={4} key={id}>
                 <Card_Singer
@@ -60,6 +61,7 @@ const SingersView: React.FC<SingersViewProps> = ({
                   voice={voice}
                   birthYear={birthYear}
                   nationality={nationality}
+                  website={website}
                   image={image}
                 />
               </Grid>

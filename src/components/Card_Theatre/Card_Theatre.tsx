@@ -7,7 +7,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 
 import { images } from "../FramerMotion_Theatres/image-data";
-import { WidthFull } from "@mui/icons-material";
 
 const cardStyles = (
   <GlobalStyles
@@ -27,6 +26,8 @@ interface Card_Theatre {
   city: string;
   address: string;
   aphoras: number;
+  telephone: number;
+  website: string;
 }
 
 export default function Card_Theatre({
@@ -34,8 +35,8 @@ export default function Card_Theatre({
   image,
   name,
   city,
-  address,
-  aphoras,
+  // address,
+  // aphoras,
 }: Card_Theatre) {
   return (
     <Container>
@@ -50,12 +51,14 @@ export default function Card_Theatre({
             <Typography variant="h5" component="div">
               {name}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Ciudad: {city}
-              <br />
-              Dirección: {address}
-              <br />
-              Aforo: {aphoras} espectadores
+            <Typography variant="body1" color="text.secondary">
+              {/* Ciudad: {city} */}
+              {city}
+              {/* <br /> */}
+              {/* Dirección: {address} */}
+              {/* <br /> */}
+              {/* Aforo: {aphoras} espectadores */}
+              {/* {aphoras} espectadores */}
             </Typography>
           </CardContent>
           <div className="cardButton">

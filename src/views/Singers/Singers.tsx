@@ -9,6 +9,7 @@ interface Singer {
   voice: string;
   birthYear: number;
   nationality: string;
+  website: string;
 }
 
 export default function Singers() {

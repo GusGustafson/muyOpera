@@ -12,6 +12,8 @@ interface Theatre {
   city: string;
   address: string;
   aphoras: number;
+  telephone: number;
+  website: string;
   image: string;
 }
 
@@ -66,10 +68,12 @@ export default function TheatreDetails() {
               <br />
               <img src={theatre?.image} alt={theatre?.image} />
               <h6>Imagen: {theatre?.image}</h6>
-              <h6>ID: {theatre?.id}</h6>
+              {/* <h6>ID: {theatre?.id}</h6> */}
               <h6>Nombre: {theatre?.name}</h6>
               <h6>Ciudad: {theatre?.city}</h6>
               <h6>Dirección: {theatre?.address}</h6>
+              <h6>Teléfono: {theatre?.telephone}</h6>
+              <h6>Sitio web: <a href={theatre?.website} target="_blank">{theatre?.website}</a></h6>
               <h6>Aforo: {theatre?.aphoras} espectadores</h6>
               <br />
               <div className="registro">

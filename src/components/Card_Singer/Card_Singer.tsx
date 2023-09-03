@@ -27,6 +27,7 @@ interface Card_Singer {
   voice: string;
   birthYear: number;
   nationality: string;
+  website: string;
 }
 
 export default function Card_Singer({
@@ -35,8 +36,8 @@ export default function Card_Singer({
   name,
   surname,
   voice,
-  birthYear,
-  nationality,
+  // birthYear,
+  // nationality,
 }: Card_Singer) {
   return (
     <Container>
@@ -51,12 +52,13 @@ export default function Card_Singer({
             <Typography variant="h5" component="div">
               {name} {surname}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Voz: {voice}
-              <br />
-              Año de nacimiento: {birthYear}
-              <br />
-              Nacionalidad: {nationality}
+            <Typography variant="body1" color="text.secondary">
+              {/* Voz: {voice} */}
+              {voice}
+              {/* <br /> */}
+              {/* Año de nacimiento: {birthYear} */}
+              {/* <br /> */}
+              {/* Nacionalidad: {nationality} */}
             </Typography>
           </CardContent>
           <div className="cardButton">

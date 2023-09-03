@@ -10,8 +10,10 @@ interface Opera {
   id: number;
   name: string;
   composer: string;
+  librettist: string;
   language: string;
   date: number;
+  duration: string;
   image: string;
 }
 
@@ -66,11 +68,13 @@ export default function OperaDetails() {
               <br />
               <img src={opera?.image} alt={opera?.image} />
               <h6>Imagen: {opera?.image}</h6>
-              <h6>ID: {opera?.id}</h6>
+              {/* <h6>ID: {opera?.id}</h6> */}
               <h6>Nombre: {opera?.name}</h6>
               <h6>Compositor: {opera?.composer}</h6>
+              <h6>Libretista: {opera?.librettist}</h6>
               <h6>Idioma: {opera?.language}</h6>
               <h6>Fecha: {opera?.date}</h6>
+              <h6>Duración: {opera?.duration}</h6>
               <br />
               <div className="registro">
                 <Link to="/operas" onClick={removeOperaKey}>

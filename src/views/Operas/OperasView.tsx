@@ -9,8 +9,10 @@ interface Opera {
   image: string;
   name: string;
   composer: string;
+  librettist: string;
   language: string;
   date: number;
+  duration: string;
 }
 
 interface OperasViewProps {
@@ -49,15 +51,17 @@ const OperasView: React.FC<OperasViewProps> = ({
 
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
           {operas.map((opera) => {
-            const { id, name, composer, language, date, image } = opera;
+            const { id, name, composer, librettist, language, date, duration, image } = opera;
             return (
               <Grid item xs={12} md={4} key={id}>
                 <Card_Opera
                   id={id}
                   name={name}
                   composer={composer}
+                  librettist={librettist}
                   language={language}
                   date={date}
+                  duration={duration}
                   image={image}
                 />
               </Grid>
