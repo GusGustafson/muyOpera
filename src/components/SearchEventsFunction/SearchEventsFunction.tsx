@@ -9,7 +9,7 @@ interface EventDataWithID {
 
 const FOUND_EVENTS = "F_E";
 
-async function searchEvents(): Promise<void> {
+async function searchEventsFunction(): Promise<void> {
   try {
     const idTheatreInput = document.getElementById(
       "idTheatre"
@@ -75,4 +75,4 @@ async function searchEvents(): Promise<void> {
   }
 }
 
-export default searchEvents;
+export default searchEventsFunction;

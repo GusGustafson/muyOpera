@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import FinderEngineView from "./FinderEngineView";
 // import { useAuthContext } from "../../contexts/AuthContext";
-import searchEvents from "../SearchEventsFunction/SearchEventsFunction";
+import searchEventsFunction from "../SearchEventsFunction/SearchEventsFunction";
 
 type EventValues = {
   id: string;
@@ -25,8 +25,8 @@ export default function FinderEngine() {
   };
 
   function searchEventsByValues(idTheatre: string, idOpera: string, idSinger1: string, idSinger2: string) {
-    // searchEvents(idTheatre, idOpera, idSinger1, idSinger2);
-    searchEvents();
+    // searchEventsFunction(idTheatre, idOpera, idSinger1, idSinger2);
+    searchEventsFunction();
   }
 
   return (

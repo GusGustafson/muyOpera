@@ -7,6 +7,8 @@ interface Theatre {
   city: string;
   address: string;
   aphoras: number;
+  telephone: number;
+  website: string;
   image: string;
 }
 

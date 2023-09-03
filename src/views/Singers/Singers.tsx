@@ -35,14 +35,12 @@ export default function Singers() {
       async function fetchData() {
         try {
           const response = await fetch(
-            // `http://rickandmortyapi.com/api/character/?page=${page}&name=${searchValue}`
             "http://localhost:3000/singer/allSingers/",
             {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
               },
-              // body: JSON.stringify({ email, password }),
             }
           );
           if (!response.ok) {

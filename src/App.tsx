@@ -11,6 +11,7 @@ import OperaDetails from "./views/OperaDetails";
 import Singers from "./views/Singers";
 import SingerDetails from "./views/SingerDetails";
 import Finder from "./views/Finder";
+import FinderDetails from "./views/FinderDetails";
 import Admin from "./views/Admin";
 import DeleteUser from "./views/DeleteUser";
 import MyAccount from "./views/MyAccount";
@@ -54,6 +55,7 @@ export default function App() {
                 <Route path=":id" element={<SingerDetails />} />
               </Route>
               <Route path="finder" element={<Finder />} />
+              <Route path="event/:id" element={<FinderDetails />} />
               <Route path="myAccount" element={<MyAccount />} />
             </Route>
           </Route>

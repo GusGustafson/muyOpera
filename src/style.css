@@ -94,6 +94,10 @@ small,
   font-size: 0.8rem;
 }
 
+.noBulletedList li{
+  list-style:none;
+}
+
 
 /* COMPONENTES */
 /* Header */
