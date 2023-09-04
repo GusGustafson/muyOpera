@@ -50,11 +50,11 @@ export default function DeleteUserView(props: DeleteUserViewProps) {
                 Haz clic en el botón para eliminar definitivamente esta cuenta de usuario:
               </p>
               <h5>Cuenta de usuario:</h5>
-              <h6>ID: <div id="userFoundId">{foundUser?.id}</div></h6>
-              <h6>Nombre: <div>{foundUser?.name}</div></h6>
-              <h6>Apellidos: <div>{foundUser?.surname}</div></h6>
-              <h6>Correo electrónico: <div>{foundUser?.email}</div></h6>
-              <h6>Rol: <div>{foundUser?.userRole}</div></h6>
+              <h6>ID: <span id="userFoundId">{foundUser?.id}</span></h6>
+              <h6>Nombre: {foundUser?.name}</h6>
+              <h6>Apellidos: {foundUser?.surname}</h6>
+              <h6>Correo electrónico: {foundUser?.email}</h6>
+              <h6>Rol: {foundUser?.userRole}</h6>
               <Button
                   id="deleteUserButton"
                   // type="button"

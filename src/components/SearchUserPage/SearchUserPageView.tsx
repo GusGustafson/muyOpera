@@ -75,11 +75,11 @@ export default function SearchUserPageView({
       </Form>
       <br />
       <h5>Usuario encontrado:</h5>
-      <p>ID: {foundUser?.id}</p>
-      <p>Nombre: {foundUser?.name}</p>
-      <p>Apellidos: {foundUser?.surname}</p>
-      <p>Correo electrónico: {foundUser?.email}</p>
-      <p>Rol: {foundUser?.userRole}</p>
+      <h6>ID: {foundUser?.id}</h6>
+      <h6>Nombre: {foundUser?.name}</h6>
+      <h6>Apellidos: {foundUser?.surname}</h6>
+      <h6>Correo electrónico: {foundUser?.email}</h6>
+      <h6>Rol: {foundUser?.userRole}</h6>
       <div className="registro">
         <Link to="/deleteUser">
           ¿Quieres eliminar la cuenta del usuario? Haz clic aquí para acceder a

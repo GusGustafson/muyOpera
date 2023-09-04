@@ -12,7 +12,7 @@ interface UserDataWithID {
 interface BudgetRequest {
   id: number;
   idUser: string;
-  // dateTime: string;
+  dateTime: string;
   idEvent: string;
   tickets: string;
   theatreZone: string;
@@ -21,7 +21,7 @@ interface BudgetRequest {
   hotel: string;
   hotelStars: string;
   hotelNights: string;
-  // requestStatus: string;
+  requestStatus: string;
 }
 
 interface AuthContextType {
@@ -383,6 +383,12 @@ export default function AuthContextProvider({
       if (hotelNightsInput) {
         budgetRequestData.hotelNights = hotelNightsInput.value;
       }
+      const requestStatusInput = document.getElementById(
+        "requestStatus"
+      ) as HTMLInputElement | null;
+      if (requestStatusInput) {
+        budgetRequestData.requestStatus = requestStatusInput.value;
+      }
 
       const eventJSON = localStorage.getItem(EVENT_KEY);
       const eventArray: BudgetRequest | null = eventJSON
@@ -398,7 +404,18 @@ export default function AuthContextProvider({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(budgetRequestData),
+        body: JSON.stringify({
+          idUser,
+          idEvent,
+          tickets,
+          theatreZone,
+          travel,
+          travelLevel,
+          hotel,
+          hotelStars,
+          hotelNights,
+          requestStatus,
+        }),
       });
       if (response.ok) {
         console.log("Solicitud de presupuesto registrada correctamente");

@@ -6,11 +6,11 @@ const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 export const RegistrationFormSchema = yup.object().shape({
   name: yup
     .string()
-    // .name("Introduzca un nombre válido.")
+    .label("Introduzca un nombre válido.")
     .required("Este campo es obligatorio."),
   surname: yup
     .string()
-    // .surname("Introduzca un apellido válido.")
+    .label("Introduzca un apellido válido.")
     .required("Este campo es obligatorio."),
   email: yup
     .string()
@@ -23,5 +23,3 @@ export const RegistrationFormSchema = yup.object().shape({
     })
     .required("Este campo es obligatorio."),
 });
-
-// Estas sentencias de YUP que están comentadas están mal. Investiga la sintaxis correcta (regName y regSurname)

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
+import BudgetRequestForm from "../../components/BudgetRequestForm/BudgetRequestForm";
 
 const EVENT_KEY = "E_K";
 
@@ -70,6 +71,7 @@ export default function FinderDetails() {
               <h6>Cantante femenino: {event?.idSinger1}</h6>
               <h6>Cantante masculino: {event?.idSinger2}</h6>
               <h6>Fecha y hora: {event?.dateTime}</h6>
+              <BudgetRequestForm />
               <br />
               <div className="registro">
                 <Link to="/finder" onClick={removeEventKey}>
