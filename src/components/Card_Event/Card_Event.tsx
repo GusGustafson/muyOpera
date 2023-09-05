@@ -19,18 +19,26 @@ const cardStyles = (
 interface Card_Event {
   id: number;
   idTheatre: number;
+  theatreName: string;
   idOpera: number;
+  operaName: string;
   idSinger1: number;
+  singer1Fullname: string;
   idSinger2: number;
+  singer2Fullname: string;
   dateTime: string;
 }
 
 export default function Card_Event({
   id,
-  idTheatre,
-  idOpera,
-  idSinger1,
-  idSinger2,
+  // idTheatre,
+  theatreName,
+  // idOpera,
+  operaName,
+  // idSinger1,
+  singer1Fullname,
+  // idSinger2,
+  singer2Fullname,
   dateTime,
 }: Card_Event) {
   return (
@@ -41,17 +49,17 @@ export default function Card_Event({
           {cardStyles}
           <CardContent>
             <Typography variant="body1" color="text.secondary">
-              Núm. evento: {id}
+              Núm. evento: <strong>{id}</strong>
               <br />
-              Teatro: {idTheatre}
+              Teatro: <strong>{theatreName}</strong>
               <br />
-              Ópera: {idOpera}
+              Ópera: <strong>{operaName}</strong>
               <br />
-              Cantante femenino: {idSinger1}
+              Cantante femenino: <strong>{singer1Fullname}</strong>
               <br />
-              Cantante masculino: {idSinger2}
+              Cantante masculino: <strong>{singer2Fullname}</strong>
               <br />
-              Fecha y hora: {dateTime}
+              Fecha y hora: <strong>{dateTime}</strong>
             </Typography>
           </CardContent>
           <div className="cardButton">

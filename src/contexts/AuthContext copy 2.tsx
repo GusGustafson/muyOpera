@@ -7,7 +7,6 @@ interface UserDataWithID {
   surname: string;
   email: string;
   password: string;
-  userRole: number;
 }
 
 interface BudgetRequest {
@@ -28,8 +27,7 @@ interface BudgetRequest {
 interface AuthContextType {
   // user: string | null; // Tengo que incluir "userRole" o dará fallo de TS en la línea 21 de PrivateRoute.tsx.
   // user: { userRole: number } | string | null; // Si lo pongo así, dará fallo de TS en la línea 16 o 22 de PrivateRoute.tsx.
-  // user: userRole | string | null; // Si lo pongo así, daba fallo de que no encontraba "userRole" y pasaba lo de "F5 ---> unauthorized".
-  user: UserDataWithID | null;
+  user: userRole | string | null;
   errorMessage: string | null;
   login: ({
     email,
@@ -82,9 +80,10 @@ export default function AuthContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [user, setUser] = useState<UserDataWithID | null>(
-    JSON.parse(localStorage.getItem(USER_KEY) || "null")
+  const [user, setUser] = useState<string | null>(
+    localStorage.getItem(USER_KEY) || null
   );
+  console.log(user);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function login({
@@ -104,7 +103,7 @@ export default function AuthContextProvider({
       });
       if (response.ok) {
         const token = await response.json();
-        const user: UserDataWithID | null = jwtDecode(token.jwt);
+        const user: string | null = jwtDecode(token.jwt);
         console.log("Usuario logueado correctamente");
         setUser(user);
         localStorage.setItem(USER_KEY, JSON.stringify(user));

@@ -22,11 +22,11 @@ export default function UserLoggedIn() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>muyÓpera</h3>
+              <h3><span className="muyOpera-text-color"><strong>muyÓpera</strong></span></h3>
               <p>
                 <strong>
                   Le damos la bienvenida a{" "}
-                  <span className="main-color" id="muyOperaText">
+                  <span className="muyOpera-text-color" id="muyOperaText">
                     muyÓpera
                   </span>
                   , la forma más fácil de encontrar los principales eventos
@@ -37,10 +37,6 @@ export default function UserLoggedIn() {
               <p>
                 En el menú superior dispone de opciones para ver los TEATROS,
                 las ÓPERAS y los CANTANTES.
-              </p>
-              <p>
-                Mediante la opción MI CUENTA puede modificar sus datos de
-                usuario, en caso de que desee hacerlo.
               </p>
               <p>
                 Y, por supuesto, también puede acceder al BUSCADOR AVANZADO,

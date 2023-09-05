@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
+import Navbar_User from "../../components/Navbar_User/Navbar_User";
 
 const SINGER_KEY = "S_K";
 
@@ -60,6 +61,7 @@ export default function SingerDetails() {
       }}
     >
       <Header />
+      <Navbar_User />
       <div className="container text-center">
         <div className="row">
           <div className="col">

@@ -6,9 +6,13 @@ import searchEventsFunction from "../SearchEventsFunction/SearchEventsFunction";
 type EventValues = {
   id: string;
   idTheatre: string;
+  theatreName: string;
   idOpera: string;
+  operaName: string;
   idSinger1: string;
+  singer1Fullname: string;
   idSinger2: string;
+  singer2Fullname: string;
   dateTime: string;
 };
 
@@ -18,9 +22,13 @@ export default function FinderEngine() {
   const eventValues: EventValues = {
     id: "",
     idTheatre: "",
+    theatreName: "",
     idOpera: "",
+    operaName: "",
     idSinger1: "",
+    singer1Fullname: "",
     idSinger2: "",
+    singer2Fullname: "",
     dateTime: "",
   };
 

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
+import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import BudgetRequestForm from "../../components/BudgetRequestForm/BudgetRequestForm";
 
 const EVENT_KEY = "E_K";
@@ -10,9 +11,13 @@ const EVENT_KEY = "E_K";
 interface EventValues {
     id: string;
     idTheatre: string;
+    theatreName: string;
     idOpera: string;
+    operaName: string;
     idSinger1: string;
+    singer1Fullname: string;
     idSinger2: string;
+    singer2Fullname: string;
     dateTime: string;
 }
 
@@ -59,6 +64,7 @@ export default function FinderDetails() {
       }}
     >
       <Header />
+      <Navbar_User />
       <div className="container text-center">
         <div className="row">
           <div className="col">
@@ -66,10 +72,10 @@ export default function FinderDetails() {
               <h3>Información del evento</h3>
               <br />
               <h6>Núm. evento: {event?.id}</h6>
-              <h6>Teatro: {event?.idTheatre}</h6>
-              <h6>Ópera: {event?.idOpera}</h6>
-              <h6>Cantante femenino: {event?.idSinger1}</h6>
-              <h6>Cantante masculino: {event?.idSinger2}</h6>
+              <h6>Teatro: {event?.theatreName}</h6>
+              <h6>Ópera: {event?.operaName}</h6>
+              <h6>Cantante femenino: {event?.singer1Fullname}</h6>
+              <h6>Cantante masculino: {event?.singer2Fullname}</h6>
               <h6>Fecha y hora: {event?.dateTime}</h6>
               <BudgetRequestForm />
               <br />

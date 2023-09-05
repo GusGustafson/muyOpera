@@ -12,7 +12,7 @@ export default function Header() {
         <div className="container d-flex col-md-auto">
         <Link to="/userLoggedIn">
           <h2>
-            <span className="main-color" id="muyOperaTitle">muyÓpera</span>
+            <span className="muyOpera-color" id="muyOperaTitle">muyÓpera</span>
           </h2>
           </Link>
         </div>

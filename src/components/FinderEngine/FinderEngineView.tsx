@@ -22,9 +22,13 @@ const FOUND_EVENTS = "F_E";
 interface FoundEvent {
   id: number;
   idTheatre: number;
+  theatreName: string;
   idOpera: number;
+  operaName: string;
   idSinger1: number;
+  singer1Fullname: string;
   idSinger2: number;
+  singer2Fullname: string;
   dateTime: string;
 }
 
@@ -40,11 +44,10 @@ export default function FinderEngineView({
     : null;
 
   // ESTA ES LA PARTE DEL FORMCONTROL
-  const [idSinger2, setidSinger2] = useState<number | string>(0);
+  const [operaName, setOperaName] = useState<number | string>(0);
   const handle_Change = (event: SelectChangeEvent<number | string>) => {
-    setidSinger2(event.target.value);
+    setOperaName(event.target.value);
   };
-  console.log(idSinger2);
   // HASTA AQUÍ ES LA PARTE DEL FORMCONTROL
 
   return (
@@ -109,21 +112,23 @@ export default function FinderEngineView({
           />
 
           <FormControl variant="filled" fullWidth>
-            <InputLabel id="idSinger_222" color="warning">
-              Cantante 2
+            <InputLabel id="operaName_222" color="warning">
+              Ópera
             </InputLabel>
             <Select
-              labelId="idSinger_222"
-              id="idSinger2"
-              label="Cantante 2"
-              value={idSinger2}
+              labelId="operaName_222"
+              id="operaName"
+              label="Ópera"
+              value={operaName}
               onChange={handle_Change}
               color="warning"
             >
-              <MenuItem value={0}>Ninguno</MenuItem>
-              <MenuItem value={2}>Jonas Kaufmann</MenuItem>
-              <MenuItem value={4}>Juan Diego Florez</MenuItem>
-              <MenuItem value={6}>Alexander Vinogradov</MenuItem>
+              <MenuItem value={1}>Rigoletto</MenuItem>
+              <MenuItem value={2}>Le nozze di Figaro</MenuItem>
+              <MenuItem value={3}>La Traviata</MenuItem>
+              <MenuItem value={4}>Turandot</MenuItem>
+              <MenuItem value={5}>Norma</MenuItem>
+              <MenuItem value={6}>La Bohème</MenuItem>
             </Select>
           </FormControl>
 
@@ -144,16 +149,20 @@ export default function FinderEngineView({
 
       <Grid container spacing={1} marginTop={1}>
         {foundEvents?.map((event) => {
-          const { id, idTheatre, idOpera, idSinger1, idSinger2, dateTime } =
+          const { id, idTheatre, theatreName, idOpera, operaName, idSinger1, singer1Fullname, idSinger2, singer2Fullname, dateTime } =
             event;
           return (
             <Grid item xs={12} md={6} key={id}>
               <Card_Event
                 id={id}
                 idTheatre={idTheatre}
+                theatreName={theatreName}
                 idOpera={idOpera}
+                operaName={operaName}
                 idSinger1={idSinger1}
+                singer1Fullname={singer1Fullname}
                 idSinger2={idSinger2}
+                singer2Fullname={singer2Fullname}
                 dateTime={dateTime}
               />
               {/* <div className="noBulletedList">
