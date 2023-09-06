@@ -45,11 +45,11 @@ export default function RegistrationForm() {
   }
 
   function onSubmit(
-    // values: InitialValues,
-    // actions: FormikHelpers<InitialValues>
+    values: InitialValues,
+    actions: FormikHelpers<InitialValues>
   ) {
     registration(auth);
-    // actions.resetForm();
+    actions.resetForm();
   }
 
   return (

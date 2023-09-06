@@ -4,14 +4,14 @@ import FinderEngineView from "./FinderEngineView";
 import searchEventsFunction from "../SearchEventsFunction/SearchEventsFunction";
 
 type EventValues = {
-  id: string;
-  idTheatre: string;
+  id: number;
+  idTheatre: number;
   theatreName: string;
-  idOpera: string;
+  idOpera: number;
   operaName: string;
-  idSinger1: string;
+  idSinger1: number;
   singer1Fullname: string;
-  idSinger2: string;
+  idSinger2: number;
   singer2Fullname: string;
   dateTime: string;
 };
@@ -20,14 +20,14 @@ export default function FinderEngine() {
   // const { searchEvent } = useAuthContext();
 
   const eventValues: EventValues = {
-    id: "",
-    idTheatre: "",
+    id: 0,
+    idTheatre: 0,
     theatreName: "",
-    idOpera: "",
+    idOpera: 0,
     operaName: "",
-    idSinger1: "",
+    idSinger1: 0,
     singer1Fullname: "",
-    idSinger2: "",
+    idSinger2: 0,
     singer2Fullname: "",
     dateTime: "",
   };

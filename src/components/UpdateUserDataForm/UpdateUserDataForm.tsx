@@ -14,6 +14,7 @@ type InitialValues = {
   surname: string;
   email: string;
   password: string;
+  userRole: number;
 };
 
 export default function UpdateUserDataForm() {
@@ -28,6 +29,7 @@ export default function UpdateUserDataForm() {
     surname: user!.surname,
     email: user!.email,
     password: user!.password,
+    userRole: user!.userRole,
   };
 
   // const [auth, setAuth] = useState<InitialValues>({

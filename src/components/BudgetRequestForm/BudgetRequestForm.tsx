@@ -1,22 +1,20 @@
 import { useState } from "react";
-import { Formik, FormikProps } from "formik";
+import { Formik, FormikHelpers, FormikProps } from "formik";
 import BudgetRequestFormView from "./BudgetRequestFormView";
 import { initialValues } from "./utils/form";
 import { useAuthContext } from "../../contexts/AuthContext";
 
 type InitialValues = {
     id: number;
-    idUser: string;
-    // dateTime: string;
-    idEvent: string;
-    tickets: string;
+    idUser: number;
+    idEvent: number;
+    tickets: number;
     theatreZone: string;
     travel: string;
     travelLevel: string;
     hotel: string;
-    hotelStars: string;
-    hotelNights: string;
-    // requestStatus: string;
+    hotelStars: number;
+    hotelNights: number;
 }
 
 export default function BudgetRequestForm() {
@@ -40,11 +38,12 @@ export default function BudgetRequestForm() {
   }
 
   function onSubmit(
-    // values: InitialValues,
-    // actions: FormikHelpers<InitialValues>
+    values: InitialValues,
+    actions: FormikHelpers<InitialValues>
   ) {
+    console.log("Valores del formulario:", values);
     budgetRequest(auth);
-    // actions.resetForm();
+    actions.resetForm();
   }
 
   return (

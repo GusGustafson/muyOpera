@@ -12,17 +12,15 @@ interface UserDataWithID {
 
 interface BudgetRequest {
   id: number;
-  idUser: string;
-  // dateTime: string;
-  idEvent: string;
-  tickets: string;
+  idUser: number;
+  idEvent: number;
+  tickets: number | string;
   theatreZone: string;
   travel: string;
   travelLevel: string;
   hotel: string;
-  hotelStars: string;
-  hotelNights: string;
-  // requestStatus: string;
+  hotelStars: number | string;
+  hotelNights: number | string;
 }
 
 interface AuthContextType {
@@ -71,11 +69,7 @@ const AuthContext = createContext<AuthContextType>({
 const USER_KEY = "U_K";
 const USER_TOKEN = "U_T";
 const FOUND_USER = "F_U";
-// const FOUND_EVENTS = "F_E";
 const EVENT_KEY = "E_K";
-// const THEATRE_KEY = "T_K";
-// const OPERA_KEY = "O_K";
-// const SINGER_KEY = "S_K";
 
 export default function AuthContextProvider({
   children,
@@ -123,14 +117,6 @@ export default function AuthContextProvider({
 
   function logout() {
     localStorage.clear();
-    // localStorage.removeItem(USER_KEY);
-    // localStorage.removeItem(USER_TOKEN);
-    // localStorage.removeItem(FOUND_USER);
-    // localStorage.removeItem(FOUND_EVENTS);
-    // localStorage.removeItem(EVENT_KEY);
-    // localStorage.removeItem(THEATRE_KEY);
-    // localStorage.removeItem(OPERA_KEY);
-    // localStorage.removeItem(SINGER_KEY);
     setUser(null);
   }
 
@@ -330,25 +316,21 @@ export default function AuthContextProvider({
     budgetRequestData: BudgetRequest
   ): Promise<void> {
     try {
-      const idUserInput = document.getElementById(
-        "idUser"
-      ) as HTMLInputElement | null;
-      if (idUserInput) {
-        budgetRequestData.idUser = idUserInput.value;
+      const userJSON = localStorage.getItem(USER_KEY);
+      const userArray: UserDataWithID | null = userJSON
+        ? JSON.parse(userJSON)
+        : null;
+      if (userArray) {
+        budgetRequestData.idUser = userArray!.id;
       }
-      // const dateTimeInput = document.getElementById(
-      //   "dateTime"
-      // ) as HTMLInputElement | null;
-      // if (dateTimeInput) {
-      //   dateTime = dateTimeInput.value;
-      // }
 
-      // const idEventInput = document.getElementById(
-      //   "idEvent"
-      // ) as HTMLInputElement | null;
-      // if (idEventInput) {
-      //   budgetRequestData.idEvent = idEventInput.value;
-      // }
+      const eventJSON = localStorage.getItem(EVENT_KEY);
+      const eventArray: BudgetRequest | null = eventJSON
+        ? JSON.parse(eventJSON)
+        : null;
+      if (eventArray) {
+        budgetRequestData.idEvent = eventArray!.id;
+      }
 
       const ticketsInput = document.getElementById(
         "tickets"
@@ -393,15 +375,6 @@ export default function AuthContextProvider({
         budgetRequestData.hotelNights = hotelNightsInput.value;
       }
 
-      const eventJSON = localStorage.getItem(EVENT_KEY);
-      const eventArray: BudgetRequest | null = eventJSON
-        ? JSON.parse(eventJSON)
-        : null;
-
-      if (eventArray) {
-        budgetRequestData.idEvent = eventArray!.idEvent;
-      }
-
       const response = await fetch("http://localhost:3000/budgetRequest/", {
         method: "POST",
         headers: {
@@ -412,12 +385,11 @@ export default function AuthContextProvider({
       if (response.ok) {
         console.log("Solicitud de presupuesto registrada correctamente");
         alert("Solicitud de presupuesto registrada correctamente");
-        // await login({ email, password });
         setErrorMessage(null);
       } else {
-        console.log("Datos de solicitud de presupuesto no válidos");
-        alert("Datos de solicitud de presupuesto no válidos");
-        setErrorMessage("Datos de solicitud de presupuesto no válidos");
+        console.log("Datos no válidos. Debe rellenar todos los campos.");
+        alert("Datos no válidos. Debe rellenar todos los campos.");
+        setErrorMessage("Datos no válidos. Debe rellenar todos los campos.");
       }
     } catch (error) {
       console.log("Error al registrar la solicitud de presupuesto", error);

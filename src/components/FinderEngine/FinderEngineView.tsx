@@ -44,8 +44,10 @@ export default function FinderEngineView({
     : null;
 
   // ESTA ES LA PARTE DEL FORMCONTROL
-  const [operaName, setOperaName] = useState<number | string>(0);
-  const handle_Change = (event: SelectChangeEvent<number | string>) => {
+  // const [operaName, setOperaName] = useState<number | string>(0);
+  const [operaName, setOperaName] = useState<string>("");
+  // const handle_Change = (event: SelectChangeEvent<number | string>) => {
+  const handle_Change = (event: SelectChangeEvent<string>) => {
     setOperaName(event.target.value);
   };
   // HASTA AQUÍ ES LA PARTE DEL FORMCONTROL
@@ -68,7 +70,7 @@ export default function FinderEngineView({
             // required
             fullWidth
             id="idTheatre"
-            label="Teatro"
+            label="Teatro - ID"
             name="idTheatre"
             // defaultValue={foundEvent?.idTheatre} // NO PONER "defaultValue" Y "value", que casca
             value={values.idTheatre} // NO PONER "defaultValue" Y "value", que casca
@@ -79,8 +81,20 @@ export default function FinderEngineView({
             color="warning"
             // required
             fullWidth
+            id="theatreName"
+            label="Teatro - NOMBRE"
+            name="theatreName"
+            // defaultValue={foundEvent?.theatreName} // NO PONER "defaultValue" Y "value", que casca
+            value={values.theatreName} // NO PONER "defaultValue" Y "value", que casca
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            color="warning"
+            // required
+            fullWidth
             id="idOpera"
-            label="Ópera"
+            label="Ópera - ID"
             name="idOpera"
             // defaultValue={foundEvent?.idOpera} // NO PONER "defaultValue" Y "value", que casca
             value={values.idOpera} // NO PONER "defaultValue" Y "value", que casca
@@ -91,8 +105,20 @@ export default function FinderEngineView({
             color="warning"
             // required
             fullWidth
+            id="operaName"
+            label="Ópera - NOMBRE"
+            name="operaName"
+            // defaultValue={foundEvent?.operaName} // NO PONER "defaultValue" Y "value", que casca
+            value={values.operaName} // NO PONER "defaultValue" Y "value", que casca
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            color="warning"
+            // required
+            fullWidth
             id="idSinger1"
-            label="Cantante femenino"
+            label="Cantante femenino - ID"
             name="idSinger1"
             // defaultValue={foundEvent?.idSinger1} // NO PONER "defaultValue" Y "value", que casca
             value={values.idSinger1} // NO PONER "defaultValue" Y "value", que casca
@@ -103,11 +129,35 @@ export default function FinderEngineView({
             color="warning"
             // required
             fullWidth
+            id="singer1Fullname"
+            label="Cantante femenino - NOMBRE"
+            name="singer1Fullname"
+            // defaultValue={foundEvent?.singer1Fullname} // NO PONER "defaultValue" Y "value", que casca
+            value={values.singer1Fullname} // NO PONER "defaultValue" Y "value", que casca
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            color="warning"
+            // required
+            fullWidth
             id="idSinger2"
-            label="Cantante masculino"
+            label="Cantante masculino - ID"
             name="idSinger2"
             // defaultValue={foundEvent?.idSinger2} // NO PONER "defaultValue" Y "value", que casca
             value={values.idSinger2} // NO PONER "defaultValue" Y "value", que casca
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            color="warning"
+            // required
+            fullWidth
+            id="singer2Fullname"
+            label="Cantante masculino - NOMBRE"
+            name="singer2Fullname"
+            // defaultValue={foundEvent?.singer2Fullname} // NO PONER "defaultValue" Y "value", que casca
+            value={values.singer2Fullname} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
           />
 
@@ -119,11 +169,13 @@ export default function FinderEngineView({
               labelId="operaName_222"
               id="operaName"
               label="Ópera"
+              name="operaName"
               value={operaName}
               onChange={handle_Change}
               color="warning"
             >
-              <MenuItem value={1}>Rigoletto</MenuItem>
+              <MenuItem value={0}>NADA</MenuItem>
+              <MenuItem value="Rigoletto">Rigoletto</MenuItem>
               <MenuItem value={2}>Le nozze di Figaro</MenuItem>
               <MenuItem value={3}>La Traviata</MenuItem>
               <MenuItem value={4}>Turandot</MenuItem>

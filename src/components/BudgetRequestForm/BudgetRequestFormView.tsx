@@ -1,5 +1,17 @@
 import { FormikValues, Form } from "formik";
-import { TextField, Alert, Button, Box, Autocomplete } from "@mui/material";
+import {
+  TextField,
+  Alert,
+  Button,
+  Box,
+  Grid,
+  Autocomplete,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
 import { useAuthContext } from "../../contexts/AuthContext";
 import "../../style.css";
 
@@ -7,38 +19,34 @@ interface BudgetRequestFormViewProps {
   formik: FormikValues;
 }
 
-const theatreZone = [
-  { label: "Box" },
-  { label: "Platea" },
-  { label: "Gallinero" },
-];
 const tickets = [
-  { label: "1 entrada" },
-  { label: "2 entradas" },
-  { label: "3 entradas" },
-  { label: "4 entradas" },
+  { label: "0" },
+  { label: "1" },
+  { label: "2" },
+  { label: "3" },
+  { label: "4" },
 ];
-const travel = [
-  { label: "Avión" },
-  { label: "Tren" },
+const theatreZone = [
+  { label: "Indiferente" },
+  { label: "Patio" },
+  { label: "Platea" },
+  { label: "Palco" },
+  { label: "Grada" },
 ];
+const travel = [{ label: "No" }, { label: "Avión" }, { label: "Tren" }];
 const travelLevel = [
-  { label: "Turista" },
+  { label: "Indiferente" },
   { label: "Business" },
+  { label: "Turista" },
 ];
-const hotel = [
-  { label: "Sí" },
-  { label: "No" },
-];
+const hotel = [{ label: "Sí" }, { label: "No" }];
 const hotelStars = [
-  { label: "3 estrellas" },
-  { label: "4 estrellas" },
-  { label: "5 estrellas" },
+  { label: "Indiferente" },
+  { label: "3" },
+  { label: "4" },
+  { label: "5" },
 ];
-const hotelNights = [
-  { label: "1 noche" },
-  { label: "2 noches" },
-];
+const hotelNights = [{ label: "0" }, { label: "1" }, { label: "2" }];
 
 export default function BudgetRequestFormView({
   formik,
@@ -53,11 +61,32 @@ export default function BudgetRequestFormView({
         flexDirection: "column",
         alignItems: "center",
         mx: "auto",
-        width: "75%",
+        width: "85%",
       }}
     >
       <Form onSubmit={handleSubmit}>
         <br />
+
+        {/* <FormControl>
+          <FormLabel id="tickets" color="warning">
+            Número de entradas
+          </FormLabel>
+          <RadioGroup
+            row
+            aria-labelledby="tickets"
+            name="tickets"
+            value={values.tickets}
+            onChange={handleChange}
+          >
+            <FormControlLabel value="0" control={<Radio />} label="0" />
+            <FormControlLabel value="1" control={<Radio />} label="1" />
+            <FormControlLabel value="2" control={<Radio />} label="2" />
+            <FormControlLabel value="3" control={<Radio />} label="3" />
+            <FormControlLabel value="4" control={<Radio />} label="4" />
+          </RadioGroup>
+        </FormControl> */}
+
+        <Grid container>
         <Autocomplete
           disablePortal
           id="tickets"
@@ -77,7 +106,9 @@ export default function BudgetRequestFormView({
             <TextField {...params} label="Zona del teatro" />
           )}
         />
+        </Grid>
         <br />
+        <Grid container>
         <Autocomplete
           disablePortal
           id="travel"
@@ -97,7 +128,9 @@ export default function BudgetRequestFormView({
             <TextField {...params} label="Clase del desplazamiento" />
           )}
         />
+        </Grid>
         <br />
+        <Grid container>
         <Autocomplete
           disablePortal
           id="hotel"
@@ -127,6 +160,7 @@ export default function BudgetRequestFormView({
             <TextField {...params} label="Noches en el hotel" />
           )}
         />
+        </Grid>
         {errorMessage ? (
           <Alert variant="outlined" severity="error">
             {errorMessage}

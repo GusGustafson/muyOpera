@@ -1,29 +1,25 @@
 type InitialValues = {
     id: number;
-    idUser: string;
-    // dateTime: string;
-    idEvent: string;
-    tickets: string;
+    idUser: number;
+    idEvent: number;
+    tickets: number;
     theatreZone: string;
     travel: string;
     travelLevel: string;
     hotel: string;
-    hotelStars: string;
-    hotelNights: string;
-    // requestStatus: string;
+    hotelStars: number;
+    hotelNights: number;
 }
 
 export const initialValues: InitialValues = {
     id: 0,
-    idUser: "",
-    // dateTime: "",
-    idEvent: "",
-    tickets: "",
+    idUser: 0,
+    idEvent: 0,
+    tickets: 0,
     theatreZone: "",
     travel: "",
     travelLevel: "",
     hotel: "",
-    hotelStars: "",
-    hotelNights: "",
-    // requestStatus: "",
+    hotelStars: 0,
+    hotelNights: 0,
 }
