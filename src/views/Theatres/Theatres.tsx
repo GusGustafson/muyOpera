@@ -31,7 +31,6 @@ export default function Theatres() {
 
   useEffect(
     () => {
-      // De aquí salen los teatros, que se los pasamos a la vista del return.
       async function fetchData() {
         try {
           const response = await fetch(
@@ -48,11 +47,9 @@ export default function Theatres() {
             setTheatres(null);
             alert("Teatro no encontrado");
           } else {
-            // const data: TheatresResponse = await response.json();
             const data: Theatre[] = await response.json();
             setTheatres(data);
             // setMessage(null);
-            console.log(data);
           }
         } catch (error) {
           console.error("Error al obtener los teatros:", error);
@@ -70,12 +67,6 @@ export default function Theatres() {
   return (
     <TheatresView
       theatres={theatres || []}
-      // page={page}
-      // totalPages={theatres?.info.pages}
-      // onChange={handleChange}
-      // onSearch={onSearchCharacter}
-      // searchValue={searchValue}
-      // message={message}
     />
   );
 }

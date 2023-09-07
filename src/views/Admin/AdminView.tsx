@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 // import SearchUserForm from "../../components/SearchUserForm/SearchUserForm";
 import SearchUserPage from "../../components/SearchUserPage/SearchUserPage";
 import "../../style.css";
@@ -35,19 +36,19 @@ export default function AdminView() {
   // console.log(foundUser);
 
   return (
-      <Box
-        sx={{
-          backgroundImage: `url(${background})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          minHeight: "100vh",
-          width: "100%",
-        }}
-      >
-        <Header />
-        <Navbar_User />
-        {/* <div className="container text-center">
+    <Box
+      sx={{
+        backgroundImage: `url(${background})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        width: "100%",
+      }}
+    >
+      <Header />
+      <Navbar_User />
+      {/* <div className="container text-center">
           <div className="row">
             <div className="col">
               <div className="caja destacado">
@@ -58,7 +59,7 @@ export default function AdminView() {
             </div>
           </div>
         </div> */}
-        <div className="container text-center">
+      <div className="container text-center">
         <div className="row">
           <div className="col">
             <div className="caja destacado">
@@ -69,7 +70,7 @@ export default function AdminView() {
           </div>
         </div>
       </div>
-        {/* <SearchUserPage /> */}
-      </Box>
+      <Footer />
+    </Box>
   );
 }

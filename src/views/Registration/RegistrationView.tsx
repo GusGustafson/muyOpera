@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
-import Header from '../../components/Header/Header';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import "../../style.css";
 
@@ -24,20 +25,26 @@ export default function RegistrationView() {
             <div className="caja destacado">
               <h3>Registro</h3>
               <p>
-                Regístrese para disfrutar de todas las funcionalidades que le ofrece{" "}
-                <span><strong>muyÓpera</strong></span>:
+                Regístrese para disfrutar de todas las funcionalidades que le
+                ofrece{" "}
+                <span>
+                  <strong>muyÓpera</strong>
+                </span>
+                :
               </p>
               <RegistrationForm />
               <br />
               <div className="registro">
                 <Link to="/home">
-                  ¿Ya se registró anteriormente? Haga clic aquí para iniciar sesión.
+                  ¿Ya se registró anteriormente? Haga clic aquí para iniciar
+                  sesión.
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </Box>
   );
 }

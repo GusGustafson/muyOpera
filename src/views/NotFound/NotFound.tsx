@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 export default function NotFound() {
   return (
@@ -16,6 +17,7 @@ export default function NotFound() {
           Haga clic aquí para volver a la página principal
         </Button>
       </Link>
+      <Footer />
     </>
   );
 }

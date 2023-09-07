@@ -3,20 +3,21 @@ import Card_Singer from "../../components/Card_Singer/Card_Singer";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 
 interface Singer {
-    id: number;
-    image: string;
-    name: string;
-    surname: string;
-    voice: string;
-    birthYear: number;
-    nationality: string;
-    website: string;
+  id: number;
+  image: string;
+  name: string;
+  surname: string;
+  voice: string;
+  birthYear: number;
+  nationality: string;
+  website: string;
 }
 
 interface SingersViewProps {
-    singers: Singer[];
+  singers: Singer[];
 }
 
 const SingersView: React.FC<SingersViewProps> = ({
@@ -43,15 +44,25 @@ const SingersView: React.FC<SingersViewProps> = ({
       <Navbar_User />
       <Box
         sx={{
-          overflow: "scroll",
-          maxHeight: "100vh",
+          // overflow: "scroll",
+          // maxHeight: "100vh",
+          maxWidth: "96%",
         }}
       >
         {/* <SearchBar onChange={onSearch} value={searchValue} /> */}
 
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
           {singers.map((singer) => {
-            const { id, name, surname, voice, birthYear, nationality, website, image } = singer;
+            const {
+              id,
+              name,
+              surname,
+              voice,
+              birthYear,
+              nationality,
+              website,
+              image,
+            } = singer;
             return (
               <Grid item xs={12} md={4} key={id}>
                 <Card_Singer
@@ -88,6 +99,7 @@ const SingersView: React.FC<SingersViewProps> = ({
         ))}
       </div> */}
 
+      <Footer />
     </Box>
   );
 };

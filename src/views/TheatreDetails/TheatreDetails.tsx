@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 
 const THEATRE_KEY = "T_K";
 
@@ -67,17 +68,22 @@ export default function TheatreDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>Información del teatro</h3>
-              <br />
               <img src={theatre?.image} alt={theatre?.image} />
-              <h6>Imagen: {theatre?.image}</h6>
-              {/* <h6>ID: {theatre?.id}</h6> */}
-              <h6>Nombre: {theatre?.name}</h6>
-              <h6>Ciudad: {theatre?.city}</h6>
-              <h6>Dirección: {theatre?.address}</h6>
-              <h6>Teléfono: {theatre?.telephone}</h6>
-              <h6>Sitio web: <a href={theatre?.website} target="_blank">{theatre?.website}</a></h6>
-              <h6>Aforo: {theatre?.aphoras} espectadores</h6>
               <br />
+              {/* <h6>Imagen: {theatre?.image}</h6> */}
+              {/* <h6>ID: {theatre?.id}</h6> */}
+              <br />
+              <h5>Nombre: {theatre?.name}</h5>
+              <h5>Ciudad: {theatre?.city}</h5>
+              <h5>Dirección: {theatre?.address}</h5>
+              <h5>Teléfono: {theatre?.telephone}</h5>
+              <h5>
+                Sitio web:{" "}
+                <a href={theatre?.website} target="_blank">
+                  {theatre?.website}
+                </a>
+              </h5>
+              <h5>Aforo: {theatre?.aphoras} espectadores</h5>
               <div className="registro">
                 <Link to="/theatres" onClick={removeTheatreKey}>
                   ¿Ha terminado de ver la información? Haga clic aquí para
@@ -88,6 +94,7 @@ export default function TheatreDetails() {
           </div>
         </div>
       </div>
+      <Footer />
     </Box>
   );
 }

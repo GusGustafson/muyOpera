@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 import Ecco from "../../assets/AngelesCastro_EccoRespiroAppena.mp4";
 
 export default function UserLoggedIn() {
@@ -22,7 +23,11 @@ export default function UserLoggedIn() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3><span className="muyOpera-text-color"><strong>muyÓpera</strong></span></h3>
+              <h3>
+                <span className="muyOpera-text-color">
+                  <strong>muyÓpera</strong>
+                </span>
+              </h3>
               <p>
                 <strong>
                   Le damos la bienvenida a{" "}
@@ -63,7 +68,8 @@ export default function UserLoggedIn() {
               </video>
               <p>
                 Disfrute de su estancia aquí deleitándose con esta maravillosa
-                aria de la ópera Adriana Lecouvreur, interpretada por la soprano Ángeles Castro.
+                aria de la ópera Adriana Lecouvreur, interpretada por la soprano
+                Ángeles Castro.
               </p>
             </div>
           </div>
@@ -78,6 +84,7 @@ export default function UserLoggedIn() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
       </div> */}
+      <Footer />
     </Box>
   );
 }

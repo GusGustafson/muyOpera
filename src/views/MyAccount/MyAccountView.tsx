@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
-import Header from '../../components/Header/Header';
+import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 import UpdateUserDataForm from "../../components/UpdateUserDataForm/UpdateUserDataForm";
 import "../../style.css";
 
@@ -38,21 +39,20 @@ export default function MyAccountView() {
           <div className="col">
             <div className="caja destacado">
               <h3>Actualización de datos de usuario</h3>
-              <p>
-                Modifique aquí cualquier dato de su cuenta:
-              </p>
-              {/* <p>Usuario que ha iniciado sesión: {user?.id} {user?.name} {user?.surname} {user?.email}</p> */}
+              <p>Modifique aquí cualquier dato de su cuenta:</p>
               <UpdateUserDataForm />
               <br />
               <div className="registro">
                 <Link to="/userLoggedIn">
-                  ¿No desea cambiar nada? Haga clic aquí para volver a la página principal.
+                  ¿No desea cambiar nada? Haga clic aquí para volver a la página
+                  principal.
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </Box>
   );
 }

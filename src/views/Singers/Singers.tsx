@@ -31,7 +31,6 @@ export default function Singers() {
 
   useEffect(
     () => {
-      // De aquí salen los cantantes, que se los pasamos a la vista del return.
       async function fetchData() {
         try {
           const response = await fetch(
@@ -48,11 +47,9 @@ export default function Singers() {
             setSingers(null);
             alert("Cantante no encontrado");
           } else {
-            // const data: SingersResponse = await response.json();
             const data: Singer[] = await response.json();
             setSingers(data);
             // setMessage(null);
-            console.log(data);
           }
         } catch (error) {
           console.error("Error al obtener los cantantes:", error);
@@ -70,12 +67,6 @@ export default function Singers() {
   return (
     <SingersView
       singers={singers || []}
-      // page={page}
-      // totalPages={singers?.info.pages}
-      // onChange={handleChange}
-      // onSearch={onSearchCharacter}
-      // searchValue={searchValue}
-      // message={message}
     />
   );
 }

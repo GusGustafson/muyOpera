@@ -3,6 +3,7 @@ import Card_Theatre from "../../components/Card_Theatre/Card_Theatre";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 
 interface Theatre {
   id: number;
@@ -43,15 +44,25 @@ const TheatresView: React.FC<TheatresViewProps> = ({
       <Navbar_User />
       <Box
         sx={{
-          overflow: "scroll",
-          maxHeight: "100vh",
+          // overflow: "scroll",
+          // maxHeight: "100vh",
+          maxWidth: "96%",
         }}
       >
         {/* <SearchBar onChange={onSearch} value={searchValue} /> */}
 
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
           {theatres.map((theatre) => {
-            const { id, name, city, address, aphoras, telephone, website, image } = theatre;
+            const {
+              id,
+              name,
+              city,
+              address,
+              aphoras,
+              telephone,
+              website,
+              image,
+            } = theatre;
             return (
               <Grid item xs={12} md={4} key={id}>
                 <Card_Theatre
@@ -88,6 +99,7 @@ const TheatresView: React.FC<TheatresViewProps> = ({
         ))}
       </div> */}
 
+      <Footer />
     </Box>
   );
 };

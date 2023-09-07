@@ -6,9 +6,10 @@ export default function Landing() {
   return (
     <Box
       sx={{
-        position: "relative",
+        // position: "relative",
         backgroundImage: `url(${background})`,
         // backgroundPosition: "center",
+        backgroundPositionX: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
@@ -18,8 +19,9 @@ export default function Landing() {
       <Box
         sx={{
           position: "absolute",
-          top: "5%",
-          left: "32%",
+          top: "10%",
+          left: "50%",
+          transform: "translateX(-50%)",
           color: "white",
         }}
       >
@@ -29,11 +31,13 @@ export default function Landing() {
             <em>muyÓpera</em>
           </strong>
         </h2>
+        </Box>
         <Box
         sx={{
           position: "absolute",
-          top: "85%",
-          left: "32%",
+          bottom: "4%",
+          left: "50%",
+          transform: "translateX(-50%)",
           color: "white",
         }}
       >
@@ -42,7 +46,6 @@ export default function Landing() {
             Haga clic aquí para entrar
           </Button>
         </Link>
-        </Box>
       </Box>
     </Box>
   );

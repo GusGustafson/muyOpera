@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 
 const SINGER_KEY = "S_K";
 
@@ -67,17 +68,22 @@ export default function SingerDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>Información del cantante</h3>
-              <br />
               <img src={singer?.image} alt={singer?.image} />
-              <h6>Imagen: {singer?.image}</h6>
-              {/* <h6>ID: {singer?.id}</h6> */}
-              <h6>Nombre: {singer?.name}</h6>
-              <h6>Apellido: {singer?.surname}</h6>
-              <h6>Voz: {singer?.voice}</h6>
-              <h6>Año de nacimiento: {singer?.birthYear}</h6>
-              <h6>Nacionalidad: {singer?.nationality}</h6>
-              <h6>Sitio web: <a href={singer?.website} target="_blank">{singer?.website}</a></h6>
               <br />
+              {/* <h6>Imagen: {singer?.image}</h6> */}
+              {/* <h6>ID: {singer?.id}</h6> */}
+              <br />
+              <h5>Nombre: {singer?.name}</h5>
+              <h5>Apellido: {singer?.surname}</h5>
+              <h5>Voz: {singer?.voice}</h5>
+              <h5>Año de nacimiento: {singer?.birthYear}</h5>
+              <h5>Nacionalidad: {singer?.nationality}</h5>
+              <h5>
+                Sitio web:{" "}
+                <a href={singer?.website} target="_blank">
+                  {singer?.website}
+                </a>
+              </h5>
               <div className="registro">
                 <Link to="/singers" onClick={removeSingerKey}>
                   ¿Ha terminado de ver la información? Haga clic aquí para
@@ -88,6 +94,7 @@ export default function SingerDetails() {
           </div>
         </div>
       </div>
+      <Footer />
     </Box>
   );
 }

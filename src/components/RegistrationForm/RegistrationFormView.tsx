@@ -81,6 +81,21 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           helperText={touched.password && errors.password}
           autoComplete="new-password"
         />
+        <TextField
+          margin="dense"
+          color="warning"
+          required
+          fullWidth
+          id="repeatPassword"
+          label="Repetir contraseña"
+          name="repeatPassword"
+          type="password"
+          value={values.repeatPassword}
+          onChange={handleChange}
+          error={touched.repeatPassword && Boolean(errors.repeatPassword)}
+          helperText={touched.repeatPassword && errors.repeatPassword}
+          autoComplete="new-password"
+        />
         {errorMessage ? (
           <Alert variant="outlined" severity="error">
             {errorMessage}

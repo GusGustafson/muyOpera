@@ -3,6 +3,7 @@ import { Button, Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from '../../components/Header/Header';
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 import "../../style.css";
 
 const FOUND_USER = "F_U";
@@ -49,12 +50,12 @@ export default function DeleteUserView(props: DeleteUserViewProps) {
               <p>
                 Haz clic en el botón para eliminar definitivamente esta cuenta de usuario:
               </p>
-              <h5>Cuenta de usuario:</h5>
-              <h6>ID: <span id="userFoundId">{foundUser?.id}</span></h6>
-              <h6>Nombre: {foundUser?.name}</h6>
-              <h6>Apellidos: {foundUser?.surname}</h6>
-              <h6>Correo electrónico: {foundUser?.email}</h6>
-              <h6>Rol: {foundUser?.userRole}</h6>
+              <h4>Cuenta de usuario:</h4>
+              <h5>ID: <span id="userFoundId">{foundUser?.id}</span></h5>
+              <h5>Nombre: {foundUser?.name}</h5>
+              <h5>Apellidos: {foundUser?.surname}</h5>
+              <h5>Correo electrónico: {foundUser?.email}</h5>
+              <h5>Rol: {foundUser?.userRole}</h5>
               <Button
                   id="deleteUserButton"
                   // type="button"
@@ -78,6 +79,7 @@ export default function DeleteUserView(props: DeleteUserViewProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </Box>
   );
 }

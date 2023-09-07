@@ -4,21 +4,22 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 import BudgetRequestForm from "../../components/BudgetRequestForm/BudgetRequestForm";
 
 const EVENT_KEY = "E_K";
 
 interface EventValues {
-    id: string;
-    idTheatre: string;
-    theatreName: string;
-    idOpera: string;
-    operaName: string;
-    idSinger1: string;
-    singer1Fullname: string;
-    idSinger2: string;
-    singer2Fullname: string;
-    dateTime: string;
+  id: string;
+  idTheatre: string;
+  theatreName: string;
+  idOpera: string;
+  operaName: string;
+  idSinger1: string;
+  singer1Fullname: string;
+  idSinger2: string;
+  singer2Fullname: string;
+  dateTime: string;
 }
 
 export default function FinderDetails() {
@@ -71,24 +72,27 @@ export default function FinderDetails() {
             <div className="caja destacado">
               <h3>Información del evento</h3>
               <br />
-              <h6>Núm. evento: {event?.id}</h6>
-              <h6>Teatro: {event?.theatreName}</h6>
-              <h6>Ópera: {event?.operaName}</h6>
-              <h6>Cantante femenino: {event?.singer1Fullname}</h6>
-              <h6>Cantante masculino: {event?.singer2Fullname}</h6>
-              <h6>Fecha y hora: {event?.dateTime}</h6>
+              <h5>Núm. evento: {event?.id}</h5>
+              <h5>Teatro: {event?.theatreName}</h5>
+              <h5>Ópera: {event?.operaName}</h5>
+              <h5>Cantante femenino: {event?.singer1Fullname}</h5>
+              <h5>Cantante masculino: {event?.singer2Fullname}</h5>
+              <h5>Fecha y hora: {event?.dateTime}</h5>
+              <br />
+              <div>Si desea solicitar un presupuesto personalizado, <u>rellene todos los campos</u> y haga clic en el botón SOLICITAR PRESUPUESTO.</div>
               <BudgetRequestForm />
               <br />
               <div className="registro">
                 <Link to="/finder" onClick={removeEventKey}>
-                  ¿No desea solicitar un presupuesto para este evento?
-                  Haga clic aquí para volver atrás.
+                  ¿No desea solicitar un presupuesto para este evento? Haga clic
+                  aquí para volver atrás.
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </Box>
   );
 }

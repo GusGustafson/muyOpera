@@ -54,6 +54,7 @@ export default function UpdateUserDataForm() {
     values: InitialValues,
     actions: FormikHelpers<InitialValues>
   ) {
+    console.log("Valores del formulario:", values);
     updateUserData(auth);
     actions.resetForm();
   }

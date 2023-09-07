@@ -2,7 +2,7 @@ import { FormikValues, Form } from "formik";
 import { TextField, Button, Box, Grid } from "@mui/material";
 
 // ESTA ES LA PARTE DEL FORMCONTROL
-import { useState } from "react";
+// import { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -44,12 +44,10 @@ export default function FinderEngineView({
     : null;
 
   // ESTA ES LA PARTE DEL FORMCONTROL
-  // const [operaName, setOperaName] = useState<number | string>(0);
-  const [operaName, setOperaName] = useState<string>("");
-  // const handle_Change = (event: SelectChangeEvent<number | string>) => {
-  const handle_Change = (event: SelectChangeEvent<string>) => {
-    setOperaName(event.target.value);
-  };
+  // const [operaName, setOperaName] = useState<string>("");
+  // const handle_Change = (event: SelectChangeEvent<string>) => {
+  //   setOperaName(event.target.value);
+  // };
   // HASTA AQUÍ ES LA PARTE DEL FORMCONTROL
 
   return (
@@ -64,10 +62,9 @@ export default function FinderEngineView({
     >
       <Box sx={{ width: "50%" }}>
         <Form onSubmit={handleSubmit}>
-          <TextField
+          {/* <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
             id="idTheatre"
             label="Teatro - ID"
@@ -75,23 +72,24 @@ export default function FinderEngineView({
             // defaultValue={foundEvent?.idTheatre} // NO PONER "defaultValue" Y "value", que casca
             value={values.idTheatre} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
-          />
+          /> */}
+
           <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
+            hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
             id="theatreName"
-            label="Teatro - NOMBRE"
+            label="Teatro"
             name="theatreName"
             // defaultValue={foundEvent?.theatreName} // NO PONER "defaultValue" Y "value", que casca
             value={values.theatreName} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
           />
-          <TextField
+
+          {/* <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
             id="idOpera"
             label="Ópera - ID"
@@ -99,23 +97,24 @@ export default function FinderEngineView({
             // defaultValue={foundEvent?.idOpera} // NO PONER "defaultValue" Y "value", que casca
             value={values.idOpera} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
-          />
+          /> */}
+
           <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
+            hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
             id="operaName"
-            label="Ópera - NOMBRE"
+            label="Ópera"
             name="operaName"
             // defaultValue={foundEvent?.operaName} // NO PONER "defaultValue" Y "value", que casca
             value={values.operaName} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
           />
-          <TextField
+
+          {/* <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
             id="idSinger1"
             label="Cantante femenino - ID"
@@ -123,23 +122,24 @@ export default function FinderEngineView({
             // defaultValue={foundEvent?.idSinger1} // NO PONER "defaultValue" Y "value", que casca
             value={values.idSinger1} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
-          />
+          /> */}
+
           <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
+            hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
             id="singer1Fullname"
-            label="Cantante femenino - NOMBRE"
+            label="Cantante femenino"
             name="singer1Fullname"
             // defaultValue={foundEvent?.singer1Fullname} // NO PONER "defaultValue" Y "value", que casca
             value={values.singer1Fullname} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
           />
-          <TextField
+
+          {/* <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
             id="idSinger2"
             label="Cantante masculino - ID"
@@ -147,40 +147,112 @@ export default function FinderEngineView({
             // defaultValue={foundEvent?.idSinger2} // NO PONER "defaultValue" Y "value", que casca
             value={values.idSinger2} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
-          />
+          /> */}
+
           <TextField
             margin="dense"
             color="warning"
-            // required
             fullWidth
+            hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
             id="singer2Fullname"
-            label="Cantante masculino - NOMBRE"
+            label="Cantante masculino"
             name="singer2Fullname"
             // defaultValue={foundEvent?.singer2Fullname} // NO PONER "defaultValue" Y "value", que casca
             value={values.singer2Fullname} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
           />
 
-          <FormControl variant="filled" fullWidth>
-            <InputLabel id="operaName_222" color="warning">
+          <FormControl variant="filled" margin="dense" fullWidth>
+            <InputLabel id="theatreName_Label" color="warning">
+              Teatro
+            </InputLabel>
+            <Select
+              labelId="theatreName_Label"
+              id="theatreName"
+              label="Teatro"
+              name="theatreName"
+              value={values.theatreName}
+              onChange={handleChange}
+              color="warning"
+            >
+              <MenuItem value="">VACÍO</MenuItem>
+              <MenuItem value="Teatro Real">Teatro Real</MenuItem>
+              <MenuItem value="Teatro Cervantes">Teatro Cervantes</MenuItem>
+              <MenuItem value="Teatro Campoamor">Teatro Campoamor</MenuItem>
+              <MenuItem value="Gran Teatro del Liceo">
+                Gran Teatro del Liceo
+              </MenuItem>
+              <MenuItem value="Teatro de la Maestranza">
+                Teatro de la Maestranza
+              </MenuItem>
+              <MenuItem value="Auditorio Alfredo Kraus">
+                Auditorio Alfredo Kraus
+              </MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl variant="filled" margin="dense" fullWidth>
+            <InputLabel id="operaName_Label" color="warning">
               Ópera
             </InputLabel>
             <Select
-              labelId="operaName_222"
+              labelId="operaName_Label"
               id="operaName"
               label="Ópera"
               name="operaName"
-              value={operaName}
-              onChange={handle_Change}
+              value={values.operaName}
+              onChange={handleChange}
               color="warning"
             >
-              <MenuItem value={0}>NADA</MenuItem>
+              <MenuItem value="">VACÍO</MenuItem>
+              <MenuItem value="La Bohème">La Bohème</MenuItem>
+              <MenuItem value="La Traviata">La Traviata</MenuItem>
+              <MenuItem value="Le nozze di Figaro">Le nozze di Figaro</MenuItem>
+              <MenuItem value="Norma">Norma</MenuItem>
               <MenuItem value="Rigoletto">Rigoletto</MenuItem>
-              <MenuItem value={2}>Le nozze di Figaro</MenuItem>
-              <MenuItem value={3}>La Traviata</MenuItem>
-              <MenuItem value={4}>Turandot</MenuItem>
-              <MenuItem value={5}>Norma</MenuItem>
-              <MenuItem value={6}>La Bohème</MenuItem>
+              <MenuItem value="Turandot">Turandot</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl variant="filled" margin="dense" fullWidth>
+            <InputLabel id="singer1Fullname_Label" color="warning">
+              Cantante femenino
+            </InputLabel>
+            <Select
+              labelId="singer1Fullname_Label"
+              id="singer1Fullname"
+              label="Cantante femenino"
+              name="singer1Fullname"
+              value={values.singer1Fullname}
+              onChange={handleChange}
+              color="warning"
+            >
+              <MenuItem value="">VACÍO</MenuItem>
+              <MenuItem value="Anna Netrebko">Anna Netrebko</MenuItem>
+              <MenuItem value="Diana Damrau">Diana Damrau</MenuItem>
+              <MenuItem value="Lisette Oropesa">Lisette Oropesa</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl variant="filled" margin="dense" fullWidth>
+            <InputLabel id="singer2Fullname_Label" color="warning">
+              Cantante masculino
+            </InputLabel>
+            <Select
+              labelId="singer2Fullname_Label"
+              id="singer2Fullname"
+              label="Cantante masculino"
+              name="singer2Fullname"
+              value={values.singer2Fullname}
+              onChange={handleChange}
+              color="warning"
+            >
+              <MenuItem value="">VACÍO</MenuItem>
+              <MenuItem value="Alexander Vinogradov">
+                Alexander Vinogradov
+              </MenuItem>
+              <MenuItem value="Jonas Kaufmann">Jonas Kaufmann</MenuItem>
+              <MenuItem value="Juan Diego Florez">Juan Diego Florez</MenuItem>
             </Select>
           </FormControl>
 
@@ -201,8 +273,18 @@ export default function FinderEngineView({
 
       <Grid container spacing={1} marginTop={1}>
         {foundEvents?.map((event) => {
-          const { id, idTheatre, theatreName, idOpera, operaName, idSinger1, singer1Fullname, idSinger2, singer2Fullname, dateTime } =
-            event;
+          const {
+            id,
+            idTheatre,
+            theatreName,
+            idOpera,
+            operaName,
+            idSinger1,
+            singer1Fullname,
+            idSinger2,
+            singer2Fullname,
+            dateTime,
+          } = event;
           return (
             <Grid item xs={12} md={6} key={id}>
               <Card_Event
@@ -217,16 +299,6 @@ export default function FinderEngineView({
                 singer2Fullname={singer2Fullname}
                 dateTime={dateTime}
               />
-              {/* <div className="noBulletedList">
-                <ul>
-                  <li>ID: {id}</li>
-                  <li>Teatro: {idTheatre}</li>
-                  <li>Ópera: {idOpera}</li>
-                  <li>Cantante femenino: {idSinger1}</li>
-                  <li>Cantante masculino: {idSinger2}</li>
-                  <li>Fecha y hora: {dateTime}</li>
-                </ul>
-              </div> */}
             </Grid>
           );
         })}

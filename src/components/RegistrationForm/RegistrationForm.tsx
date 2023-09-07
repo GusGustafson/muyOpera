@@ -11,6 +11,7 @@ type InitialValues = {
   surname: string;
   email: string;
   password: string;
+  repeatPassword: string;
 };
 
 export default function RegistrationForm() {
@@ -20,6 +21,7 @@ export default function RegistrationForm() {
     surname: "",
     email: "",
     password: "",
+    repeatPassword: "",
   };
 
   //   const { values, touched, errors, handleChange, handleSubmit, isSubmitting } = useFormik({
@@ -33,6 +35,7 @@ export default function RegistrationForm() {
     surname: "",
     email: "",
     password: "",
+    repeatPassword: "",
   });
 
   function handleAuth(e: React.ChangeEvent<HTMLInputElement>) {
@@ -48,6 +51,7 @@ export default function RegistrationForm() {
     values: InitialValues,
     actions: FormikHelpers<InitialValues>
   ) {
+    console.log("Valores del formulario:", values);
     registration(auth);
     actions.resetForm();
   }

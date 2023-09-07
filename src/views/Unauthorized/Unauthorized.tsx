@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { Button } from "@mui/material";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 export default function Unauthorized() {
   const { logout } = useAuthContext();
@@ -29,7 +30,8 @@ export default function Unauthorized() {
       </Link>
       <br />
       <br />
-        <button onClick={goBack}>Volver atrás</button>
+      <button onClick={goBack}>Volver atrás</button>
+      <Footer />
     </>
   );
 }

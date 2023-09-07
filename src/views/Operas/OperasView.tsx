@@ -3,6 +3,7 @@ import Card_Opera from "../../components/Card_Opera/Card_Opera";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 
 interface Opera {
   id: number;
@@ -43,15 +44,25 @@ const OperasView: React.FC<OperasViewProps> = ({
       <Navbar_User />
       <Box
         sx={{
-          overflow: "scroll",
-          maxHeight: "100vh",
+          // overflow: "scroll",
+          // maxHeight: "100vh",
+          maxWidth: "96%",
         }}
       >
         {/* <SearchBar onChange={onSearch} value={searchValue} /> */}
 
         <Grid container spacing={1} marginTop={1} marginLeft={7}>
           {operas.map((opera) => {
-            const { id, name, composer, librettist, language, date, duration, image } = opera;
+            const {
+              id,
+              name,
+              composer,
+              librettist,
+              language,
+              date,
+              duration,
+              image,
+            } = opera;
             return (
               <Grid item xs={12} md={4} key={id}>
                 <Card_Opera
@@ -87,7 +98,8 @@ const OperasView: React.FC<OperasViewProps> = ({
           </div>
         ))}
       </div> */}
-      
+
+      <Footer />
     </Box>
   );
 };

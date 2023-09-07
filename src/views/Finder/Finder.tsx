@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
+import Footer from "../../components/Footer/Footer";
 import FinderEngine from "../../components/FinderEngine/FinderEngine";
 
 export default function Finder() {
@@ -28,16 +29,17 @@ export default function Finder() {
                 por CANTANTE.
               </p>
               <p>
-                Una vez localizado el evento que le interese, también puede solicitar,
-                si lo desea, un presupuesto personalizado a nuestro agente de viajes,
-                indicando si solo quiere obtener las entradas o si prefiere que le
-                busquemos viaje y alojamiento.
+                Una vez localizado el evento que le interese, también puede
+                solicitar, si lo desea, un presupuesto personalizado a nuestro
+                agente de viajes, indicando si solo quiere obtener las entradas
+                o si prefiere que le busquemos viaje y alojamiento.
               </p>
               <FinderEngine />
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </Box>
   );
 }

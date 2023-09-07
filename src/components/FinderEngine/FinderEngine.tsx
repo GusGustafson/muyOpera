@@ -32,9 +32,7 @@ export default function FinderEngine() {
     dateTime: "",
   };
 
-  // function searchEventsByValues(idTheatre: string, idOpera: string, idSinger1: string, idSinger2: string) {
   function searchEventsByValues() {
-    // searchEventsFunction(idTheatre, idOpera, idSinger1, idSinger2);
     searchEventsFunction();
   }
 
@@ -42,8 +40,8 @@ export default function FinderEngine() {
     <Formik<EventValues>
       initialValues={eventValues}
       onSubmit={async (values, { setSubmitting }) => {
+        console.log("Valores del evento:", values);
         setSubmitting(true);
-        // await searchEventsByValues(values.idTheatre, values.idOpera, values.idSinger1, values.idSinger2);
         await searchEventsByValues();
         setSubmitting(false);
       }}

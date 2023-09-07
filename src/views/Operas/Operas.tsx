@@ -31,18 +31,15 @@ export default function Operas() {
 
   useEffect(
     () => {
-      // De aquí salen las óperas, que se las pasamos a la vista del return.
       async function fetchData() {
         try {
           const response = await fetch(
-            // `http://rickandmortyapi.com/api/character/?page=${page}&name=${searchValue}`
             "http://localhost:3000/opera/allOperas/",
             {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
               },
-              // body: JSON.stringify({ email, password }),
             }
           );
           if (!response.ok) {
@@ -50,11 +47,9 @@ export default function Operas() {
             setOperas(null);
             alert("Ópera no encontrada");
           } else {
-            // const data: OperasResponse = await response.json();
             const data: Opera[] = await response.json();
             setOperas(data);
             // setMessage(null);
-            console.log(data);
           }
         } catch (error) {
           console.error("Error al obtener las óperas:", error);
@@ -72,12 +67,6 @@ export default function Operas() {
   return (
     <OperasView
       operas={operas || []}
-      // page={page}
-      // totalPages={theatres?.info.pages}
-      // onChange={handleChange}
-      // onSearch={onSearchCharacter}
-      // searchValue={searchValue}
-      // message={message}
     />
   );
 }
