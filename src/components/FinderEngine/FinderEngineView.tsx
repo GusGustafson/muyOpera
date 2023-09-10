@@ -16,6 +16,7 @@ import "../../style.css";
 interface FinderEngineViewProps {
   formik: FormikValues;
   onSubmit_Search: () => void;
+  foundEvents: FoundEvent[] | null;
 }
 
 const FOUND_EVENTS = "F_E";
@@ -30,6 +31,7 @@ interface FoundEvent {
   singer1Fullname: string;
   idSinger2: number;
   singer2Fullname: string;
+  singerAnyFullname: string;
   dateTime: string;
 }
 

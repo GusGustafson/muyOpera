@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Formik } from "formik";
 import FinderEngineView from "./FinderEngineView";
 // import { useAuthContext } from "../../contexts/AuthContext";
@@ -34,8 +35,18 @@ export default function FinderEngine() {
     dateTime: "",
   };
 
-  function searchEventsByValues() {
-    searchEventsFunction();
+  // ESTO ES LO AÑADIDO POR EL TEMA "F5"
+  const [foundEvents, setFoundEvents] = useState<EventValues[] | null>(null);
+  useEffect(() => {}, []); // Empty dependency array ensures this effect runs only once
+
+  async function searchEventsByValues() {
+    try {
+      const newData = await searchEventsFunction();
+      // ESTO ES LO AÑADIDO POR EL TEMA "F5"
+      setFoundEvents(newData);
+    } catch (error) {
+      console.error("Error al hacer fecth de los datos:", error);
+    }
   }
 
   return (
@@ -49,7 +60,11 @@ export default function FinderEngine() {
       }}
     >
       {(props) => (
-        <FinderEngineView formik={props} onSubmit_Search={props.handleSubmit} />
+        <FinderEngineView
+          formik={props}
+          onSubmit_Search={props.handleSubmit}
+          foundEvents={foundEvents}
+        />
       )}
     </Formik>
   );

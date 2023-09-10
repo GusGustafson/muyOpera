@@ -6,6 +6,8 @@ import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 import BudgetRequestForm from "../../components/BudgetRequestForm/BudgetRequestForm";
+import { format } from "date-fns";
+import { es } from 'date-fns/locale';
 
 const EVENT_KEY = "E_K";
 
@@ -53,6 +55,8 @@ export default function FinderDetails() {
     localStorage.removeItem(EVENT_KEY);
   }
 
+  const formattedDate = event ? format(new Date(event.dateTime), "dd/MM/yyyy - HH:mm", { locale: es }) : "";
+
   return (
     <Box
       sx={{
@@ -77,7 +81,7 @@ export default function FinderDetails() {
               <h5>Ópera: {event?.operaName}</h5>
               <h5>Cantante femenino: {event?.singer1Fullname}</h5>
               <h5>Cantante masculino: {event?.singer2Fullname}</h5>
-              <h5>Fecha y hora: {event?.dateTime}</h5>
+              <h5>Fecha y hora: {formattedDate}</h5>
               <br />
               <div>Si desea solicitar un presupuesto personalizado, <u>rellene todos los campos</u> y haga clic en el botón SOLICITAR PRESUPUESTO.</div>
               <BudgetRequestForm />

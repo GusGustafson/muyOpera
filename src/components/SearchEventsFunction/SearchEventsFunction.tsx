@@ -1,19 +1,22 @@
-interface EventDataWithID {
-  id: string;
-  idTheatre: string;
+// interface EventDataWithID {
+interface EventValues {
+  id: number;
+  idTheatre: number;
   theatreName: string;
-  idOpera: string;
+  idOpera: number;
   operaName: string;
-  idSinger1: string;
+  idSinger1: number;
   singer1Fullname: string;
-  idSinger2: string;
+  idSinger2: number;
   singer2Fullname: string;
+  singerAnyFullname: string;
   dateTime: string;
 }
 
 const FOUND_EVENTS = "F_E";
 
-async function searchEventsFunction(): Promise<void> {
+// async function searchEventsFunction(): Promise<void> {
+async function searchEventsFunction(): Promise<EventValues[] | null> {
   try {
     const idTheatreInput = document.getElementById(
       "idTheatre"
@@ -48,10 +51,16 @@ async function searchEventsFunction(): Promise<void> {
     const idOpera = idOperaInput ? idOperaInput.value : "";
     const operaName = operaNameInput ? operaNameInput.value : "";
     const idSinger1 = idSinger1Input ? idSinger1Input.value : "";
-    const singer1Fullname = singer1FullnameInput ? singer1FullnameInput.value : "";
+    const singer1Fullname = singer1FullnameInput
+      ? singer1FullnameInput.value
+      : "";
     const idSinger2 = idSinger2Input ? idSinger2Input.value : "";
-    const singer2Fullname = singer2FullnameInput ? singer2FullnameInput.value : "";
-    const singerAnyFullname = singerAnyFullnameInput ? singerAnyFullnameInput.value : "";
+    const singer2Fullname = singer2FullnameInput
+      ? singer2FullnameInput.value
+      : "";
+    const singerAnyFullname = singerAnyFullnameInput
+      ? singerAnyFullnameInput.value
+      : "";
 
     // comento las siguientes líneas porque eran las que hacían uso de GET en vez de POST:
     // const queryParams = new URLSearchParams({
@@ -91,16 +100,24 @@ async function searchEventsFunction(): Promise<void> {
       }
     );
     if (response.ok) {
-      const eventsData: EventDataWithID[] = await response.json();
+      // const eventsData: EventDataWithID[] = await response.json();
+      const eventsData: EventValues[] = await response.json();
       console.log("Eventos localizados correctamente");
       alert("Eventos localizados correctamente.");
       localStorage.setItem(FOUND_EVENTS, JSON.stringify(eventsData));
+      return eventsData;
     } else {
-      console.log("Búsqueda fallida. Revise el contenido de los campos e inténtelo de nuevo.");
-      alert("Búsqueda fallida. Revise el contenido de los campos e inténtelo de nuevo.");
+      console.log(
+        "Búsqueda fallida. Revise el contenido de los campos e inténtelo de nuevo."
+      );
+      alert(
+        "Búsqueda fallida. Revise el contenido de los campos e inténtelo de nuevo."
+      );
+      return null;
     }
   } catch (error) {
     console.log("Error al buscar los eventos", error);
+    return null;
   }
 }
 

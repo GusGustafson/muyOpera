@@ -4,6 +4,8 @@ import { Card as CardMUI } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
+import { format } from "date-fns";
+import { es } from 'date-fns/locale';
 
 const cardStyles = (
   <GlobalStyles
@@ -41,6 +43,9 @@ export default function Card_Event({
   singer2Fullname,
   dateTime,
 }: Card_Event) {
+  const date = new Date(dateTime);
+  const formattedDate = format(date, "dd/MM/yyyy - HH:mm", { locale: es });
+
   return (
     <Container>
       <Box mb={2}>
@@ -59,7 +64,7 @@ export default function Card_Event({
               <br />
               Cantante masculino: <strong>{singer2Fullname}</strong>
               <br />
-              Fecha y hora: <strong>{dateTime}</strong>
+              Fecha y hora: <strong>{formattedDate}</strong>
             </Typography>
           </CardContent>
           <div className="cardButton">
