@@ -39,6 +39,9 @@ async function searchEventsFunction(): Promise<void> {
     const singer2FullnameInput = document.getElementById(
       "singer2Fullname"
     ) as HTMLInputElement | null;
+    const singerAnyFullnameInput = document.getElementById(
+      "singerAnyFullname"
+    ) as HTMLInputElement | null;
 
     const idTheatre = idTheatreInput ? idTheatreInput.value : "";
     const theatreName = theatreNameInput ? theatreNameInput.value : "";
@@ -48,6 +51,7 @@ async function searchEventsFunction(): Promise<void> {
     const singer1Fullname = singer1FullnameInput ? singer1FullnameInput.value : "";
     const idSinger2 = idSinger2Input ? idSinger2Input.value : "";
     const singer2Fullname = singer2FullnameInput ? singer2FullnameInput.value : "";
+    const singerAnyFullname = singerAnyFullnameInput ? singerAnyFullnameInput.value : "";
 
     // comento las siguientes líneas porque eran las que hacían uso de GET en vez de POST:
     // const queryParams = new URLSearchParams({
@@ -65,6 +69,7 @@ async function searchEventsFunction(): Promise<void> {
       singer1Fullname,
       idSinger2,
       singer2Fullname,
+      singerAnyFullname,
     };
 
     // comento la siguiente línea porque era la que hacía uso de GET en vez de POST:

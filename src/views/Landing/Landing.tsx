@@ -42,7 +42,7 @@ export default function Landing() {
         }}
       >
         <Link to="/home">
-          <Button variant="contained" color="warning">
+          <Button variant="contained" color="warning" size="large">
             Haga clic aquí para entrar
           </Button>
         </Link>

@@ -13,6 +13,7 @@ type EventValues = {
   singer1Fullname: string;
   idSinger2: number;
   singer2Fullname: string;
+  singerAnyFullname: string;
   dateTime: string;
 };
 
@@ -29,6 +30,7 @@ export default function FinderEngine() {
     singer1Fullname: "",
     idSinger2: 0,
     singer2Fullname: "",
+    singerAnyFullname: "",
     dateTime: "",
   };
 

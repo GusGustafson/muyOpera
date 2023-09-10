@@ -6,7 +6,8 @@ import { TextField, Button, Box, Grid } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+// import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 // HASTA AQUÍ ES LA PARTE DEL FORMCONTROL
 
 import Card_Event from "../../components/Card_Event/Card_Event";
@@ -124,7 +125,7 @@ export default function FinderEngineView({
             onChange={handleChange}
           /> */}
 
-          <TextField
+          {/* <TextField
             margin="dense"
             color="warning"
             fullWidth
@@ -135,7 +136,7 @@ export default function FinderEngineView({
             // defaultValue={foundEvent?.singer1Fullname} // NO PONER "defaultValue" Y "value", que casca
             value={values.singer1Fullname} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
-          />
+          /> */}
 
           {/* <TextField
             margin="dense"
@@ -149,7 +150,7 @@ export default function FinderEngineView({
             onChange={handleChange}
           /> */}
 
-          <TextField
+          {/* <TextField
             margin="dense"
             color="warning"
             fullWidth
@@ -159,6 +160,19 @@ export default function FinderEngineView({
             name="singer2Fullname"
             // defaultValue={foundEvent?.singer2Fullname} // NO PONER "defaultValue" Y "value", que casca
             value={values.singer2Fullname} // NO PONER "defaultValue" Y "value", que casca
+            onChange={handleChange}
+          /> */}
+
+          <TextField
+            margin="dense"
+            color="warning"
+            fullWidth
+            hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
+            id="singerAnyFullname"
+            label="Cantante"
+            name="singerAnyFullname"
+            // defaultValue={foundEvent?.singerAnyFullname} // NO PONER "defaultValue" Y "value", que casca
+            value={values.singerAnyFullname} // NO PONER "defaultValue" Y "value", que casca
             onChange={handleChange}
           />
 
@@ -175,19 +189,19 @@ export default function FinderEngineView({
               onChange={handleChange}
               color="warning"
             >
-              <MenuItem value="">VACÍO</MenuItem>
-              <MenuItem value="Teatro Real">Teatro Real</MenuItem>
-              <MenuItem value="Teatro Cervantes">Teatro Cervantes</MenuItem>
-              <MenuItem value="Teatro Campoamor">Teatro Campoamor</MenuItem>
-              <MenuItem value="Gran Teatro del Liceo">
-                Gran Teatro del Liceo
-              </MenuItem>
-              <MenuItem value="Teatro de la Maestranza">
-                Teatro de la Maestranza
-              </MenuItem>
+              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
               <MenuItem value="Auditorio Alfredo Kraus">
                 Auditorio Alfredo Kraus
               </MenuItem>
+              <MenuItem value="Gran Teatro del Liceo">
+                Gran Teatro del Liceo
+              </MenuItem>
+              <MenuItem value="Teatro Campoamor">Teatro Campoamor</MenuItem>
+              <MenuItem value="Teatro Cervantes">Teatro Cervantes</MenuItem>
+              <MenuItem value="Teatro de la Maestranza">
+                Teatro de la Maestranza
+              </MenuItem>
+              <MenuItem value="Teatro Real">Teatro Real</MenuItem>
             </Select>
           </FormControl>
 
@@ -204,7 +218,7 @@ export default function FinderEngineView({
               onChange={handleChange}
               color="warning"
             >
-              <MenuItem value="">VACÍO</MenuItem>
+              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
               <MenuItem value="La Bohème">La Bohème</MenuItem>
               <MenuItem value="La Traviata">La Traviata</MenuItem>
               <MenuItem value="Le nozze di Figaro">Le nozze di Figaro</MenuItem>
@@ -214,7 +228,7 @@ export default function FinderEngineView({
             </Select>
           </FormControl>
 
-          <FormControl variant="filled" margin="dense" fullWidth>
+          {/* <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="singer1Fullname_Label" color="warning">
               Cantante femenino
             </InputLabel>
@@ -227,14 +241,14 @@ export default function FinderEngineView({
               onChange={handleChange}
               color="warning"
             >
-              <MenuItem value="">VACÍO</MenuItem>
+              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
               <MenuItem value="Anna Netrebko">Anna Netrebko</MenuItem>
               <MenuItem value="Diana Damrau">Diana Damrau</MenuItem>
               <MenuItem value="Lisette Oropesa">Lisette Oropesa</MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
 
-          <FormControl variant="filled" margin="dense" fullWidth>
+          {/* <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="singer2Fullname_Label" color="warning">
               Cantante masculino
             </InputLabel>
@@ -247,12 +261,37 @@ export default function FinderEngineView({
               onChange={handleChange}
               color="warning"
             >
-              <MenuItem value="">VACÍO</MenuItem>
+              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
               <MenuItem value="Alexander Vinogradov">
                 Alexander Vinogradov
               </MenuItem>
               <MenuItem value="Jonas Kaufmann">Jonas Kaufmann</MenuItem>
               <MenuItem value="Juan Diego Florez">Juan Diego Florez</MenuItem>
+            </Select>
+          </FormControl> */}
+
+          <FormControl variant="filled" margin="dense" fullWidth>
+            <InputLabel id="singerAnyFullname_Label" color="warning">
+              Cantante
+            </InputLabel>
+            <Select
+              labelId="singerAnyFullname_Label"
+              id="singerAnyFullname"
+              label="Cantante"
+              name="singerAnyFullname"
+              value={values.singerAnyFullname}
+              onChange={handleChange}
+              color="warning"
+            >
+              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
+              <MenuItem value="Alexander Vinogradov">
+                Alexander Vinogradov
+              </MenuItem>
+              <MenuItem value="Anna Netrebko">Anna Netrebko</MenuItem>
+              <MenuItem value="Diana Damrau">Diana Damrau</MenuItem>
+              <MenuItem value="Jonas Kaufmann">Jonas Kaufmann</MenuItem>
+              <MenuItem value="Juan Diego Florez">Juan Diego Florez</MenuItem>
+              <MenuItem value="Lisette Oropesa">Lisette Oropesa</MenuItem>
             </Select>
           </FormControl>
 
