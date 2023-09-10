@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="container d-flex flex-column align-items-center">
             {/* <img src={logo} alt="logo" width="50px" /> */}
             <h6>
-              <span className="muyOpera-color">muyÓpera</span> © Todos los
+              <span className="muyOpera-color">muyÓpera</span> © Augusto Blanco - Todos los
               derechos reservados
             </h6>
         </div>

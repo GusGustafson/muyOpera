@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Formik } from "formik";
 import FinderEngineView from "./FinderEngineView";
-// import { useAuthContext } from "../../contexts/AuthContext";
 import searchEventsFunction from "../SearchEventsFunction/SearchEventsFunction";
 
 type EventValues = {
@@ -19,7 +18,6 @@ type EventValues = {
 };
 
 export default function FinderEngine() {
-  // const { searchEvent } = useAuthContext();
 
   const eventValues: EventValues = {
     id: 0,

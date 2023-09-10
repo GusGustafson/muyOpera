@@ -6,6 +6,7 @@ import "../../style.css";
 interface SearchUserPageViewProps {
   formik: FormikValues;
   onSubmit_Search: () => void;
+  foundUser: FoundUser | null | void;
 }
 
 const FOUND_USER = "F_U";
@@ -15,9 +16,10 @@ interface FoundUser {
   name: string;
   surname: string;
   email: string;
+  password: string;
   userRole: number;
-  regDate: string;
-  updDate: string;
+  registerDate: string;
+  updateDate: string;
 }
 
 export default function SearchUserPageView({

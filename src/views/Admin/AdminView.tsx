@@ -15,6 +15,10 @@ interface User {
   name: string;
   surname: string;
   email: string;
+  password: string;
+  userRole: number;
+  registerDate: string;
+  updateDate: string;
 }
 
 // interface FoundUser {
@@ -23,8 +27,8 @@ interface User {
 //   surname: string;
 //   email: string;
 //   userRole: number;
-//   regDate: string;
-//   updDate: string;
+//   registerDate: string;
+//   updateDate: string;
 // }
 
 export default function AdminView() {

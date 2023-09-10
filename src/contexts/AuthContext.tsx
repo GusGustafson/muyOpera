@@ -8,6 +8,19 @@ interface UserDataWithID {
   email: string;
   password: string;
   userRole: number;
+  registerDate: string;
+  updateDate: string;
+}
+
+interface UserValues {
+  id: number;
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+  userRole: number;
+  registerDate: string;
+  updateDate: string;
 }
 
 interface BudgetRequest {
@@ -241,7 +254,8 @@ export default function AuthContextProvider({
     }
   }
 
-  async function searchUser(email: string): Promise<void> {
+  // async function searchUser(email: string): Promise<void> {
+  async function searchUser(email: string): Promise<UserValues | null> {
     try {
       const emailInput = document.getElementById(
         "email"
@@ -262,15 +276,18 @@ export default function AuthContextProvider({
         alert("Usuario localizado correctamente.");
         localStorage.setItem(FOUND_USER, JSON.stringify(userData));
         setErrorMessage(null);
+        return userData;
       } else {
         console.log(
           "Búsqueda fallida. Revisa la dirección e inténtalo de nuevo."
         );
         alert("Búsqueda fallida. Revisa la dirección e inténtalo de nuevo.");
         setErrorMessage("Búsqueda fallida");
+        return null;
       }
     } catch (error) {
       console.log("Error al buscar el usuario", error);
+      return null;
     }
   }
 

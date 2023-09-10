@@ -14,8 +14,8 @@ interface FoundUser {
     surname: string;
     email: string;
     userRole: number;
-    regDate: string;
-    updDate: string;
+    registerDate: string;
+    updateDate: string;
   }
 
 interface DeleteUserViewProps {

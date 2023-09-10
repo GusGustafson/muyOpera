@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Formik } from "formik";
 import SearchUserPageView from "./SearchUserPageView";
 import { useAuthContext } from "../../contexts/AuthContext";
@@ -9,6 +10,8 @@ type UserValues = {
   email: string;
   password: string;
   userRole: number;
+  registerDate: string;
+  updateDate: string;
 };
 
 export default function SearchUserPage() {
@@ -21,18 +24,31 @@ export default function SearchUserPage() {
     email: "",
     password: "",
     userRole: 0,
+    registerDate: "",
+    updateDate: "",
   };
 
-  function searchUserByEmail(email: string) {
-    searchUser(email);
+  // ESTO ES LO AÑADIDO POR EL TEMA "F5"
+  const [foundUser, setFoundUser] = useState<UserValues | null | void>(null);
+  useEffect(() => {}, []); // Empty dependency array ensures this effect runs only once
+
+  async function searchUserByEmail(email: string) {
+    try {
+      const newData = await searchUser(email);
+      // ESTO ES LO AÑADIDO POR EL TEMA "F5"
+      setFoundUser(newData);
+  } catch (error) {
+    console.error("Error al hacer fecth de los datos:", error);
   }
+}
 
   return (
     <Formik<UserValues>
       initialValues={userValues}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={async (values, { setSubmitting }) => {
+        console.log("Valores del usuario:", values);
         setSubmitting(true);
-        searchUserByEmail(values.email);
+        await searchUserByEmail(values.email);
         setSubmitting(false);
       }}
     >
@@ -40,6 +56,7 @@ export default function SearchUserPage() {
         <SearchUserPageView
           formik={props}
           onSubmit_Search={props.handleSubmit}
+          foundUser={foundUser}
         />
       )}
     </Formik>
