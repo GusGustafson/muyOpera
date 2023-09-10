@@ -232,9 +232,9 @@ export default function AuthContextProvider({
         setErrorMessage(null);
         logout();
       } else {
-        console.log("Datos de usuario no válidos");
-        alert("Datos de usuario no válidos");
-        setErrorMessage("Datos para actualización incorrectos");
+        console.log("Datos de usuario no válidos. Es posible que ese email ya esté en uso.");
+        alert("Datos de usuario no válidos. Es posible que ese email ya esté en uso.");
+        setErrorMessage("Datos para actualización incorrectos. Es posible que ese email ya esté en uso.");
       }
     } catch (error) {
       console.log("Error al actualizar los datos de usuario", error);

@@ -170,6 +170,13 @@ input{
   font-size: 24px;
 }
 
+/* Carrusel */
+
+.carouselFrame {
+  border: 2px solid var(--gris);
+  border-radius: 16px;
+}
+
 /* Caja */
 
 .caja.destacado{

@@ -38,9 +38,13 @@ export default function HomeView() {
       <div className="container d-flex mt-3">
         <Carousel
           autoplay={true}
+          autoplayInterval={2500}
           wrapAround={true}
           withoutControls={true}
           slidesToShow={3}
+          // cellSpacing={16}
+          className="carouselFrame"
+          // className="card"
         >
           {images.map((image, index) => (
             <img key={index} src={image} />

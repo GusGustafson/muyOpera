@@ -46,12 +46,12 @@ const TheatresView: React.FC<TheatresViewProps> = ({
         sx={{
           // overflow: "scroll",
           // maxHeight: "100vh",
-          maxWidth: "96%",
+          maxWidth: "92%",
         }}
       >
         {/* <SearchBar onChange={onSearch} value={searchValue} /> */}
 
-        <Grid container spacing={1} marginTop={1} marginLeft={7}>
+        <Grid container spacing={1} marginTop={1} marginLeft={8}>
           {theatres.map((theatre) => {
             const {
               id,
