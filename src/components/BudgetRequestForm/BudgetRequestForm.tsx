@@ -5,26 +5,21 @@ import { initialValues } from "./utils/form";
 import { useAuthContext } from "../../contexts/AuthContext";
 
 type InitialValues = {
-    id: number;
-    idUser: number;
-    idEvent: number;
-    tickets: number;
-    theatreZone: string;
-    travel: string;
-    travelLevel: string;
-    hotel: string;
-    hotelStars: number;
-    hotelNights: number;
-}
+  id: number;
+  idUser: number;
+  idEvent: number;
+  tickets: number;
+  theatreZone: string;
+  travel: string;
+  travelLevel: string;
+  hotel: string;
+  hotelStars: number;
+  hotelNights: number;
+  notes: string;
+};
 
 export default function BudgetRequestForm() {
   const { budgetRequest } = useAuthContext();
-//   const initialValues: InitialValues = {
-//     name: "",
-//     surname: "",
-//     email: "",
-//     password: "",
-//   };
 
   const [auth, setAuth] = useState<InitialValues>(initialValues);
 
@@ -49,7 +44,6 @@ export default function BudgetRequestForm() {
   return (
     <Formik
       initialValues={initialValues}
-    //   validationSchema={RegistrationFormSchema}
       auth={auth}
       onChange={handleAuth}
       onSubmit={onSubmit}

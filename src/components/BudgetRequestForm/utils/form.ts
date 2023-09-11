@@ -9,6 +9,7 @@ type InitialValues = {
     hotel: string;
     hotelStars: number;
     hotelNights: number;
+    notes: string;
 }
 
 export const initialValues: InitialValues = {
@@ -22,4 +23,5 @@ export const initialValues: InitialValues = {
     hotel: "",
     hotelStars: 0,
     hotelNights: 0,
+    notes: "",
 }

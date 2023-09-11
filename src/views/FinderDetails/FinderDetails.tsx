@@ -83,7 +83,7 @@ export default function FinderDetails() {
               <h5>Cantante masculino: {event?.singer2Fullname}</h5>
               <h5>Fecha y hora: {formattedDate}</h5>
               <br />
-              <div>Si desea solicitar un presupuesto personalizado, <u>rellene todos los campos</u> y haga clic en el botón SOLICITAR PRESUPUESTO.</div>
+              <div>Para solicitar un presupuesto personalizado, cambie los valores de estos campos como desee y haga clic en el botón SOLICITAR PRESUPUESTO.</div>
               <BudgetRequestForm />
               <br />
               <div className="registro">

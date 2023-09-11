@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 import Ecco from "../../assets/AngelesCastro_EccoRespiroAppena.mp4";
+import Ecco_MP3 from "../../assets/AngelesCastro_EccoRespiroAppena.mp3";
 
 export default function UserLoggedIn() {
   return (
@@ -63,9 +64,12 @@ export default function UserLoggedIn() {
                 Esperamos que aquí encuentre un gran evento con el que disfrutar
                 de la ópera.
               </p>
-              <video controls height={180} autoPlay>
+              {/* <video controls height={180} autoPlay>
                 <source src={Ecco} type="video/mp4" />
-              </video>
+              </video> */}
+              <audio controls autoPlay>
+                <source src={Ecco_MP3} type="audio/mp3" />
+              </audio>
               <p>
                 Disfrute de su estancia aquí deleitándose con esta maravillosa
                 aria de la ópera Adriana Lecouvreur, interpretada por la soprano

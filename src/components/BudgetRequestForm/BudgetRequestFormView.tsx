@@ -10,10 +10,10 @@ import {
 
 // ESTA ES LA PARTE DEL FORMCONTROL
 // import { useState } from "react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+// import InputLabel from "@mui/material/InputLabel";
+// import MenuItem from "@mui/material/MenuItem";
+// import FormControl from "@mui/material/FormControl";
+// import Select from "@mui/material/Select";
 // HASTA AQUÍ ES LA PARTE DEL FORMCONTROL
 
 import { useAuthContext } from "../../contexts/AuthContext";
@@ -39,21 +39,32 @@ const theatreZone = [
   { label: "Grada" },
 ];
 const travelQuestion = [{ label: "Sí" }, { label: "No" }];
-const travel = [{ label: "Avión" }, { label: "Tren" }];
+const travel = [{ label: "Ninguno" }, { label: "Avión" }, { label: "Tren" }];
 const travelLevel = [
   { label: "Indiferente" },
   { label: "Business" },
   { label: "Turista" },
 ];
 const hotel = [{ label: "Sí" }, { label: "No" }];
-const hotelStars = [{ label: "3" }, { label: "4" }, { label: "5" }];
-const hotelNights = [{ label: "1" }, { label: "2" }, { label: "3" }];
+const hotelStars = [
+  { label: "0" },
+  { label: "3" },
+  { label: "4" },
+  { label: "5" },
+];
+const hotelNights = [
+  { label: "0" },
+  { label: "1" },
+  { label: "2" },
+  { label: "3" },
+];
 
 export default function BudgetRequestFormView({
   formik,
 }: BudgetRequestFormViewProps) {
   const { errorMessage } = useAuthContext();
-  const { values, touched, errors, handleChange, handleSubmit } = formik;
+  // const { values, touched, errors, handleChange, handleSubmit } = formik;
+  const { handleSubmit } = formik;
 
   return (
     <Box
@@ -67,15 +78,22 @@ export default function BudgetRequestFormView({
     >
       <Form onSubmit={handleSubmit}>
         <br />
-
         <Grid container gap={1}>
           <Autocomplete
             disablePortal
             id="ticketsQuestion"
             options={ticketsQuestion}
+            // defaultValue={{ label: "No" }}
+            defaultValue={ticketsQuestion[1]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="¿Entradas?" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="¿Entradas?"
+                color="warning"
+              />
             )}
           />
           <br />
@@ -83,9 +101,17 @@ export default function BudgetRequestFormView({
             disablePortal
             id="tickets"
             options={tickets}
+            // defaultValue={{ label: "0" }}
+            defaultValue={tickets[0]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Número de entradas" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="Número de entradas"
+                color="warning"
+              />
             )}
           />
           <br />
@@ -93,9 +119,17 @@ export default function BudgetRequestFormView({
             disablePortal
             id="theatreZone"
             options={theatreZone}
+            // defaultValue={{ label: "Indiferente" }}
+            defaultValue={theatreZone[0]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Zona del teatro" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="Zona del teatro"
+                color="warning"
+              />
             )}
           />
         </Grid>
@@ -105,9 +139,17 @@ export default function BudgetRequestFormView({
             disablePortal
             id="travelQuestion"
             options={travelQuestion}
+            // defaultValue={{ label: "No" }}
+            defaultValue={travelQuestion[1]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="¿Desplazamiento?" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="¿Desplazamiento?"
+                color="warning"
+              />
             )}
           />
           <br />
@@ -115,9 +157,17 @@ export default function BudgetRequestFormView({
             disablePortal
             id="travel"
             options={travel}
+            // defaultValue={{ label: "Ninguno" }}
+            defaultValue={travel[0]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Medio de transporte" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="Medio de transporte"
+                color="warning"
+              />
             )}
           />
           <br />
@@ -125,9 +175,17 @@ export default function BudgetRequestFormView({
             disablePortal
             id="travelLevel"
             options={travelLevel}
+            // defaultValue={{ label: "Indiferente" }}
+            defaultValue={travelLevel[0]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Clase" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="Clase"
+                color="warning"
+              />
             )}
           />
         </Grid>
@@ -137,9 +195,17 @@ export default function BudgetRequestFormView({
             disablePortal
             id="hotel"
             options={hotel}
+            // defaultValue={{ label: "No" }}
+            defaultValue={hotel[1]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="¿Alojamiento en hotel?" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="¿Alojamiento en hotel?"
+                color="warning"
+              />
             )}
           />
           <br />
@@ -147,9 +213,17 @@ export default function BudgetRequestFormView({
             disablePortal
             id="hotelStars"
             options={hotelStars}
+            // defaultValue={{ label: "0" }}
+            defaultValue={hotelStars[0]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Estrellas del hotel" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="Estrellas del hotel"
+                color="warning"
+              />
             )}
           />
           <br />
@@ -157,10 +231,31 @@ export default function BudgetRequestFormView({
             disablePortal
             id="hotelNights"
             options={hotelNights}
+            // defaultValue={{ label: "0" }}
+            defaultValue={hotelNights[0]}
+            clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
-              <TextField {...params} label="Noches en el hotel" />
+              <TextField
+                {...params}
+                variant="filled"
+                label="Noches en el hotel"
+                color="warning"
+              />
             )}
+          />
+        </Grid>
+        <Grid>
+          <TextField
+            margin="normal"
+            id="notes"
+            variant="filled"
+            label="Si lo considera oportuno, indique una nota adicional para el agente de viajes"
+            color="warning"
+            fullWidth
+            multiline
+            maxRows={2}
+            inputProps={{ maxLength: 250 }}
           />
         </Grid>
 

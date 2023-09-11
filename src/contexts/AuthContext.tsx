@@ -34,6 +34,7 @@ interface BudgetRequest {
   hotel: string;
   hotelStars: number | string;
   hotelNights: number | string;
+  notes: string;
 }
 
 interface AuthContextType {
@@ -245,9 +246,15 @@ export default function AuthContextProvider({
         setErrorMessage(null);
         logout();
       } else {
-        console.log("Datos de usuario no válidos. Es posible que ese email ya esté en uso.");
-        alert("Datos de usuario no válidos. Es posible que ese email ya esté en uso.");
-        setErrorMessage("Datos para actualización incorrectos. Es posible que ese email ya esté en uso.");
+        console.log(
+          "Datos de usuario no válidos. Es posible que ese email ya esté en uso."
+        );
+        alert(
+          "Datos de usuario no válidos. Es posible que ese email ya esté en uso."
+        );
+        setErrorMessage(
+          "Datos para actualización incorrectos. Es posible que ese email ya esté en uso."
+        );
       }
     } catch (error) {
       console.log("Error al actualizar los datos de usuario", error);
@@ -391,6 +398,12 @@ export default function AuthContextProvider({
       if (hotelNightsInput) {
         budgetRequestData.hotelNights = hotelNightsInput.value;
       }
+      const notesInput = document.getElementById(
+        "notes"
+      ) as HTMLInputElement | null;
+      if (notesInput) {
+        budgetRequestData.notes = notesInput.value;
+      }
 
       const response = await fetch("http://localhost:3000/budgetRequest/", {
         method: "POST",
@@ -401,7 +414,9 @@ export default function AuthContextProvider({
       });
       if (response.ok) {
         console.log("Solicitud de presupuesto registrada correctamente");
-        alert("Solicitud de presupuesto registrada correctamente");
+        alert(
+          "Solicitud de presupuesto registrada correctamente. En un plazo máximo de 48 horas, nuestro agente de viajes le enviará a su correo electrónico el presupuesto que ha solicitado."
+        );
         setErrorMessage(null);
       } else {
         console.log("Datos no válidos. Debe rellenar todos los campos.");
