@@ -103,7 +103,7 @@ async function searchEventsFunction(): Promise<EventValues[] | null> {
       // const eventsData: EventDataWithID[] = await response.json();
       const eventsData: EventValues[] = await response.json();
       console.log("Eventos localizados correctamente");
-      alert("Eventos localizados correctamente.");
+      // alert("Eventos localizados correctamente.");
       localStorage.setItem(FOUND_EVENTS, JSON.stringify(eventsData));
       return eventsData;
     } else {

@@ -30,7 +30,7 @@ export default function SearchUserPage() {
 
   // ESTO ES LO AÑADIDO POR EL TEMA "F5"
   const [foundUser, setFoundUser] = useState<UserValues | null | void>(null);
-  useEffect(() => {}, []); // Empty dependency array ensures this effect runs only once
+  useEffect(() => {}, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
 
   async function searchUserByEmail(email: string) {
     try {

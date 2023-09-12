@@ -5,6 +5,8 @@ import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
+// import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
+import FinderEngine_Opera from "../../components/FinderEngine_Opera/FinderEngine_Opera";
 
 const OPERA_KEY = "O_K";
 
@@ -79,6 +81,9 @@ export default function OperaDetails() {
               <h5>Idioma: {opera?.language}</h5>
               <h5>Fecha: {opera?.date}</h5>
               <h5>Duración: {opera?.duration}</h5>
+              {/* <FinderEngineWithIdProvided operaName={opera?.name} /> */}
+              {/* <FinderEngineWithIdProvided /> */}
+              <FinderEngine_Opera />
               <div className="registro">
                 <Link to="/operas" onClick={removeOperaKey}>
                   ¿Ha terminado de ver la información? Haga clic aquí para

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Formik } from "formik";
-import FinderEngineView from "./FinderEngineView";
+import FinderEngine_TheatreView from "./FinderEngine_TheatreView";
 import searchEventsFunction from "../SearchEventsFunction/SearchEventsFunction";
+
+const THEATRE_KEY = "T_K";
 
 type EventValues = {
   id: number;
@@ -17,12 +19,21 @@ type EventValues = {
   dateTime: string;
 };
 
-export default function FinderEngine() {
+export default function FinderEngine_Theatre() {
+
+  const [theatreName, setTheatreName] = useState<string | null>(null);
+  useEffect(() => {
+    const theatreKeyJSON = localStorage.getItem(THEATRE_KEY);
+    if (theatreKeyJSON) {
+      const parsedTheatreName = JSON.parse(theatreKeyJSON);
+      setTheatreName(parsedTheatreName?.name || null);
+    }
+  }, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
 
   const eventValues: EventValues = {
     id: 0,
     idTheatre: 0,
-    theatreName: "",
+    theatreName: theatreName || "",
     idOpera: 0,
     operaName: "",
     idSinger1: 0,
@@ -43,7 +54,7 @@ export default function FinderEngine() {
       // ESTO ES LO AÑADIDO POR EL TEMA "F5"
       setFoundEvents(newData);
     } catch (error) {
-      console.error("Error al hacer fecth de los datos:", error);
+      console.error("Error al hacer fetch de los datos:", error);
     }
   }
 
@@ -58,7 +69,7 @@ export default function FinderEngine() {
       }}
     >
       {(props) => (
-        <FinderEngineView
+        <FinderEngine_TheatreView
           formik={props}
           onSubmit_Search={props.handleSubmit}
           foundEvents={foundEvents}

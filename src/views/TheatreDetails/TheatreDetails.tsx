@@ -5,6 +5,8 @@ import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
+// import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
+import FinderEngine_Theatre from "../../components/FinderEngine_Theatre/FinderEngine_Theatre";
 
 const THEATRE_KEY = "T_K";
 
@@ -84,6 +86,9 @@ export default function TheatreDetails() {
                 </a>
               </h5>
               <h5>Aforo: {theatre?.aphoras} espectadores</h5>
+              {/* <FinderEngineWithIdProvided theatreName={theatre?.name} /> */}
+              {/* <FinderEngineWithIdProvided /> */}
+              <FinderEngine_Theatre />
               <div className="registro">
                 <Link to="/theatres" onClick={removeTheatreKey}>
                   ¿Ha terminado de ver la información? Haga clic aquí para

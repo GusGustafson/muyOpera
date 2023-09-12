@@ -1,12 +1,27 @@
+import { useEffect } from "react";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
-import Ecco from "../../assets/AngelesCastro_EccoRespiroAppena.mp4";
+// import Ecco from "../../assets/AngelesCastro_EccoRespiroAppena.mp4";
 import Ecco_MP3 from "../../assets/AngelesCastro_EccoRespiroAppena.mp3";
 
+const clearLocalStorageKey = () => {
+  localStorage.removeItem('T_K');
+  localStorage.removeItem('O_K');
+  localStorage.removeItem('S_K');
+  localStorage.removeItem('E_K');
+  localStorage.removeItem('F_E');
+  localStorage.removeItem('F_U');
+};
+
 export default function UserLoggedIn() {
+
+  useEffect(() => {
+    clearLocalStorageKey();
+  }, []);
+
   return (
     <Box
       sx={{

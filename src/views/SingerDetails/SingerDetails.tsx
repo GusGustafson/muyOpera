@@ -5,6 +5,8 @@ import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
+// import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
+import FinderEngine_Singer from "../../components/FinderEngine_Singer/FinderEngine_Singer";
 
 const SINGER_KEY = "S_K";
 
@@ -84,6 +86,9 @@ export default function SingerDetails() {
                   {singer?.website}
                 </a>
               </h5>
+              {/* <FinderEngineWithIdProvided operaName={singer?.name} /> */}
+              {/* <FinderEngineWithIdProvided /> */}
+              <FinderEngine_Singer />
               <div className="registro">
                 <Link to="/singers" onClick={removeSingerKey}>
                   ¿Ha terminado de ver la información? Haga clic aquí para

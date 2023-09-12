@@ -280,7 +280,7 @@ export default function AuthContextProvider({
       if (response.ok) {
         const userData: UserDataWithID = await response.json();
         console.log("Usuario localizado correctamente");
-        alert("Usuario localizado correctamente.");
+        // alert("Usuario localizado correctamente.");
         localStorage.setItem(FOUND_USER, JSON.stringify(userData));
         setErrorMessage(null);
         return userData;
