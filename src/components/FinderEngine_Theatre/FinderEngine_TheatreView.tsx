@@ -106,7 +106,7 @@ export default function FinderEngine_TheatreView({
             color="warning"
             onClick={onSubmit_Search}
           >
-            Ver eventos relacionados
+            Ver los eventos de este teatro
           </Button>
         </Form>
       </Box>

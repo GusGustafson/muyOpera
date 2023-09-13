@@ -70,13 +70,8 @@ export default function SingerDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>Información del cantante</h3>
-              <img src={singer?.image} alt={singer?.image} />
-              <br />
-              {/* <h6>Imagen: {singer?.image}</h6> */}
-              {/* <h6>ID: {singer?.id}</h6> */}
-              <br />
-              <h5>Nombre: {singer?.name}</h5>
-              <h5>Apellido: {singer?.surname}</h5>
+              <img src={singer?.image} alt={singer?.image} height={300} />
+              <h5>Nombre: {singer?.name} {singer?.surname}</h5>
               <h5>Voz: {singer?.voice}</h5>
               <h5>Año de nacimiento: {singer?.birthYear}</h5>
               <h5>Nacionalidad: {singer?.nationality}</h5>

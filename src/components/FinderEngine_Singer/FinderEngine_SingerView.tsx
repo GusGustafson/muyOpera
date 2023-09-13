@@ -106,7 +106,7 @@ export default function FinderEngine_SingerView({
             color="warning"
             onClick={onSubmit_Search}
           >
-            Ver eventos relacionados
+            Ver los eventos de este/a cantante
           </Button>
         </Form>
       </Box>

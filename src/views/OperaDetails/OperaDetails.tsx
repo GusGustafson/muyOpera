@@ -70,11 +70,7 @@ export default function OperaDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>Información de la ópera</h3>
-              <img src={opera?.image} alt={opera?.image} />
-              <br />
-              {/* <h6>Imagen: {opera?.image}</h6> */}
-              {/* <h6>ID: {opera?.id}</h6> */}
-              <br />
+              <img src={opera?.image} alt={opera?.image} height={300} />
               <h5>Nombre: {opera?.name}</h5>
               <h5>Compositor: {opera?.composer}</h5>
               <h5>Libretista: {opera?.librettist}</h5>

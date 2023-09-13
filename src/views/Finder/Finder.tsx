@@ -25,8 +25,8 @@ export default function Finder() {
             <div className="caja destacado">
               <h3>Buscador avanzado</h3>
               <p>
-                Indique uno o varios datos para buscar eventos por TEATRO, por
-                ÓPERA o por CANTANTE.
+                Indique uno o varios datos para buscar eventos por TEATRO, ÓPERA
+                o CANTANTE.
               </p>
               <p>
                 Cuando encuentre el evento que le interese, puede solicitar, si

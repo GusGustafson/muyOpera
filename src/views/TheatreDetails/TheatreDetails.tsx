@@ -70,11 +70,7 @@ export default function TheatreDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>Información del teatro</h3>
-              <img src={theatre?.image} alt={theatre?.image} />
-              <br />
-              {/* <h6>Imagen: {theatre?.image}</h6> */}
-              {/* <h6>ID: {theatre?.id}</h6> */}
-              <br />
+              <img src={theatre?.image} alt={theatre?.image} height={300} />
               <h5>Nombre: {theatre?.name}</h5>
               <h5>Ciudad: {theatre?.city}</h5>
               <h5>Dirección: {theatre?.address}</h5>

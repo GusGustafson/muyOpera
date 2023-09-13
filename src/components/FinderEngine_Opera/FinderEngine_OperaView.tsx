@@ -106,7 +106,7 @@ export default function FinderEngine_OperaView({
             color="warning"
             onClick={onSubmit_Search}
           >
-            Ver eventos relacionados
+            Ver los eventos de esta ópera
           </Button>
         </Form>
       </Box>
