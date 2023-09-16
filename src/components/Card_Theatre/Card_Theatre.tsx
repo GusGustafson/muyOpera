@@ -5,6 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
 import { images } from "../FramerMotion_Theatres/image-data";
 
@@ -32,12 +33,13 @@ interface Card_Theatre {
 
 export default function Card_Theatre({
   id,
-  image,
+  // image,
   name,
   city,
   // address,
   // aphoras,
 }: Card_Theatre) {
+  const { t } = useTranslation();
   return (
     <Container>
       <Box mb={2}>
@@ -69,7 +71,7 @@ export default function Card_Theatre({
                 color="warning"
                 fullWidth
               >
-                <Link to={`${id}`}>Información del teatro</Link>
+                <Link to={`${id}`}>{t("CARD_THEATRE_button")}</Link>
               </Button>
             </CardActions>
           </div>

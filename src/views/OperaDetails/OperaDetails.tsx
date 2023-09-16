@@ -7,6 +7,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 // import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
 import FinderEngine_Opera from "../../components/FinderEngine_Opera/FinderEngine_Opera";
+import { useTranslation } from "react-i18next";
 
 const OPERA_KEY = "O_K";
 
@@ -24,6 +25,7 @@ interface Opera {
 export default function OperaDetails() {
   const [opera, setOpera] = useState<Opera | null>(null);
   const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchData() {
@@ -69,21 +71,20 @@ export default function OperaDetails() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Información de la ópera</h3>
+              <h3>{t("OPERADETAILS_title")}</h3>
               <img src={opera?.image} alt={opera?.image} height={300} />
-              <h5>Nombre: {opera?.name}</h5>
-              <h5>Compositor: {opera?.composer}</h5>
-              <h5>Libretista: {opera?.librettist}</h5>
-              <h5>Idioma: {opera?.language}</h5>
-              <h5>Fecha: {opera?.date}</h5>
-              <h5>Duración: {opera?.duration}</h5>
+              <h5>{t("OPERADETAILS_name")} {opera?.name}</h5>
+              <h5>{t("OPERADETAILS_composer")} {opera?.composer}</h5>
+              <h5>{t("OPERADETAILS_librettist")} {opera?.librettist}</h5>
+              <h5>{t("OPERADETAILS_language")} {opera?.language}</h5>
+              <h5>{t("OPERADETAILS_date")} {opera?.date}</h5>
+              <h5>{t("OPERADETAILS_duration")} {opera?.duration}</h5>
               {/* <FinderEngineWithIdProvided operaName={opera?.name} /> */}
               {/* <FinderEngineWithIdProvided /> */}
               <FinderEngine_Opera />
               <div className="registro">
                 <Link to="/operas" onClick={removeOperaKey}>
-                  ¿Ha terminado de ver la información? Haga clic aquí para
-                  volver atrás.
+                {t("OPERADETAILS_link")}
                 </Link>
               </div>
             </div>

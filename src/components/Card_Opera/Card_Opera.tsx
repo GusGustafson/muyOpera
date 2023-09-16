@@ -5,6 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
 import { images } from "../FramerMotion_Operas/image-data";
 
@@ -32,12 +33,13 @@ interface Card_Opera {
 
 export default function Card_Opera({
   id,
-  image,
+  // image,
   name,
   composer,
   // language,
   // date,
 }: Card_Opera) {
+  const { t } = useTranslation();
   return (
     <Container>
       <Box mb={2}>
@@ -68,7 +70,7 @@ export default function Card_Opera({
                 color="warning"
                 fullWidth
               >
-                <Link to={`${id}`}>Información de la ópera</Link>
+                <Link to={`${id}`}>{t("CARD_OPERA_button")}</Link>
               </Button>
             </CardActions>
           </div>

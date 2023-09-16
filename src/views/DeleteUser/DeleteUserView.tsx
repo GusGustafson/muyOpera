@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 const FOUND_USER = "F_U";
 
@@ -28,6 +29,7 @@ export default function DeleteUserView(props: DeleteUserViewProps) {
     const foundUser: FoundUser | null = foundUserJSON
       ? JSON.parse(foundUserJSON)
       : null;
+    const { t } = useTranslation();
 
   return (
     <Box
@@ -46,16 +48,14 @@ export default function DeleteUserView(props: DeleteUserViewProps) {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Eliminación de cuenta de usuario</h3>
-              <p>
-                Haz clic en el botón para eliminar definitivamente esta cuenta de usuario:
-              </p>
-              <h4>Cuenta de usuario:</h4>
-              <h5>ID: <span id="userFoundId">{foundUser?.id}</span></h5>
-              <h5>Nombre: {foundUser?.name}</h5>
-              <h5>Apellidos: {foundUser?.surname}</h5>
-              <h5>Correo electrónico: {foundUser?.email}</h5>
-              <h5>Rol: {foundUser?.userRole}</h5>
+              <h3>{t("DELETEUSER_title")}</h3>
+              <p>{t("DELETEUSER_p1")}</p>
+              <h4>{t("DELETEUSER_subtitle")}</h4>
+              <h5>{t("DELETEUSER_id")} <span id="userFoundId">{foundUser?.id}</span></h5>
+              <h5>{t("DELETEUSER_name")} {foundUser?.name}</h5>
+              <h5>{t("DELETEUSER_surname")} {foundUser?.surname}</h5>
+              <h5>{t("DELETEUSER_email")} {foundUser?.email}</h5>
+              <h5>{t("DELETEUSER_userRole")} {foundUser?.userRole}</h5>
               <Button
                   id="deleteUserButton"
                   // type="button"
@@ -66,13 +66,13 @@ export default function DeleteUserView(props: DeleteUserViewProps) {
                   color="warning"
                   onClick={props.onSubmit}
                 >
-                  Eliminar cuenta de usuario
+                  {t("DELETEUSER_button")}
                 </Button>
                 <br />
                 <br />
               <div className="registro">
                 <Link to="/admin">
-                  ¿No deseas eliminar esta cuenta de usuario? Haz clic aquí para volver atrás.
+                {t("DELETEUSER_link")}
                 </Link>
               </div>
             </div>

@@ -12,6 +12,7 @@ import Select from "@mui/material/Select";
 
 import Card_Event from "../../components/Card_Event/Card_Event";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 interface FinderEngineViewProps {
   formik: FormikValues;
@@ -40,6 +41,7 @@ export default function FinderEngineView({
   onSubmit_Search,
 }: FinderEngineViewProps) {
   const { values, handleChange, handleSubmit } = formik;
+  const { t } = useTranslation();
 
   const foundEventsJSON = localStorage.getItem(FOUND_EVENTS);
   const foundEvents: FoundEvent[] | null = foundEventsJSON
@@ -83,7 +85,7 @@ export default function FinderEngineView({
             fullWidth
             hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
             id="theatreName"
-            label="Teatro"
+            label={t("FINDERENGINE_theatre")}
             name="theatreName"
             // defaultValue={foundEvent?.theatreName} // NO PONER "defaultValue" Y "value", que casca
             value={values.theatreName} // NO PONER "defaultValue" Y "value", que casca
@@ -108,7 +110,7 @@ export default function FinderEngineView({
             fullWidth
             hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
             id="operaName"
-            label="Ópera"
+            label={t("FINDERENGINE_opera")}
             name="operaName"
             // defaultValue={foundEvent?.operaName} // NO PONER "defaultValue" Y "value", que casca
             value={values.operaName} // NO PONER "defaultValue" Y "value", que casca
@@ -171,7 +173,7 @@ export default function FinderEngineView({
             fullWidth
             hidden // Tengo que ocultarlo, porque si lo quito, deja de funcionar el "FormControl" correspondiente
             id="singerAnyFullname"
-            label="Cantante"
+            label={t("FINDERENGINE_singer")}
             name="singerAnyFullname"
             // defaultValue={foundEvent?.singerAnyFullname} // NO PONER "defaultValue" Y "value", que casca
             value={values.singerAnyFullname} // NO PONER "defaultValue" Y "value", que casca
@@ -180,18 +182,18 @@ export default function FinderEngineView({
 
           <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="theatreName_Label" color="warning">
-              Teatro
+            {t("FINDERENGINE_theatre")}
             </InputLabel>
             <Select
               labelId="theatreName_Label"
               id="theatreName"
-              label="Teatro"
+              label={t("FINDERENGINE_theatre")}
               name="theatreName"
               value={values.theatreName}
               onChange={handleChange}
               color="warning"
             >
-              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
+              <MenuItem value="">{t("FINDERENGINE_clearSelection")}</MenuItem>
               <MenuItem value="Auditorio Alfredo Kraus">
                 Auditorio Alfredo Kraus
               </MenuItem>
@@ -209,18 +211,18 @@ export default function FinderEngineView({
 
           <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="operaName_Label" color="warning">
-              Ópera
+            {t("FINDERENGINE_opera")}
             </InputLabel>
             <Select
               labelId="operaName_Label"
               id="operaName"
-              label="Ópera"
+              label={t("FINDERENGINE_opera")}
               name="operaName"
               value={values.operaName}
               onChange={handleChange}
               color="warning"
             >
-              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
+              <MenuItem value="">{t("FINDERENGINE_clearSelection")}</MenuItem>
               <MenuItem value="La Bohème">La Bohème</MenuItem>
               <MenuItem value="La Traviata">La Traviata</MenuItem>
               <MenuItem value="Le nozze di Figaro">Le nozze di Figaro</MenuItem>
@@ -274,18 +276,18 @@ export default function FinderEngineView({
 
           <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="singerAnyFullname_Label" color="warning">
-              Cantante
+            {t("FINDERENGINE_singer")}
             </InputLabel>
             <Select
               labelId="singerAnyFullname_Label"
               id="singerAnyFullname"
-              label="Cantante"
+              label={t("FINDERENGINE_singer")}
               name="singerAnyFullname"
               value={values.singerAnyFullname}
               onChange={handleChange}
               color="warning"
             >
-              <MenuItem value="">-- BORRAR SELECCIÓN --</MenuItem>
+              <MenuItem value="">{t("FINDERENGINE_clearSelection")}</MenuItem>
               <MenuItem value="Alexander Vinogradov">
                 Alexander Vinogradov
               </MenuItem>
@@ -305,12 +307,12 @@ export default function FinderEngineView({
             color="warning"
             onClick={onSubmit_Search}
           >
-            Buscar eventos
+            {t("FINDERENGINE_button")}
           </Button>
         </Form>
       </Box>
       <br />
-      <h5>Eventos encontrados:</h5>
+      <h5>{t("FINDERENGINE_subtitle")}</h5>
 
       <Grid container spacing={1} marginTop={1}>
         {foundEvents?.map((event) => {

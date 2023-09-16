@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { format } from "date-fns";
 import { es } from 'date-fns/locale';
+import { useTranslation } from "react-i18next";
 
 const cardStyles = (
   <GlobalStyles
@@ -45,6 +46,7 @@ export default function Card_Event({
 }: Card_Event) {
   const date = new Date(dateTime);
   const formattedDate = format(date, "dd/MM/yyyy - HH:mm", { locale: es });
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -54,17 +56,17 @@ export default function Card_Event({
           {cardStyles}
           <CardContent>
             <Typography variant="body1" color="text.secondary">
-              Núm. evento: <strong>{id}</strong>
+              {t("CARD_EVENT_id")} <strong>{id}</strong>
               <br />
-              Teatro: <strong>{theatreName}</strong>
+              {t("CARD_EVENT_theatreName")} <strong>{theatreName}</strong>
               <br />
-              Ópera: <strong>{operaName}</strong>
+              {t("CARD_EVENT_operaName")} <strong>{operaName}</strong>
               <br />
-              Cantante femenino: <strong>{singer1Fullname}</strong>
+              {t("CARD_EVENT_singer1Fullname")} <strong>{singer1Fullname}</strong>
               <br />
-              Cantante masculino: <strong>{singer2Fullname}</strong>
+              {t("CARD_EVENT_singer2Fullname")} <strong>{singer2Fullname}</strong>
               <br />
-              Fecha y hora: <strong>{formattedDate}</strong>
+              {t("CARD_EVENT_formattedDate")} <strong>{formattedDate}</strong>
             </Typography>
           </CardContent>
           <div className="cardButton">
@@ -75,7 +77,7 @@ export default function Card_Event({
                 color="warning"
                 fullWidth
               >
-                <Link to={`/event/${id}`}>Solicitar presupuesto</Link>
+                <Link to={`/event/${id}`}>{t("CARD_EVENT_button")}</Link>
               </Button>
             </CardActions>
           </div>

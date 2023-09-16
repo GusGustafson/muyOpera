@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, ReactNode } from "react";
 import jwtDecode from "jwt-decode";
+import { useTranslation } from "react-i18next";
 
 interface UserDataWithID {
   id: number;
@@ -94,6 +95,7 @@ export default function AuthContextProvider({
     JSON.parse(localStorage.getItem(USER_KEY) || "null")
   );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   async function login({
     email,
@@ -120,8 +122,8 @@ export default function AuthContextProvider({
         setErrorMessage(null);
       } else {
         console.log("Usuario no válido");
-        alert("Los datos no son correctos. Inténtelo de nuevo.");
-        setErrorMessage("Los datos no son correctos.");
+        alert(t("alerts.LOGIN_error"));
+        setErrorMessage(t("alerts.LOGIN_message"));
       }
     } catch (error) {
       console.log("Error al iniciar sesión", error);
@@ -180,13 +182,13 @@ export default function AuthContextProvider({
       });
       if (response.ok) {
         console.log("Usuario nuevo registrado correctamente");
-        alert("Usuario nuevo registrado correctamente");
+        alert(t("alerts.REGISTRATION_success"));
         await login({ email, password });
         setErrorMessage(null);
       } else {
         console.log("Datos de registro de usuario no válidos");
-        alert("Datos de registro de usuario no válidos");
-        setErrorMessage("Datos de registro de usuario no válidos");
+        alert(t("alerts.REGISTRATION_error"));
+        setErrorMessage(t("alerts.REGISTRATION_message"));
       }
     } catch (error) {
       console.log("Error al registrar usuario", error);
@@ -238,9 +240,7 @@ export default function AuthContextProvider({
       );
       if (response.ok) {
         console.log("Datos de usuario actualizados correctamente");
-        alert(
-          "Datos de usuario actualizados correctamente. Por seguridad, vuelva a iniciar sesión con sus datos de usuario actualizados."
-        );
+        alert(t("alerts.UPDATEUSERDATA_success"));
         setUser(null);
         localStorage.setItem(USER_KEY, userData.email);
         setErrorMessage(null);
@@ -249,12 +249,8 @@ export default function AuthContextProvider({
         console.log(
           "Datos de usuario no válidos. Es posible que ese email ya esté en uso."
         );
-        alert(
-          "Datos de usuario no válidos. Es posible que ese email ya esté en uso."
-        );
-        setErrorMessage(
-          "Datos para actualización incorrectos. Es posible que ese email ya esté en uso."
-        );
+        alert(t("alerts.UPDATEUSERDATA_error"));
+        setErrorMessage(t("alerts.UPDATEUSERDATA_message"));
       }
     } catch (error) {
       console.log("Error al actualizar los datos de usuario", error);
@@ -280,7 +276,7 @@ export default function AuthContextProvider({
       if (response.ok) {
         const userData: UserDataWithID = await response.json();
         console.log("Usuario localizado correctamente");
-        // alert("Usuario localizado correctamente.");
+        // alert(t("alerts.SEARCHUSER_success"));
         localStorage.setItem(FOUND_USER, JSON.stringify(userData));
         setErrorMessage(null);
         return userData;
@@ -288,8 +284,8 @@ export default function AuthContextProvider({
         console.log(
           "Búsqueda fallida. Revisa la dirección e inténtalo de nuevo."
         );
-        alert("Búsqueda fallida. Revisa la dirección e inténtalo de nuevo.");
-        setErrorMessage("Búsqueda fallida");
+        alert(t("alerts.SEARCHUSER_error"));
+        setErrorMessage(t("alerts.SEARCHUSER_message"));
         return null;
       }
     } catch (error) {
@@ -323,13 +319,13 @@ export default function AuthContextProvider({
       });
       if (response.ok) {
         console.log("Cuenta de usuario eliminada correctamente");
-        alert("Cuenta de usuario eliminada correctamente.");
+        alert(t("alerts.DELETEUSER_success"));
         localStorage.removeItem(FOUND_USER);
         setErrorMessage(null);
       } else {
         console.log("Datos de eliminación no válidos");
-        alert("Datos de eliminación no válidos");
-        setErrorMessage("Eliminación incorrecta");
+        alert(t("alerts.DELETEUSER_error"));
+        setErrorMessage(t("alerts.DELETEUSER_message"));
       }
     } catch (error) {
       console.log("Error al buscar el usuario", error);
@@ -414,14 +410,12 @@ export default function AuthContextProvider({
       });
       if (response.ok) {
         console.log("Solicitud de presupuesto registrada correctamente");
-        alert(
-          "Solicitud de presupuesto registrada correctamente. En un plazo máximo de 48 horas, nuestro agente de viajes le enviará a su correo electrónico el presupuesto que ha solicitado."
-        );
+        alert(t("alerts.BUDGETREQUEST_success"));
         setErrorMessage(null);
       } else {
         console.log("Datos no válidos. Debe rellenar todos los campos.");
-        alert("Datos no válidos. Debe rellenar todos los campos.");
-        setErrorMessage("Datos no válidos. Debe rellenar todos los campos.");
+        alert(t("alerts.BUDGETREQUEST_error"));
+        setErrorMessage(t("alerts.BUDGETREQUEST_message"));
       }
     } catch (error) {
       console.log("Error al registrar la solicitud de presupuesto", error);

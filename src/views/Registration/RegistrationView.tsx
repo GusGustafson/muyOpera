@@ -5,8 +5,10 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 export default function RegistrationView() {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -23,21 +25,13 @@ export default function RegistrationView() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Registro</h3>
-              <p>
-                Regístrese para disfrutar de todas las funcionalidades que le
-                ofrece{" "}
-                <span>
-                  <strong>muyÓpera</strong>
-                </span>
-                :
-              </p>
+              <h3>{t("REGISTRATION_title")}</h3>
+              <p dangerouslySetInnerHTML={{ __html: t("REGISTRATION_p1") }} />
               <RegistrationForm />
               <br />
               <div className="registro">
                 <Link to="/home">
-                  ¿Ya se registró anteriormente? Haga clic aquí para iniciar
-                  sesión.
+                {t("REGISTRATION_link")}
                 </Link>
               </div>
             </div>

@@ -45,7 +45,7 @@ export default function Theatres() {
           if (!response.ok) {
             // setMessage("Teatro no encontrado");
             setTheatres(null);
-            alert("Teatro no encontrado");
+            // alert("Teatro no encontrado");
           } else {
             const data: Theatre[] = await response.json();
             setTheatres(data);

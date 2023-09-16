@@ -45,7 +45,7 @@ export default function Operas() {
           if (!response.ok) {
             // setMessage("Ópera no encontrada");
             setOperas(null);
-            alert("Ópera no encontrada");
+            // alert("Ópera no encontrada");
           } else {
             const data: Opera[] = await response.json();
             setOperas(data);

@@ -7,6 +7,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 // import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
 import FinderEngine_Singer from "../../components/FinderEngine_Singer/FinderEngine_Singer";
+import { useTranslation } from "react-i18next";
 
 const SINGER_KEY = "S_K";
 
@@ -24,6 +25,7 @@ interface Singer {
 export default function SingerDetails() {
   const [singer, setSinger] = useState<Singer | null>(null);
   const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchData() {
@@ -69,15 +71,13 @@ export default function SingerDetails() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Información del cantante</h3>
+              <h3>{t("SINGERDETAILS_title")}</h3>
               <img src={singer?.image} alt={singer?.image} height={300} />
-              <h5>Nombre: {singer?.name} {singer?.surname}</h5>
-              <h5>Voz: {singer?.voice}</h5>
-              <h5>Año de nacimiento: {singer?.birthYear}</h5>
-              <h5>Nacionalidad: {singer?.nationality}</h5>
-              <h5>
-                Sitio web:{" "}
-                <a href={singer?.website} target="_blank">
+              <h5>{t("SINGERDETAILS_name")} {singer?.name} {singer?.surname}</h5>
+              <h5>{t("SINGERDETAILS_voice")} {singer?.voice}</h5>
+              <h5>{t("SINGERDETAILS_birthYear")} {singer?.birthYear}</h5>
+              <h5>{t("SINGERDETAILS_nationality")} {singer?.nationality}</h5>
+              <h5>{t("SINGERDETAILS_website")} <a href={singer?.website} target="_blank">
                   {singer?.website}
                 </a>
               </h5>
@@ -86,8 +86,7 @@ export default function SingerDetails() {
               <FinderEngine_Singer />
               <div className="registro">
                 <Link to="/singers" onClick={removeSingerKey}>
-                  ¿Ha terminado de ver la información? Haga clic aquí para
-                  volver atrás.
+                {t("SINGERDETAILS_link")}
                 </Link>
               </div>
             </div>

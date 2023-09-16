@@ -2,6 +2,7 @@ import { FormikValues, Form } from "formik";
 import { TextField, Alert, Button, Box } from "@mui/material";
 import { useAuthContext } from "../../contexts/AuthContext";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 interface UpdateUserDataFormViewProps {
   formik: FormikValues;
@@ -10,6 +11,7 @@ interface UpdateUserDataFormViewProps {
 export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormViewProps) {
   const { errorMessage } = useAuthContext();
   const { values, touched, errors, handleChange, handleSubmit } = formik;
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -28,7 +30,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
           required
           fullWidth
           id="name"
-          label="Nombre"
+          label={t("UPDATEUSERDATAFORM_name")}
           name="name"
           defaultValue={values.name} // NO PONER "defaultValue" Y "value", que casca
           // value={values.name} // NO PONER "defaultValue" Y "value", que casca
@@ -43,7 +45,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
           required
           fullWidth
           id="surname"
-          label="Apellidos"
+          label={t("UPDATEUSERDATAFORM_surname")}
           name="surname"
           defaultValue={values.surname} // NO PONER "defaultValue" Y "value", que casca
           // value={values.surname} // NO PONER "defaultValue" Y "value", que casca
@@ -58,7 +60,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
           required
           fullWidth
           id="email"
-          label="Dirección de correo electrónico"
+          label={t("UPDATEUSERDATAFORM_email")}
           name="email"
           type="email"
           defaultValue={values.email} // NO PONER "defaultValue" Y "value", que casca
@@ -74,7 +76,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
           required
           fullWidth
           id="password"
-          label="Contraseña"
+          label={t("UPDATEUSERDATAFORM_password")}
           name="password"
           type="password"
           // defaultValue={values.password} // NO PONER "defaultValue" Y "value", que casca
@@ -82,6 +84,22 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
           onChange={handleChange}
           error={touched.password && Boolean(errors.password)}
           helperText={touched.password && errors.password}
+          autoComplete="new-password"
+        />
+        <TextField
+          margin="dense"
+          color="warning"
+          required
+          fullWidth
+          id="repeatPassword"
+          label={t("UPDATEUSERDATAFORM_repeatPassword")}
+          name="repeatPassword"
+          type="password"
+          // defaultValue={values.repeatPassword} // NO PONER "defaultValue" Y "value", que casca
+          // value={values.repeatPassword} // NO PONER "defaultValue" Y "value", que casca
+          onChange={handleChange}
+          error={touched.repeatPassword && Boolean(errors.repeatPassword)}
+          helperText={touched.repeatPassword && errors.repeatPassword}
           autoComplete="new-password"
         />
         {errorMessage ? (
@@ -98,7 +116,7 @@ export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormVie
           size="large"
           color="warning"
         >
-          Actualizar datos
+          {t("UPDATEUSERDATAFORM_button")}
         </Button>
       </Form>
     </Box>

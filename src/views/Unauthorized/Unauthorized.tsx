@@ -1,37 +1,32 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { Button } from "@mui/material";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+// import Footer from "../../components/Footer/Footer";
+import { useTranslation } from "react-i18next";
 
 export default function Unauthorized() {
+  const { t } = useTranslation();
+
   const { logout } = useAuthContext();
   function loggingOut() {
     logout();
   }
 
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
-
   return (
     <>
       <Header />
       <br />
-      <h1>
-        <em>Sin autorización</em>
-      </h1>
+      <h1><p dangerouslySetInnerHTML={{ __html: t("UNAUTHORIZED_title") }} /></h1>
       <br />
-      <p>No tiene autorización para acceder a la página solicitada.</p>
+      <p>{t("UNAUTHORIZED_p1")}</p>
       <br />
       <Link to="/home" onClick={loggingOut}>
         <Button variant="contained" color="warning">
-          Haga clic aquí para ir al inicio de sesión
+        {t("UNAUTHORIZED_button")}
         </Button>
       </Link>
-      <br />
-      <br />
-      <button onClick={goBack}>Volver atrás</button>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

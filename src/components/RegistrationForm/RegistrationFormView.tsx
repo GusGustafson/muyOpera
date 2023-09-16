@@ -2,6 +2,7 @@ import { FormikValues, Form } from "formik";
 import { TextField, Alert, Button, Box } from "@mui/material";
 import { useAuthContext } from "../../contexts/AuthContext";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 interface RegistrationFormViewProps {
   formik: FormikValues;
@@ -10,6 +11,7 @@ interface RegistrationFormViewProps {
 export default function RegistrationFormView({ formik }: RegistrationFormViewProps) {
   const { errorMessage } = useAuthContext();
   const { values, touched, errors, handleChange, handleSubmit } = formik;
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -18,7 +20,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
         flexDirection: "column",
         alignItems: "center",
         mx: "auto",
-        width: "75%",
+        width: "80%",
       }}
     >
       <Form onSubmit={handleSubmit}>
@@ -28,7 +30,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           required
           fullWidth
           id="name"
-          label="Nombre"
+          label={t("REGISTRATIONFORM_name")}
           name="name"
           value={values.name}
           onChange={handleChange}
@@ -43,7 +45,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           required
           fullWidth
           id="surname"
-          label="Apellidos"
+          label={t("REGISTRATIONFORM_surname")}
           name="surname"
           value={values.surname}
           onChange={handleChange}
@@ -57,7 +59,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           required
           fullWidth
           id="email"
-          label="Dirección de correo electrónico"
+          label={t("REGISTRATIONFORM_email")}
           name="email"
           type="email"
           value={values.email}
@@ -72,7 +74,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           required
           fullWidth
           id="password"
-          label="Contraseña"
+          label={t("REGISTRATIONFORM_password")}
           name="password"
           type="password"
           value={values.password}
@@ -87,7 +89,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           required
           fullWidth
           id="repeatPassword"
-          label="Repetir contraseña"
+          label={t("REGISTRATIONFORM_repeatPassword")}
           name="repeatPassword"
           type="password"
           value={values.repeatPassword}
@@ -110,7 +112,7 @@ export default function RegistrationFormView({ formik }: RegistrationFormViewPro
           size="large"
           color="warning"
         >
-          Registrar usuario
+          {t("REGISTRATIONFORM_button")}
         </Button>
       </Form>
     </Box>

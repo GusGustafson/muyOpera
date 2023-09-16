@@ -18,11 +18,46 @@ import {
 
 import { useAuthContext } from "../../contexts/AuthContext";
 import "../../style.css";
-import { useTranslation } from "react-i18next";
 
 interface BudgetRequestFormViewProps {
   formik: FormikValues;
 }
+
+const ticketsQuestion = [{ label: "Sí" }, { label: "No" }];
+const tickets = [
+  { label: "0" },
+  { label: "1" },
+  { label: "2" },
+  { label: "3" },
+  { label: "4" },
+];
+const theatreZone = [
+  { label: "Indiferente" },
+  { label: "Patio" },
+  { label: "Platea" },
+  { label: "Palco" },
+  { label: "Grada" },
+];
+const travelQuestion = [{ label: "Sí" }, { label: "No" }];
+const travel = [{ label: "Ninguno" }, { label: "Avión" }, { label: "Tren" }];
+const travelLevel = [
+  { label: "Indiferente" },
+  { label: "Business" },
+  { label: "Turista" },
+];
+const hotel = [{ label: "Sí" }, { label: "No" }];
+const hotelStars = [
+  { label: "0" },
+  { label: "3" },
+  { label: "4" },
+  { label: "5" },
+];
+const hotelNights = [
+  { label: "0" },
+  { label: "1" },
+  { label: "2" },
+  { label: "3" },
+];
 
 export default function BudgetRequestFormView({
   formik,
@@ -30,53 +65,6 @@ export default function BudgetRequestFormView({
   const { errorMessage } = useAuthContext();
   // const { values, touched, errors, handleChange, handleSubmit } = formik;
   const { handleSubmit } = formik;
-  const { t } = useTranslation();
-
-  const ticketsQuestion = [
-    { label: t("BUDGETREQUESTFORM_labelYes") },
-    { label: "No" },
-  ];
-  const tickets = [
-    { label: "0" },
-    { label: "1" },
-    { label: "2" },
-    { label: "3" },
-    { label: "4" },
-  ];
-  const theatreZone = [
-    { label: t("BUDGETREQUESTFORM_labelIndifferent") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone1") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone2") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone3") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone4") },
-  ];
-  const travelQuestion = [
-    { label: t("BUDGETREQUESTFORM_labelYes") },
-    { label: "No" },
-  ];
-  const travel = [
-    { label: t("BUDGETREQUESTFORM_labelTravel1") },
-    { label: t("BUDGETREQUESTFORM_labelTravel2") },
-    { label: t("BUDGETREQUESTFORM_labelTravel3") },
-  ];
-  const travelLevel = [
-    { label: t("BUDGETREQUESTFORM_labelIndifferent") },
-    { label: t("BUDGETREQUESTFORM_labelTravelLevel1") },
-    { label: t("BUDGETREQUESTFORM_labelTravelLevel2") },
-  ];
-  const hotel = [{ label: t("BUDGETREQUESTFORM_labelYes") }, { label: "No" }];
-  const hotelStars = [
-    { label: "0" },
-    { label: "3" },
-    { label: "4" },
-    { label: "5" },
-  ];
-  const hotelNights = [
-    { label: "0" },
-    { label: "1" },
-    { label: "2" },
-    { label: "3" },
-  ];
 
   return (
     <Box
@@ -104,7 +92,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_fieldlA")}
+                label="¿Entradas?"
                 color="warning"
               />
             )}
@@ -122,7 +110,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_fieldlB")}
+                label="Número de entradas"
                 color="warning"
               />
             )}
@@ -140,7 +128,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_fieldlC")}
+                label="Zona del teatro"
                 color="warning"
               />
             )}
@@ -161,7 +149,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_field2A")}
+                label="¿Desplazamiento?"
                 color="warning"
               />
             )}
@@ -179,7 +167,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_field2B")}
+                label="Medio de transporte"
                 color="warning"
               />
             )}
@@ -197,7 +185,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_field2C")}
+                label="Clase"
                 color="warning"
               />
             )}
@@ -218,7 +206,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_field3A")}
+                label="¿Alojamiento en hotel?"
                 color="warning"
               />
             )}
@@ -236,7 +224,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_field3B")}
+                label="Estrellas del hotel"
                 color="warning"
               />
             )}
@@ -255,7 +243,7 @@ export default function BudgetRequestFormView({
               <TextField
                 {...params}
                 variant="filled"
-                label={t("BUDGETREQUESTFORM_field3C")}
+                label="Noches en el hotel"
                 color="warning"
               />
             )}
@@ -267,7 +255,7 @@ export default function BudgetRequestFormView({
             margin="normal"
             id="notes"
             variant="filled"
-            label={t("BUDGETREQUESTFORM_notes")}
+            label="Si lo considera oportuno, indique una nota adicional para el agente de viajes"
             color="warning"
             fullWidth
             multiline
@@ -322,7 +310,7 @@ export default function BudgetRequestFormView({
           size="large"
           color="warning"
         >
-          {t("BUDGETREQUESTFORM_button")}
+          Solicitar presupuesto
         </Button>
       </Form>
     </Box>

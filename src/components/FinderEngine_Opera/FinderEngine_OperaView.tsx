@@ -3,6 +3,7 @@ import { FormikValues, Form } from "formik";
 import { TextField, Button, Box, Grid } from "@mui/material";
 import Card_Event from "../../components/Card_Event/Card_Event";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 const OPERA_KEY = "O_K";
 
@@ -32,6 +33,7 @@ export default function FinderEngine_OperaView({
   foundEvents,
 }: FinderEngine_OperaViewProps) {
   const { values, handleChange, handleSubmit } = formik;
+  const { t } = useTranslation();
 
   const [operaName, setOperaName] = useState<string | null>(null);
   useEffect(() => {
@@ -106,7 +108,7 @@ export default function FinderEngine_OperaView({
             color="warning"
             onClick={onSubmit_Search}
           >
-            Ver los eventos de esta ópera
+            {t("OPERADETAILS_button")}
           </Button>
         </Form>
       </Box>

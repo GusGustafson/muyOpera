@@ -6,6 +6,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 import UpdateUserDataForm from "../../components/UpdateUserDataForm/UpdateUserDataForm";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 const USER_KEY = "U_K";
 
@@ -19,7 +20,8 @@ interface User {
 export default function MyAccountView() {
   const userJSON = localStorage.getItem(USER_KEY);
   const user: User | null = userJSON ? JSON.parse(userJSON) : null;
-  console.log(user);
+
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -38,14 +40,13 @@ export default function MyAccountView() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Actualización de datos de usuario</h3>
-              <p>Modifique aquí cualquier dato de su cuenta:</p>
+              <h3>{t("MYACCOUNT_title")}</h3>
+              <p>{t("MYACCOUNT_p1")}</p>
               <UpdateUserDataForm />
               <br />
               <div className="registro">
                 <Link to="/userLoggedIn">
-                  ¿No desea cambiar nada? Haga clic aquí para volver a la página
-                  principal.
+                {t("MYACCOUNT_link")}
                 </Link>
               </div>
             </div>

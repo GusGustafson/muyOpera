@@ -5,6 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
+import { useTranslation } from "react-i18next";
 
 import { images } from "./image-data";
 
@@ -32,13 +33,14 @@ interface Card_Singer {
 
 export default function Card_Singer({
   id,
-  image,
+  // image,
   name,
   surname,
   voice,
   // birthYear,
   // nationality,
 }: Card_Singer) {
+  const { t } = useTranslation();
   return (
     <Container>
       <Box mb={2}>
@@ -69,7 +71,7 @@ export default function Card_Singer({
                 color="warning"
                 fullWidth
               >
-                <Link to={`${id}`}>Información del cantante</Link>
+                <Link to={`${id}`}>{t("CARD_SINGER_button")}</Link>
               </Button>
             </CardActions>
           </div>

@@ -1,3 +1,5 @@
+// ESTE MÓDULO YA NO LO USO. UTILIZO LOS ESPECÍFICOS DE teatro, ópera y cantante PARA QUE FUNCIONEN BIEN DE FORMA INDEPENDIENTE.
+
 import { useState, useEffect } from "react";
 import { Formik } from "formik";
 import FinderEngineWithIdProvidedView from "./FinderEngineWithIdProvidedView";

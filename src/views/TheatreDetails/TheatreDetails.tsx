@@ -7,6 +7,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 // import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
 import FinderEngine_Theatre from "../../components/FinderEngine_Theatre/FinderEngine_Theatre";
+import { useTranslation } from "react-i18next";
 
 const THEATRE_KEY = "T_K";
 
@@ -24,6 +25,7 @@ interface Theatre {
 export default function TheatreDetails() {
   const [theatre, setTheatre] = useState<Theatre | null>(null);
   const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchData() {
@@ -69,26 +71,23 @@ export default function TheatreDetails() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Información del teatro</h3>
+              <h3>{t("THEATREDETAILS_title")}</h3>
               <img src={theatre?.image} alt={theatre?.image} height={300} />
-              <h5>Nombre: {theatre?.name}</h5>
-              <h5>Ciudad: {theatre?.city}</h5>
-              <h5>Dirección: {theatre?.address}</h5>
-              <h5>Teléfono: {theatre?.telephone}</h5>
-              <h5>
-                Sitio web:{" "}
-                <a href={theatre?.website} target="_blank">
+              <h5>{t("THEATREDETAILS_name")} {theatre?.name}</h5>
+              <h5>{t("THEATREDETAILS_city")} {theatre?.city}</h5>
+              <h5>{t("THEATREDETAILS_address")} {theatre?.address}</h5>
+              <h5>{t("THEATREDETAILS_telephone")} {theatre?.telephone}</h5>
+              <h5>{t("THEATREDETAILS_website")} <a href={theatre?.website} target="_blank">
                   {theatre?.website}
                 </a>
               </h5>
-              <h5>Aforo: {theatre?.aphoras} espectadores</h5>
+              <h5>{t("THEATREDETAILS_aphorus")} {theatre?.aphoras} {t("THEATREDETAILS_aphorus2")}</h5>
               {/* <FinderEngineWithIdProvided theatreName={theatre?.name} /> */}
               {/* <FinderEngineWithIdProvided /> */}
               <FinderEngine_Theatre />
               <div className="registro">
                 <Link to="/theatres" onClick={removeTheatreKey}>
-                  ¿Ha terminado de ver la información? Haga clic aquí para
-                  volver atrás.
+                {t("THEATREDETAILS_link")}
                 </Link>
               </div>
             </div>

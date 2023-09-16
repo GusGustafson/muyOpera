@@ -14,7 +14,10 @@ type InitialValues = {
   surname: string;
   email: string;
   password: string;
+  repeatPassword: string;
   userRole: number;
+  registerDate: string;
+  updateDate: string;
 };
 
 export default function UpdateUserDataForm() {
@@ -29,16 +32,12 @@ export default function UpdateUserDataForm() {
     surname: user!.surname,
     email: user!.email,
     password: user!.password,
+    repeatPassword: user!.password,
     userRole: user!.userRole,
+    registerDate: user!.registerDate,
+    updateDate: user!.updateDate,
   };
 
-  // const [auth, setAuth] = useState<InitialValues>({
-  //   id: 0,
-  //   name: "",
-  //   surname: "",
-  //   email: "",
-  //   password: "",
-  // });
   const [auth, setAuth] = useState<InitialValues>(initialValues);
 
   function handleAuth(e: React.ChangeEvent<HTMLInputElement>) {

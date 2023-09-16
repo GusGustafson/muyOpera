@@ -6,6 +6,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 // import Ecco from "../../assets/AngelesCastro_EccoRespiroAppena.mp4";
 import Ecco_MP3 from "../../assets/AngelesCastro_EccoRespiroAppena.mp3";
+import { useTranslation } from "react-i18next";
 
 const clearLocalStorageKey = () => {
   localStorage.removeItem('T_K');
@@ -17,6 +18,7 @@ const clearLocalStorageKey = () => {
 };
 
 export default function UserLoggedIn() {
+  const { t } = useTranslation();
 
   useEffect(() => {
     clearLocalStorageKey();
@@ -44,52 +46,21 @@ export default function UserLoggedIn() {
                   <strong>muyÓpera</strong>
                 </span>
               </h3>
-              <p>
-                <strong>
-                  Le damos la bienvenida a{" "}
-                  <span className="muyOpera-text-color" id="muyOperaText">
-                    muyÓpera
-                  </span>
-                  , la forma más fácil de encontrar los principales eventos
-                  líricos de la temporada 2023/24.
-                </strong>
-              </p>
+              <p  dangerouslySetInnerHTML={{ __html: t("USERLOGGEDIN_subtitle") }} />
               {/* <br /> */}
-              <p>
-                En el menú superior dispone de opciones para ver los TEATROS,
-                las ÓPERAS y los CANTANTES.
-              </p>
-              <p>
-                Y, por supuesto, también puede acceder al BUSCADOR AVANZADO,
-                nuestra funcionalidad principal.
-              </p>
-              <p>
-                El BUSCADOR AVANZADO le permite encontrar fácilmente aquellos
-                eventos que más le interesen.
-              </p>
-              <p>
-                Además le ofrece la posibilidad de solicitar un presupuesto
-                personalizado a nuestro agente de viajes,
-              </p>
-              <p>
-                indicando si solo desea obtener entradas o si también quiere que
-                le busquemos viaje y alojamiento.
-              </p>
-              <p>
-                Esperamos que aquí encuentre un gran evento con el que disfrutar
-                de la ópera.
-              </p>
+              <p>{t("USERLOGGEDIN_p1")}</p>
+              <p>{t("USERLOGGEDIN_p2")}</p>
+              <p>{t("USERLOGGEDIN_p3")}</p>
+              <p>{t("USERLOGGEDIN_p4")}</p>
+              <p>{t("USERLOGGEDIN_p5")}</p>
+              <p>{t("USERLOGGEDIN_p6")}</p>
               {/* <video controls height={180} autoPlay>
                 <source src={Ecco} type="video/mp4" />
               </video> */}
               <audio controls autoPlay>
                 <source src={Ecco_MP3} type="audio/mp3" />
               </audio>
-              <p>
-                Disfrute de su estancia aquí deleitándose con esta maravillosa
-                aria de la ópera Adriana Lecouvreur, interpretada por la soprano
-                Ángeles Castro.
-              </p>
+              <p>{t("USERLOGGEDIN_p7")}</p>
             </div>
           </div>
         </div>

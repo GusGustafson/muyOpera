@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FormikValues, Form } from "formik";
 import { TextField, Button, Box } from "@mui/material";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 interface SearchUserPageViewProps {
   formik: FormikValues;
@@ -27,6 +28,7 @@ export default function SearchUserPageView({
   onSubmit_Search,
 }: SearchUserPageViewProps) {
   const { values, handleChange, handleSubmit } = formik;
+  const { t } = useTranslation();
 
   const foundUserJSON = localStorage.getItem(FOUND_USER);
   const foundUser: FoundUser | null = foundUserJSON
@@ -43,11 +45,8 @@ export default function SearchUserPageView({
         width: "80%",
       }}
     >
-      <h3>Búsqueda de usuario</h3>
-      <p>
-        Introduce aquí la dirección de correo electrónico del usuario para
-        buscarlo:
-      </p>
+      <h3>{t("SEARCHUSERPAGE_title")}</h3>
+      <p>{t("SEARCHUSERPAGE_p1")}</p>
       <Form onSubmit={handleSubmit}>
         <TextField
           margin="dense"
@@ -55,7 +54,7 @@ export default function SearchUserPageView({
           required
           fullWidth
           id="email"
-          label="Dirección de correo electrónico"
+          label={t("SEARCHUSERPAGEFORM_email")}
           name="email"
           type="email"
           // defaultValue={foundUser?.id} // NO PONER "defaultValue" Y "value", que casca
@@ -72,20 +71,19 @@ export default function SearchUserPageView({
           color="warning"
           onClick={onSubmit_Search}
         >
-          Buscar usuario
+          {t("SEARCHUSERPAGEFORM_button")}
         </Button>
       </Form>
       <br />
-      <h4>Usuario encontrado:</h4>
-      <h5>ID: {foundUser?.id}</h5>
-      <h5>Nombre: {foundUser?.name}</h5>
-      <h5>Apellidos: {foundUser?.surname}</h5>
-      <h5>Correo electrónico: {foundUser?.email}</h5>
-      <h5>Rol: {foundUser?.userRole}</h5>
+      <h4>{t("SEARCHUSERPAGE_subtitle")}</h4>
+      <h5>{t("SEARCHUSERPAGE_id")} {foundUser?.id}</h5>
+      <h5>{t("SEARCHUSERPAGE_name")} {foundUser?.name}</h5>
+      <h5>{t("SEARCHUSERPAGE_surname")} {foundUser?.surname}</h5>
+      <h5>{t("SEARCHUSERPAGE_email")} {foundUser?.email}</h5>
+      <h5>{t("SEARCHUSERPAGE_userRole")} {foundUser?.userRole}</h5>
       <div className="registro">
         <Link to="/deleteUser">
-          ¿Quieres eliminar la cuenta del usuario? Haz clic aquí para acceder a
-          la página de confirmación.
+        {t("SEARCHUSERPAGE_link")}
         </Link>
       </div>
     </Box>

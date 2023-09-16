@@ -2,6 +2,7 @@ import { FormikValues, Form } from "formik";
 import { TextField, Alert, Button, Box } from "@mui/material";
 import { useAuthContext } from "../../contexts/AuthContext";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 interface LoginViewProps {
   formik: FormikValues;
@@ -10,6 +11,7 @@ interface LoginViewProps {
 export default function LoginView({ formik }: LoginViewProps) {
   const { errorMessage } = useAuthContext();
   const { values, touched, errors, handleChange, handleSubmit } = formik;
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -28,7 +30,7 @@ export default function LoginView({ formik }: LoginViewProps) {
           required
           fullWidth
           id="email"
-          label="Dirección de correo electrónico"
+          label={t("LOGIN_email")}
           name="email"
           value={values.email}
           onChange={handleChange}
@@ -43,7 +45,7 @@ export default function LoginView({ formik }: LoginViewProps) {
           required
           fullWidth
           id="password"
-          label="Contraseña"
+          label={t("LOGIN_password")}
           name="password"
           type="password"
           value={values.password}
@@ -65,7 +67,7 @@ export default function LoginView({ formik }: LoginViewProps) {
           size="large"
           color="warning"
         >
-          Iniciar sesión
+          {t("LOGIN_button")}
         </Button>
       </Form>
     </Box>

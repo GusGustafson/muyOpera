@@ -159,7 +159,7 @@ export default function SearchUserFormView({
             gap: 6,
             alignItems: "center",
             mx: "auto",
-            width: "75%",
+            width: "80%",
           }}
         >
           <Button

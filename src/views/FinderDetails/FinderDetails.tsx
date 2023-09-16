@@ -8,6 +8,7 @@ import Footer from "../../components/Footer/Footer";
 import BudgetRequestForm from "../../components/BudgetRequestForm/BudgetRequestForm";
 import { format } from "date-fns";
 import { es } from 'date-fns/locale';
+import { useTranslation } from "react-i18next";
 
 const EVENT_KEY = "E_K";
 
@@ -27,6 +28,7 @@ interface EventValues {
 export default function FinderDetails() {
   const [event, setEvent] = useState<EventValues | null>(null);
   const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchData() {
@@ -74,22 +76,21 @@ export default function FinderDetails() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              <h3>Información del evento</h3>
+              <h3>{t("FINDERDETAILS_title")}</h3>
               <br />
-              <h5>Núm. evento: {event?.id}</h5>
-              <h5>Teatro: {event?.theatreName}</h5>
-              <h5>Ópera: {event?.operaName}</h5>
-              <h5>Cantante femenino: {event?.singer1Fullname}</h5>
-              <h5>Cantante masculino: {event?.singer2Fullname}</h5>
-              <h5>Fecha y hora: {formattedDate}</h5>
+              <h5>{t("FINDERDETAILS_id")} {event?.id}</h5>
+              <h5>{t("FINDERDETAILS_theatreName")} {event?.theatreName}</h5>
+              <h5>{t("FINDERDETAILS_operaName")} {event?.operaName}</h5>
+              <h5>{t("FINDERDETAILS_singer1Fullname")} {event?.singer1Fullname}</h5>
+              <h5>{t("FINDERDETAILS_singer2Fullname")} {event?.singer2Fullname}</h5>
+              <h5>{t("FINDERDETAILS_formattedDate")} {formattedDate}</h5>
               <br />
-              <div>Para solicitar un presupuesto personalizado, cambie los valores de estos campos como desee y haga clic en el botón SOLICITAR PRESUPUESTO.</div>
+              <div>{t("FINDERDETAILS_div")}</div>
               <BudgetRequestForm />
               <br />
               <div className="registro">
                 <Link to="/finder" onClick={removeEventKey}>
-                  ¿No desea solicitar un presupuesto para este evento? Haga clic
-                  aquí para volver atrás.
+                {t("FINDERDETAILS_link")}
                 </Link>
               </div>
             </div>

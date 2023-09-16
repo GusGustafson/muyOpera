@@ -3,6 +3,7 @@ import { FormikValues, Form } from "formik";
 import { TextField, Button, Box, Grid } from "@mui/material";
 import Card_Event from "../../components/Card_Event/Card_Event";
 import "../../style.css";
+import { useTranslation } from "react-i18next";
 
 const THEATRE_KEY = "T_K";
 
@@ -32,6 +33,7 @@ export default function FinderEngine_TheatreView({
   foundEvents,
 }: FinderEngine_TheatreViewProps) {
   const { values, handleChange, handleSubmit } = formik;
+  const { t } = useTranslation();
 
   const [theatreName, setTheatreName] = useState<string | null>(null);
   useEffect(() => {
@@ -106,7 +108,7 @@ export default function FinderEngine_TheatreView({
             color="warning"
             onClick={onSubmit_Search}
           >
-            Ver los eventos de este teatro
+            {t("THEATREDETAILS_button")}
           </Button>
         </Form>
       </Box>

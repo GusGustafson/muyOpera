@@ -45,7 +45,7 @@ export default function Singers() {
           if (!response.ok) {
             // setMessage("Cantante no encontrado");
             setSingers(null);
-            alert("Cantante no encontrado");
+            // alert("Cantante no encontrado");
           } else {
             const data: Singer[] = await response.json();
             setSingers(data);
