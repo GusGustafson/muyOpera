@@ -38,7 +38,7 @@ export default function SearchUserPage() {
       // ESTO ES LO AÑADIDO POR EL TEMA "F5"
       setFoundUser(newData);
   } catch (error) {
-    console.error("Error al hacer fecth de los datos:", error);
+    console.error("Error al hacer fetch de los datos:", error);
   }
 }
 
