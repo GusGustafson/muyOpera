@@ -15,6 +15,7 @@ import FinderDetails from "./views/FinderDetails";
 import Admin from "./views/Admin";
 import DeleteUser from "./views/DeleteUser";
 import MyAccount from "./views/MyAccount";
+import SearchResults from "./views/SearchResults";
 import Unauthorized from "./views/Unauthorized";
 import NotFound from "./views/NotFound";
 import Layout from "./components/Layout";
@@ -23,6 +24,7 @@ import PrivateRoute from "./components/router/PrivateRoute";
 import { roles } from "./const/roles";
 
 export default function App() {
+
   return (
     <BrowserRouter>
       <AuthContextProvider>
@@ -57,6 +59,7 @@ export default function App() {
               <Route path="finder" element={<Finder />} />
               <Route path="event/:id" element={<FinderDetails />} />
               <Route path="myAccount" element={<MyAccount />} />
+              <Route path="searchResults" element={<SearchResults />} />
             </Route>
           </Route>
 

@@ -167,6 +167,16 @@
     "BUDGETREQUESTFORM_notes": "Si lo considera oportuno, indique una nota adicional para el agente de viajes",
     "BUDGETREQUESTFORM_button": "Solicitar presupuesto",
 
+    "SEARCHRESULTS_title": "Palabra encontrada",
+    "SEARCHRESULTS_p1": "Estos son los resultados correspondientes a la palabra encontrada:",
+    "SEARCHRESULTS_data1": "Nombre:",
+    "SEARCHRESULTS_data2": "Ciudad/Compositor/Apellido:",
+    "SEARCHRESULTS_data3": "Dirección/Libretista/Voz:",
+    "SEARCHRESULTS_data4": "Aforo/Idioma/Año de nacimiento:",
+    "SEARCHRESULTS_data5": "Teléfono/Fecha/Nacionalidad:",
+    "SEARCHRESULTS_link": "¿Ha terminado de ver la información? Haga clic aquí para volver a la página principal.",
+    "SEARCHRESULTS_notFound": "No se encontraron resultados.",
+
     "alerts": {
         "LOGIN_error": "Los datos no son correctos. Inténtelo de nuevo.",
         "LOGIN_message": "Los datos no son correctos.",
@@ -184,6 +194,9 @@
         "DELETEUSER_message": "Eliminación incorrecta",
         "BUDGETREQUEST_success": "Solicitud de presupuesto registrada correctamente. En un plazo máximo de 48 horas, nuestro agente de viajes le enviará a su correo electrónico el presupuesto que ha solicitado.",
         "BUDGETREQUEST_error": "Los datos no son válidos. Debe rellenar todos los campos.",
-        "BUDGETREQUEST_message": "Datos no válidos. Debe rellenar todos los campos."
+        "BUDGETREQUEST_message": "Datos no válidos. Debe rellenar todos los campos.",
+        "SEARCHWORD_success": "Palabra localizada correctamente",
+        "SEARCHWORD_error": "Palabra no encontrada en la base de datos. Revisa la palabra e inténtalo de nuevo.",
+        "SEARCHWORD_message": "Búsqueda fallida"
     }
 }

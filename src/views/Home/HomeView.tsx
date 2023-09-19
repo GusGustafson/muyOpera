@@ -12,15 +12,7 @@ import "../../style.css";
 import { useTranslation } from "react-i18next";
 
 export default function HomeView() {
-
-  // const { t, i18n } = useTranslation();
   const { t } = useTranslation();
-
-  // function handleLanguage() {
-  //   i18n.language === "es-ES"
-  //     ? i18n.changeLanguage("en")
-  //     : i18n.changeLanguage("es-ES");
-  // }
 
   return (
     <Box
@@ -75,19 +67,10 @@ export default function HomeView() {
             <div className="caja destacado">
               <h3>{t("HOME_title")}</h3>
               <p dangerouslySetInnerHTML={{ __html: t("HOME_p1") }} />
-
-              {/* PRUEBA DE i18next */}
-              {/* {t("EXAMPLE_title")}
-              <p>Idioma actual: {i18n.language}</p>
-              <button onClick={handleLanguage}>Cambiar idioma</button> */}
-              {/* PRUEBA DE i18next */}
-
               <Login />
               <br />
               <div className="registro">
-                <Link to="/registration">
-                  {t("HOME_link")}
-                </Link>
+                <Link to="/registration">{t("HOME_link")}</Link>
               </div>
             </div>
           </div>

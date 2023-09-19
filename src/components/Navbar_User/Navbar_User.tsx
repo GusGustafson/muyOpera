@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { roles } from "../../const/roles";
 // import SearchField from "../../components/SearchField/SearchField"
@@ -14,6 +14,7 @@ export default function Navbar_User() {
     logout();
   }
 
+  const { searchWord } = useAuthContext();
   const [searchQuery, setSearchQuery] = useState<string>("");
   useEffect(() => {}, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
   function handleSearchInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -23,16 +24,23 @@ export default function Navbar_User() {
   async function handleSearchSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
-      // Perform your search logic with the searchQuery state value
       console.log("Input del usuario para la query de búsqueda:", searchQuery);
-      // You can implement the actual search functionality here
+      const results = await searchWord(searchQuery);
+      console.log("Resultados de la búsqueda:", results);
     } catch (error) {
       console.error("Error al hacer fetch de los datos:", error);
     }
   }
 
+  const navigate = useNavigate();
+  function navigateToSearchResults() {
+    navigate("/searchResults");
+  }
+  const handleButtonClick = () => {
+    navigateToSearchResults();
+  };
+
   return (
-    // <nav className="container navbar" id="navegacion">
     <nav className="navbar" id="navegacion">
       <div className="col-izq">
         <ul className="menu d-flex gap-4">
@@ -62,7 +70,7 @@ export default function Navbar_User() {
           value={searchQuery}
           onChange={handleSearchInputChange}
         />
-        <button type="submit">Buscar</button>
+        <button type="submit" onClick={handleButtonClick}>Buscar</button>
       </form>
 
       <div className="col-der">

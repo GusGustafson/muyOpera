@@ -167,6 +167,16 @@
     "BUDGETREQUESTFORM_notes": "If appropriate, please give an additional note to the travel agent",
     "BUDGETREQUESTFORM_button": "Request a quote",
 
+    "SEARCHRESULTS_title": "Word Found",
+    "SEARCHRESULTS_p1": "These are the results corresponding to the word found:",
+    "SEARCHRESULTS_data1": "Name:",
+    "SEARCHRESULTS_data2": "City/Composer/Last Name:",
+    "SEARCHRESULTS_data3": "Address/Librettist/Voice:",
+    "SEARCHRESULTS_data4": "Seating Capacity/Language/Year of Birth:",
+    "SEARCHRESULTS_data5": "Telephone/Date/Nationality:",
+    "SEARCHRESULTS_link": "Have you finished viewing the information? Click here to return to the home page.",
+    "SEARCHRESULTS_notFound": "No results found.",
+
     "alerts": {
         "LOGIN_error": "The data is not correct. Please try again.",
         "LOGIN_message": "The data is not correct.",
@@ -184,6 +194,9 @@
         "DELETEUSER_message": "Incorrect deletion",
         "BUDGETREQUEST_success": "Your quote request has been successfully registered. Within a maximum of 48 hours, our travel agent will send you the quote you have requested by email.",
         "BUDGETREQUEST_error": "The data is invalid. All fields must be filled in.",
-        "BUDGETREQUEST_message": "Invalid data. All fields must be filled in."
+        "BUDGETREQUEST_message": "Invalid data. All fields must be filled in.",
+        "SEARCHWORD_success": "Word successfully found",
+        "SEARCHWORD_error": "Word not found in the database. Check the word and try again.",
+        "SEARCHWORD_message": "Search failed"
     }
 }

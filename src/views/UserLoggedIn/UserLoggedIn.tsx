@@ -15,6 +15,7 @@ const clearLocalStorageKey = () => {
   localStorage.removeItem('E_K');
   localStorage.removeItem('F_E');
   localStorage.removeItem('F_U');
+  localStorage.removeItem('F_W');
 };
 
 export default function UserLoggedIn() {

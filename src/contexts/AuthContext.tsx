@@ -67,6 +67,7 @@ interface AuthContextType {
   searchUser: (email: string) => void;
   deleteUser: (id: number) => void;
   budgetRequest: (budgetRequestData: BudgetRequest) => void;
+  searchWord: (email: string) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -79,12 +80,14 @@ const AuthContext = createContext<AuthContextType>({
   searchUser: async (): Promise<void> => {},
   deleteUser: async (): Promise<void> => {},
   budgetRequest: async (): Promise<void> => {},
+  searchWord: async (): Promise<void> => {},
 });
 
 const USER_KEY = "U_K";
 const USER_TOKEN = "U_T";
 const FOUND_USER = "F_U";
 const EVENT_KEY = "E_K";
+const FOUND_WORD = "F_W";
 
 export default function AuthContextProvider({
   children,
@@ -422,6 +425,36 @@ export default function AuthContextProvider({
     }
   }
 
+  async function searchWord(searchQuery: string): Promise<UserValues | null> {
+    try {
+      const response = await fetch(`http://localhost:3000/object/${searchQuery}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        const wordData: UserDataWithID = await response.json();
+        console.log("Palabra localizada correctamente");
+        // alert(t("alerts.SEARCHWORD_success"));
+        localStorage.setItem(FOUND_WORD, JSON.stringify(wordData));
+        setErrorMessage(null);
+        return wordData;
+      } else {
+        console.log(
+          "Palabra no encontrada en la base de datos. Revisa la palabra e inténtalo de nuevo."
+        );
+        alert(t("alerts.SEARCHWORD_error"));
+        setErrorMessage(t("alerts.SEARCHWORD_message"));
+        return null;
+      }
+    } catch (error) {
+      console.log("Error al buscar la palabra", error);
+      return null;
+    }
+  }
+
+
   const value: AuthContextType = {
     user,
     errorMessage,
@@ -432,6 +465,7 @@ export default function AuthContextProvider({
     searchUser,
     deleteUser,
     budgetRequest,
+    searchWord,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
