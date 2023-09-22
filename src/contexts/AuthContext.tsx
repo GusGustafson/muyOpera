@@ -24,6 +24,17 @@ interface UserValues {
   updateDate: string;
 }
 
+interface ObjectValues {
+  id: number;
+  name: string;
+  city: string;
+  address: string;
+  aphoras: string;
+  telephone: string;
+  website: string;
+  image: string;
+}
+
 interface BudgetRequest {
   id: number;
   idUser: number;
@@ -67,7 +78,7 @@ interface AuthContextType {
   searchUser: (email: string) => void;
   deleteUser: (id: number) => void;
   budgetRequest: (budgetRequestData: BudgetRequest) => void;
-  searchWord: (email: string) => void;
+  searchWord: (searchQuery: string) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -260,7 +271,6 @@ export default function AuthContextProvider({
     }
   }
 
-  // async function searchUser(email: string): Promise<void> {
   async function searchUser(email: string): Promise<UserValues | null> {
     try {
       const emailInput = document.getElementById(
@@ -425,7 +435,7 @@ export default function AuthContextProvider({
     }
   }
 
-  async function searchWord(searchQuery: string): Promise<UserValues | null> {
+  async function searchWord(searchQuery: string): Promise<ObjectValues | null> {
     try {
       const response = await fetch(`http://localhost:3000/object/${searchQuery}`, {
         method: "GET",
@@ -434,7 +444,7 @@ export default function AuthContextProvider({
         },
       });
       if (response.ok) {
-        const wordData: UserDataWithID = await response.json();
+        const wordData: ObjectValues = await response.json();
         console.log("Palabra localizada correctamente");
         // alert(t("alerts.SEARCHWORD_success"));
         localStorage.setItem(FOUND_WORD, JSON.stringify(wordData));

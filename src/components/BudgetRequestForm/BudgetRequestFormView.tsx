@@ -132,7 +132,7 @@ export default function BudgetRequestFormView({
             disablePortal
             id="theatreZone"
             options={theatreZone}
-            // defaultValue={{ label: "Indiferente" }}
+            // defaultValue={{ label: t("BUDGETREQUESTFORM_labelIndifferent") }}
             defaultValue={theatreZone[0]}
             clearIcon={false}
             sx={{ width: 250 }}
@@ -171,7 +171,7 @@ export default function BudgetRequestFormView({
             disablePortal
             id="travel"
             options={travel}
-            // defaultValue={{ label: "Ninguno" }}
+            // defaultValue={{ label: t("BUDGETREQUESTFORM_labelTravel1") }}
             defaultValue={travel[0]}
             clearIcon={false}
             sx={{ width: 250 }}
@@ -189,7 +189,7 @@ export default function BudgetRequestFormView({
             disablePortal
             id="travelLevel"
             options={travelLevel}
-            // defaultValue={{ label: "Indiferente" }}
+            // defaultValue={{ label: t("BUDGETREQUESTFORM_labelIndifferent") }}
             defaultValue={travelLevel[0]}
             clearIcon={false}
             sx={{ width: 250 }}

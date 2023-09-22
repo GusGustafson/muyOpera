@@ -3,7 +3,7 @@
     "HOME_p1": "Enter your credentials to access our virtual theatre and enjoy everything that <span><strong>muyÓpera</strong></span> offers:",
     "HOME_link": "Do you not have an account yet? Click here to register.",
 
-    "HEADER_header": "The easiest way to find major lyric events",
+    "HEADER_header": "This is undoubtedly the easiest way to find mayor lyric events",
 
     "FOOTER_footer": "muyÓpera © Augusto Blanco - All rights reserved",
     
@@ -28,6 +28,7 @@
     "NAVBAR_operas": "Operas",
     "NAVBAR_singers": "Singers",
     "NAVBAR_finder": "Advanced Finder",
+    "NAVBAR_search": "Search by Word",
     "NAVBAR_admin": "ADMIN",
     "NAVBAR_myAccount": "My Account",
     "NAVBAR_logout": "Log Out",
@@ -176,6 +177,13 @@
     "SEARCHRESULTS_data5": "Telephone/Date/Nationality:",
     "SEARCHRESULTS_link": "Have you finished viewing the information? Click here to return to the home page.",
     "SEARCHRESULTS_notFound": "No results found.",
+
+    "SEARCHWORDPAGE_title": "Search by Word",
+    "SEARCHWORDPAGE_p1": "Enter here a word (whole or only a part of it) to search for it in our database:",
+    "SEARCHWORDPAGE_field": "Word to be searched in the database",
+    "SEARCHWORDPAGE_link": "Have you finished viewing the information? Click here to return to the home page.",
+    "SEARCHWORDPAGE_subtitle": "Word found:",
+    "SEARCHWORDPAGE_button": "Search Word",
 
     "alerts": {
         "LOGIN_error": "The data is not correct. Please try again.",

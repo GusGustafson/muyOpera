@@ -1,3 +1,4 @@
+// import { useEffect } from "react";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
 import Header from "../../components/Header/Header";
@@ -21,17 +22,13 @@ interface User {
   updateDate: string;
 }
 
-// interface FoundUser {
-//   id: number;
-//   name: string;
-//   surname: string;
-//   email: string;
-//   userRole: number;
-//   registerDate: string;
-//   updateDate: string;
-// }
-
 export default function AdminView() {
+
+  // Aquí uso "useEffect" para eliminar el valor de USER_KEY del localStorage cuando se carga el componente - ESTO NO FUNCIONA
+  // useEffect(() => {
+  //   localStorage.removeItem(USER_KEY);
+  // }, []);
+
   const userJSON = localStorage.getItem(USER_KEY);
   const user: User | null = userJSON ? JSON.parse(userJSON) : null;
   console.log(user);

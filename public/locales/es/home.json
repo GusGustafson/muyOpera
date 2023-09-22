@@ -27,7 +27,8 @@
     "NAVBAR_theatres": "Teatros",
     "NAVBAR_operas": "Óperas",
     "NAVBAR_singers": "Cantantes",
-    "NAVBAR_finder": "Buscador avanzado",
+    "NAVBAR_finder": "--Buscador avanzado--",
+    "NAVBAR_search": "Búsqueda por palabra",
     "NAVBAR_admin": "ADMIN",
     "NAVBAR_myAccount": "Mi cuenta",
     "NAVBAR_logout": "Cerrar sesión",
@@ -176,6 +177,13 @@
     "SEARCHRESULTS_data5": "Teléfono/Fecha/Nacionalidad:",
     "SEARCHRESULTS_link": "¿Ha terminado de ver la información? Haga clic aquí para volver a la página principal.",
     "SEARCHRESULTS_notFound": "No se encontraron resultados.",
+
+    "SEARCHWORDPAGE_title": "Búsqueda por palabra",
+    "SEARCHWORDPAGE_p1": "Introduzca aquí una palabra (entera o solo una parte) para buscarla en nuestra base de datos:",
+    "SEARCHWORDPAGE_field": "Palabra que buscar en la base de datos",
+    "SEARCHWORDPAGE_link": "¿Ha terminado de ver la información? Haga clic aquí para volver a la página principal.",
+    "SEARCHWORDPAGE_subtitle": "Palabra encontrada:",
+    "SEARCHWORDPAGE_button": "Buscar palabra",
 
     "alerts": {
         "LOGIN_error": "Los datos no son correctos. Inténtelo de nuevo.",

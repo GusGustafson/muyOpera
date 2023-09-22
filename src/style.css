@@ -209,27 +209,11 @@ input{
 #navegacion .col-der .menu{
   text-align: right;
 }
-/* ESTO NO FUNCIONA PARA QUITAR LOS BORDES Y EL COLOR AL SEARCHFIELD */
-.searchField{
-  background-color: coral;
-}
-#campoBuscar{
-  padding: 0;
-}
 
 
 @media only screen and (max-width: 768px) {
   body {
     flex-direction: column;
-  }
-}
-
-/* ESTO SIGUIENTE NO FUNCIONA PARA QUITAR LOS BORDES AL SEARCHFIELD */
-@media (min-width: 600px) {
-  .css-hyum1k-MuiToolbar-root {
-    min-height: 42px;
-    padding-left: 0px;
-    padding-right: 0px;
   }
 }
 

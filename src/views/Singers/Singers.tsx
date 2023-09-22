@@ -12,25 +12,22 @@ interface Singer {
   website: string;
 }
 
+const clearLocalStorageKey = () => {
+  localStorage.removeItem('T_K');
+  localStorage.removeItem('O_K');
+  localStorage.removeItem('S_K');
+  localStorage.removeItem('E_K');
+  localStorage.removeItem('F_E');
+  localStorage.removeItem('F_U');
+  localStorage.removeItem('F_W');
+};
+
 export default function Singers() {
-  // Aquí va toda la lógica (llamadas a API, cálculos...)
   const [singers, setSingers] = useState<Singer[] | null>(null);
-  // const [page, setPage] = useState(1);
-  // const [searchValue, setSearchValue] = useState("");
-  // const [message, setMessage] = useState("");
-
-  // function handleChange(event, value) {
-  // Esta función es la que hace que se cambie de página al hacer clic en los botones correspondientes.
-  // setPage(value);
-  // }
-
-  // function onSearchCharacter(e) {
-  // Esta función es la que hace que funcione el buscador de la SearchBar.
-  // setSearchValue(e.target.value);
-  // }
 
   useEffect(
     () => {
+      clearLocalStorageKey();
       async function fetchData() {
         try {
           const response = await fetch(

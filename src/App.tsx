@@ -12,6 +12,7 @@ import Singers from "./views/Singers";
 import SingerDetails from "./views/SingerDetails";
 import Finder from "./views/Finder";
 import FinderDetails from "./views/FinderDetails";
+import SearchWord from "./views/SearchWord";
 import Admin from "./views/Admin";
 import DeleteUser from "./views/DeleteUser";
 import MyAccount from "./views/MyAccount";
@@ -58,8 +59,10 @@ export default function App() {
               </Route>
               <Route path="finder" element={<Finder />} />
               <Route path="event/:id" element={<FinderDetails />} />
+              <Route path="searchWord" element={<SearchWord />} />
               <Route path="myAccount" element={<MyAccount />} />
-              <Route path="searchResults" element={<SearchResults />} />
+              {/* COMO EL COMPONENTE "SearchField" DA EL PROBLEMA DE F5, LO HE ANULADO ("COMENTADO") ENTERO. */}
+              {/* <Route path="searchResults" element={<SearchResults />} /> */}
             </Route>
           </Route>
 
