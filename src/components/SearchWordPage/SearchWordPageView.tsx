@@ -32,8 +32,8 @@ export default function SearchWordPageView({
 
   const foundWordJSON = localStorage.getItem(FOUND_WORD);
   const foundWord: FoundWord[] | null = foundWordJSON
-    ? JSON.parse(foundWordJSON)
-    : null;
+  ? JSON.parse(foundWordJSON)
+  : null;
 
   return (
     <Box
@@ -76,29 +76,33 @@ export default function SearchWordPageView({
       <h4>{t("SEARCHWORDPAGE_subtitle")}</h4>
 
       {foundWord && foundWord.length > 0 ? (
-                <div>
-                  {foundWord.map((obj) => (
-                    <div key={obj.id}>
-                      <hr/>
-                      <img src={obj?.image} alt={obj?.image} height={100} />
-                      <p>
-                      {obj.name}
-                      <br/>
-                      {obj.city}
-                      <br/>
-                      {obj.address}
-                      <br/>
-                      {/* <p>{obj.aphoras}</p> */}
-                      {/* <p>{obj.telephone}</p> */}
-                      {obj.website}
-                      {/* <a href={obj.website} target="_blank">{obj.website}</a> */}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p>{t("SEARCHRESULTS_notFound")}</p>
-              )}
+        <div>
+          {foundWord.map((obj) => (
+            <div key={obj.id}>
+              <hr />
+              <img src={obj?.image} alt={obj?.image} height={100} />
+              <p>
+                {obj.name}
+                <br />
+                {obj.city}
+                <br />
+                {obj.address}
+                <br />
+                {/* {obj.aphoras} */}
+                {/* {obj.telephone} */}
+                {obj.telephone}
+                <br />
+                {obj.website}
+                {/* <a href={obj.website} target="_blank">{obj.website}</a> */}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>
+          <p>{t("SEARCHRESULTS_notFound")}</p>
+        </div>
+      )}
 
       <div className="registro">
         <Link to="/userLoggedIn">{t("SEARCHWORDPAGE_link")}</Link>

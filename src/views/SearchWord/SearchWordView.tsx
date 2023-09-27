@@ -44,8 +44,6 @@ export default function SearchWordView() {
         <div className="row">
           <div className="col">
             <div className="caja destacado">
-              {/* <h3>Actualización de datos de usuario</h3> */}
-              {/* <p>Modifique aquí cualquier dato de su cuenta:</p> */}
               <SearchWordPage />
             </div>
           </div>

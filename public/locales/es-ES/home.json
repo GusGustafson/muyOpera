@@ -27,7 +27,7 @@
     "NAVBAR_theatres": "Teatros",
     "NAVBAR_operas": "Óperas",
     "NAVBAR_singers": "Cantantes",
-    "NAVBAR_finder": "Buscador avanzado",
+    "NAVBAR_finder": "Buscador de eventos",
     "NAVBAR_search": "Búsqueda por palabra",
     "NAVBAR_admin": "ADMIN",
     "NAVBAR_myAccount": "Mi cuenta",
@@ -42,8 +42,8 @@
 
     "USERLOGGEDIN_subtitle": "<strong>Le damos la bienvenida a <em><span className='muyOpera-text-color' id='muyOperaText'>muyÓpera</span></em>, la forma más fácil de encontrar los principales eventos líricos de la temporada 2023/24.</strong>",
     "USERLOGGEDIN_p1": "En el menú superior dispone de opciones para ver los TEATROS, las ÓPERAS y los CANTANTES.",
-    "USERLOGGEDIN_p2": "Y, por supuesto, también puede acceder al BUSCADOR AVANZADO, nuestra funcionalidad principal.",
-    "USERLOGGEDIN_p3": "El BUSCADOR AVANZADO le permite encontrar fácilmente aquellos eventos que más le interesen.",
+    "USERLOGGEDIN_p2": "Y, por supuesto, también puede acceder al BUSCADOR DE EVENTOS, nuestra funcionalidad principal.",
+    "USERLOGGEDIN_p3": "El BUSCADOR DE EVENTOS le permite encontrar fácilmente aquellos eventos que más le interesen.",
     "USERLOGGEDIN_p4": "Además le ofrece la posibilidad de solicitar un presupuesto personalizado a nuestro agente de viajes,",
     "USERLOGGEDIN_p5": "indicando si solo desea obtener entradas o si también quiere que le busquemos viaje y alojamiento.",
     "USERLOGGEDIN_p6": "Esperamos que aquí encuentre un gran evento con el que disfrutar de la ópera.",
@@ -83,7 +83,7 @@
     "SINGERDETAILS_button": "Ver los eventos de este/a cantante",
     "SINGERDETAILS_link": "¿Ha terminado de ver la información? Haga clic aquí para volver atrás.",
 
-    "FINDER_title": "Buscador avanzado",
+    "FINDER_title": "Buscador de eventos",
     "FINDER_p1": "Indique uno o varios datos para buscar eventos por TEATRO, ÓPERA o CANTANTE.",
     "FINDER_p2": "Cuando encuentre el evento que le interese, puede solicitar, si lo desea, un presupuesto personalizado a nuestro agente de viajes, indicando si solo quiere obtener las entradas o si prefiere que el agente le busque viaje y alojamiento.",
 
@@ -179,7 +179,7 @@
     "SEARCHRESULTS_notFound": "No se encontraron resultados.",
 
     "SEARCHWORDPAGE_title": "Búsqueda por palabra",
-    "SEARCHWORDPAGE_p1": "Introduzca aquí una palabra (entera o solo una parte) para buscarla en nuestra base de datos:",
+    "SEARCHWORDPAGE_p1": "Introduzca aquí una palabra (entera o solo una parte) para buscarla en nuestra base de datos y mostrar información relacionada:",
     "SEARCHWORDPAGE_field": "Palabra que buscar en la base de datos",
     "SEARCHWORDPAGE_link": "¿Ha terminado de ver la información? Haga clic aquí para volver a la página principal.",
     "SEARCHWORDPAGE_subtitle": "Palabra encontrada:",
@@ -200,11 +200,12 @@
         "DELETEUSER_success": "Cuenta de usuario eliminada correctamente",
         "DELETEUSER_error": "Datos de eliminación no válidos",
         "DELETEUSER_message": "Eliminación incorrecta",
+        "SEARCHEVENT_error": "Búsqueda fallida. Revise el contenido de los campos e inténtelo de nuevo.",
         "BUDGETREQUEST_success": "Solicitud de presupuesto registrada correctamente. En un plazo máximo de 48 horas, nuestro agente de viajes le enviará a su correo electrónico el presupuesto que ha solicitado.",
         "BUDGETREQUEST_error": "Los datos no son válidos. Debe rellenar todos los campos.",
         "BUDGETREQUEST_message": "Datos no válidos. Debe rellenar todos los campos.",
         "SEARCHWORD_success": "Palabra localizada correctamente",
-        "SEARCHWORD_error": "Palabra no encontrada en la base de datos. Revisa la palabra e inténtalo de nuevo.",
+        "SEARCHWORD_error": "Palabra no encontrada en la base de datos. Revise la palabra e inténtelo de nuevo.",
         "SEARCHWORD_message": "Búsqueda fallida"
     }
 }

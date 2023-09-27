@@ -1,4 +1,3 @@
-// interface EventDataWithID {
 interface EventValues {
   id: number;
   idTheatre: number;
@@ -15,9 +14,8 @@ interface EventValues {
 
 const FOUND_EVENTS = "F_E";
 
-// async function searchEventsFunction(): Promise<void> {
-async function searchEventsFunction(): Promise<EventValues[] | null> {
-  try {
+  async function searchEventsFunction(): Promise<EventValues[] | null> {
+    try {
     const idTheatreInput = document.getElementById(
       "idTheatre"
     ) as HTMLInputElement | null;
@@ -62,13 +60,6 @@ async function searchEventsFunction(): Promise<EventValues[] | null> {
       ? singerAnyFullnameInput.value
       : "";
 
-    // comento las siguientes líneas porque eran las que hacían uso de GET en vez de POST:
-    // const queryParams = new URLSearchParams({
-    //   idTheatre,
-    //   idOpera,
-    //   idSinger1,
-    //   idSinger2,
-    // });
     const requestBody = {
       idTheatre,
       theatreName,
@@ -81,17 +72,11 @@ async function searchEventsFunction(): Promise<EventValues[] | null> {
       singerAnyFullname,
     };
 
-    // comento la siguiente línea porque era la que hacía uso de GET en vez de POST:
-    // const url = `http://localhost:3000/event/eventsWithConditions?${queryParams.toString()}`;
     const url = "http://localhost:3000/event/eventsWithConditions";
 
     const response = await fetch(
-      // comento la siguiente línea porque era la que hacía uso de GET en vez de POST:
-      // "http://localhost:3000/event/eventsWithConditions",
       url,
       {
-        // comento la siguiente línea porque era la que hacía uso de GET en vez de POST:
-        // method: "GET",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -100,7 +85,6 @@ async function searchEventsFunction(): Promise<EventValues[] | null> {
       }
     );
     if (response.ok) {
-      // const eventsData: EventDataWithID[] = await response.json();
       const eventsData: EventValues[] = await response.json();
       console.log("Eventos localizados correctamente");
       // alert("Eventos localizados correctamente.");
@@ -110,9 +94,7 @@ async function searchEventsFunction(): Promise<EventValues[] | null> {
       console.log(
         "Búsqueda fallida. Revise el contenido de los campos e inténtelo de nuevo."
       );
-      alert(
-        "Búsqueda fallida. Revise el contenido de los campos e inténtelo de nuevo."
-      );
+      // alert(t("alerts.SEARCHEVENT_error"));
       return null;
     }
   } catch (error) {

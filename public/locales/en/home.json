@@ -27,7 +27,7 @@
     "NAVBAR_theatres": "Theatres",
     "NAVBAR_operas": "Operas",
     "NAVBAR_singers": "Singers",
-    "NAVBAR_finder": "Advanced Finder",
+    "NAVBAR_finder": "Event Finder",
     "NAVBAR_search": "Search by Word",
     "NAVBAR_admin": "ADMIN",
     "NAVBAR_myAccount": "My Account",
@@ -42,8 +42,8 @@
 
     "USERLOGGEDIN_subtitle": "<strong>Welcome to <em><span className='muyOpera-text-color' id='muyOperaText'>muyÓpera</span></em>, the easiest way to find the main opera events of the 2023/24 season.</strong>",
     "USERLOGGEDIN_p1": "In the top menu you have options to see the THEATRES, OPERAS and SINGERS.",
-    "USERLOGGEDIN_p2": "And, of course, you can also access the ADVANCED FINDER, our core functionality.",
-    "USERLOGGEDIN_p3": "The ADVANCED FINDER allows you to easily find the events you are most interested in.",
+    "USERLOGGEDIN_p2": "And, of course, you can also access the EVENT FINDER, our core functionality.",
+    "USERLOGGEDIN_p3": "The EVENT FINDER allows you to easily find the events you are most interested in.",
     "USERLOGGEDIN_p4": "You can also request a personalised quote from our travel agent,",
     "USERLOGGEDIN_p5": "indicating whether you only wish to obtain tickets or whether you would also like us to find you travel and accommodation.",
     "USERLOGGEDIN_p6": "We hope you will find a great event here to enjoy the opera.",
@@ -83,7 +83,7 @@
     "SINGERDETAILS_button": "See this singer's events",
     "SINGERDETAILS_link": "Have you finished viewing the information? Click here to go back.",
 
-    "FINDER_title": "Advanced Finder",
+    "FINDER_title": "Event Finder",
     "FINDER_p1": "Enter one or more details to search for events by THEATRE, OPERA or SINGER.",
     "FINDER_p2": "When you find the event you are interested in, you can request, if you wish, a personalised quote from our travel agent, indicating whether you just want to get the tickets or if you prefer the agent to find you travel and accommodation.",
 
@@ -179,7 +179,7 @@
     "SEARCHRESULTS_notFound": "No results found.",
 
     "SEARCHWORDPAGE_title": "Search by Word",
-    "SEARCHWORDPAGE_p1": "Enter here a word (whole or only a part of it) to search for it in our database:",
+    "SEARCHWORDPAGE_p1": "Enter here a word (whole or only a part of it) to search for it in our database and display related information:",
     "SEARCHWORDPAGE_field": "Word to be searched in the database",
     "SEARCHWORDPAGE_link": "Have you finished viewing the information? Click here to return to the home page.",
     "SEARCHWORDPAGE_subtitle": "Word found:",
@@ -200,6 +200,7 @@
         "DELETEUSER_success": "User account successfully deleted",
         "DELETEUSER_error": "The deletion data is invalid",
         "DELETEUSER_message": "Incorrect deletion",
+        "SEARCHEVENT_error": "Search failed. Check field values and try again.",
         "BUDGETREQUEST_success": "Your quote request has been successfully registered. Within a maximum of 48 hours, our travel agent will send you the quote you have requested by email.",
         "BUDGETREQUEST_error": "The data is invalid. All fields must be filled in.",
         "BUDGETREQUEST_message": "Invalid data. All fields must be filled in.",
