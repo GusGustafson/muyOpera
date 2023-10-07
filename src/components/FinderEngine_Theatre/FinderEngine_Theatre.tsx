@@ -20,7 +20,6 @@ type EventValues = {
 };
 
 export default function FinderEngine_Theatre() {
-
   const [theatreName, setTheatreName] = useState<string | null>(null);
   useEffect(() => {
     const theatreKeyJSON = localStorage.getItem(THEATRE_KEY);

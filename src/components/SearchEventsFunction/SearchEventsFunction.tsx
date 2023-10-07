@@ -14,8 +14,8 @@ interface EventValues {
 
 const FOUND_EVENTS = "F_E";
 
-  async function searchEventsFunction(): Promise<EventValues[] | null> {
-    try {
+async function searchEventsFunction(): Promise<EventValues[] | null> {
+  try {
     const idTheatreInput = document.getElementById(
       "idTheatre"
     ) as HTMLInputElement | null;
@@ -74,16 +74,13 @@ const FOUND_EVENTS = "F_E";
 
     const url = "http://localhost:3000/event/eventsWithConditions";
 
-    const response = await fetch(
-      url,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
-      }
-    );
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
     if (response.ok) {
       const eventsData: EventValues[] = await response.json();
       console.log("Eventos localizados correctamente");

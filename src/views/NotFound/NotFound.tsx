@@ -10,11 +10,13 @@ export default function NotFound() {
     <>
       <Header />
       <br />
-      <h1><p dangerouslySetInnerHTML={{ __html: t("NOTFOUND_title") }} /></h1>
+      <h1>
+        <p dangerouslySetInnerHTML={{ __html: t("NOTFOUND_title") }} />
+      </h1>
       <br />
       <Link to="/home">
         <Button variant="contained" color="warning">
-        {t("NOTFOUND_button")}
+          {t("NOTFOUND_button")}
         </Button>
       </Link>
       {/* <Footer /> */}

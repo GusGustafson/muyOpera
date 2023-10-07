@@ -37,16 +37,20 @@ export default function Card_Singer({
   name,
   surname,
   voice,
-  // birthYear,
-  // nationality,
-}: Card_Singer) {
+}: // birthYear,
+// nationality,
+Card_Singer) {
   const { t } = useTranslation();
   return (
     <Container>
       <Box mb={2}>
         <CardMUI sx={{ maxWidth: 400 }}>
           {/* Esta siguiente línea es un apaño mientras no consiga que acceda a las imágenes de la BD: */}
-          <CardMedia sx={{ height: 300 }} image={images[id - 1]} title={surname} />
+          <CardMedia
+            sx={{ height: 300 }}
+            image={images[id - 1]}
+            title={surname}
+          />
           {cardStyles}
           {/* Esta línea siguiente no consigue hacer que se carguen las imágenes locales. */}
           {/* <CardMedia sx={{ height: 300 }} image={image} title={name} /> */}

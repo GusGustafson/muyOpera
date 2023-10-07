@@ -9,7 +9,7 @@
     font-size: 100%;
   } /*16px*/
 
-  background: rgba(255, 255, 255, 0.850);
+  background: rgba(255, 255, 255, 0.85);
   font-family: "Noto Serif", serif, system-ui, Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.75;
@@ -38,16 +38,16 @@ img {
 
 /* TIPOGRAFÍA */
 
-.header a{
+.header a {
   text-decoration: none;
 }
 
-.menu a{
+.menu a {
   text-decoration: none;
   color: white;
 }
 
-.cardButton a{
+.cardButton a {
   text-decoration: none;
   color: white;
   width: 100%;
@@ -68,24 +68,29 @@ h5 {
   line-height: 1.3;
 }
 
-h1, .h1{
+h1,
+.h1 {
   margin-top: 0;
   font-size: 3.052rem;
 }
 
-h2, .h2{
+h2,
+.h2 {
   font-size: 2.441rem;
 }
 
-h3, .h3{
+h3,
+.h3 {
   font-size: 1.953rem;
 }
 
-h4, .h4{
+h4,
+.h4 {
   font-size: 1.563rem;
 }
 
-h5, .h5{
+h5,
+.h5 {
   font-size: 1.25rem;
 }
 
@@ -94,38 +99,37 @@ small,
   font-size: 0.8rem;
 }
 
-.noBulletedList li{
-  list-style:none;
+.noBulletedList li {
+  list-style: none;
 }
-
 
 /* COMPONENTES */
 /* Header */
 
-header{
+header {
   background-color: rgb(217, 38, 38);
   /* background-color: #FF4F8B; */
 }
 
-header .container{
+header .container {
   padding: 8px;
   display: flex;
   gap: 8px;
   justify-content: space-between;
-  }
+}
 
-.logo{
+.logo {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-#muyOperaTitle{
-font-weight: 800;
+#muyOperaTitle {
+  font-weight: 800;
 }
 
 /* Footer */
-footer{
+footer {
   background-color: black;
   /* position: absolute; */
   position: relative;
@@ -134,10 +138,10 @@ footer{
   height: 48px;
 }
 
-footer .container{
+footer .container {
   padding: 10px;
   margin: 0;
-  }
+}
 
 /* Input */
 
@@ -147,7 +151,7 @@ footer .container{
   gap: 8px;
 } */
 
-input{
+input {
   /* padding: 16px 24px;
   border: 2px solid var(--gris);
   outline: var(--gris);
@@ -158,13 +162,13 @@ input{
 
 /* Menú */
 
-.menu{
+.menu {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.menu li{
+.menu li {
   display: inline-block;
   padding: 0;
   font-size: 24px;
@@ -179,7 +183,7 @@ input{
 
 /* Caja */
 
-.caja.destacado{
+.caja.destacado {
   border-color: orangered;
   border-style: solid;
   border-radius: 32px;
@@ -190,33 +194,31 @@ input{
   font-size: large;
 }
 
-.registro{
+.registro {
   font-style: oblique;
 }
 
 /* Nav */
 
-.navbar{
+.navbar {
   background-color: coral;
 }
-#navegacion{
+#navegacion {
   font-weight: 500;
   display: flex;
   /* justify-content: space-between; */
   justify-content: space-around;
   padding: 8px;
 }
-#navegacion .col-der .menu{
+#navegacion .col-der .menu {
   text-align: right;
 }
-
 
 @media only screen and (max-width: 768px) {
   body {
     flex-direction: column;
   }
 }
-
 
 /* Card --> Borrable si solo uso MUI para las cards */
 
@@ -228,7 +230,7 @@ input{
   flex-direction: column;
 }
 
-.contenido-producto{
+.contenido-producto {
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -237,46 +239,44 @@ input{
 
 .card-titulo,
 .card-titulo .precio,
-.card-actions{
+.card-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card h5{
+.card h5 {
   margin: 0;
 }
 
-.rating{
+.rating {
   color: var(--gris);
 }
 
-.card-actions{
+.card-actions {
   gap: 16px;
 }
 
-.card-actions .anadir{
+.card-actions .anadir {
   width: 100%;
 }
 
-
-
 /* HELPERS */
 
-.container{
+.container {
   max-width: 992px;
   padding: 0 16px;
   margin: 0 auto;
 }
 
-.main-color{
+.main-color {
   color: blue;
 }
 
-.muyOpera-color{
+.muyOpera-color {
   color: white;
 }
 
-.muyOpera-text-color{
+.muyOpera-text-color {
   color: orangered;
 }

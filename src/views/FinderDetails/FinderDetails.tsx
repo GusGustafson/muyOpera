@@ -7,7 +7,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 import BudgetRequestForm from "../../components/BudgetRequestForm/BudgetRequestForm";
 import { format } from "date-fns";
-import { es } from 'date-fns/locale';
+import { es } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
 
 const EVENT_KEY = "E_K";
@@ -57,7 +57,9 @@ export default function FinderDetails() {
     localStorage.removeItem(EVENT_KEY);
   }
 
-  const formattedDate = event ? format(new Date(event.dateTime), "dd/MM/yyyy - HH:mm", { locale: es }) : "";
+  const formattedDate = event
+    ? format(new Date(event.dateTime), "dd/MM/yyyy - HH:mm", { locale: es })
+    : "";
 
   return (
     <Box
@@ -78,19 +80,31 @@ export default function FinderDetails() {
             <div className="caja destacado">
               <h3>{t("FINDERDETAILS_title")}</h3>
               <br />
-              <h5>{t("FINDERDETAILS_id")} {event?.id}</h5>
-              <h5>{t("FINDERDETAILS_theatreName")} {event?.theatreName}</h5>
-              <h5>{t("FINDERDETAILS_operaName")} {event?.operaName}</h5>
-              <h5>{t("FINDERDETAILS_singer1Fullname")} {event?.singer1Fullname}</h5>
-              <h5>{t("FINDERDETAILS_singer2Fullname")} {event?.singer2Fullname}</h5>
-              <h5>{t("FINDERDETAILS_formattedDate")} {formattedDate}</h5>
+              <h5>
+                {t("FINDERDETAILS_id")} {event?.id}
+              </h5>
+              <h5>
+                {t("FINDERDETAILS_theatreName")} {event?.theatreName}
+              </h5>
+              <h5>
+                {t("FINDERDETAILS_operaName")} {event?.operaName}
+              </h5>
+              <h5>
+                {t("FINDERDETAILS_singer1Fullname")} {event?.singer1Fullname}
+              </h5>
+              <h5>
+                {t("FINDERDETAILS_singer2Fullname")} {event?.singer2Fullname}
+              </h5>
+              <h5>
+                {t("FINDERDETAILS_formattedDate")} {formattedDate}
+              </h5>
               <br />
               <div>{t("FINDERDETAILS_div")}</div>
               <BudgetRequestForm />
               <br />
               <div className="registro">
                 <Link to="/finder" onClick={removeEventKey}>
-                {t("FINDERDETAILS_link")}
+                  {t("FINDERDETAILS_link")}
                 </Link>
               </div>
             </div>

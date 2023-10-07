@@ -37,17 +37,18 @@ export default function FinderEngine_OperaView({
 
   const [operaName, setOperaName] = useState<string | null>(null);
   useEffect(() => {
-    const timeoutId = setTimeout(() => { // Tengo que poner un delay de 0,1 seg para que no coja el valor "null" que tiene el campo theatreName al principio.
-    const operaKeyJSON = localStorage.getItem(OPERA_KEY);
-    if (operaKeyJSON) {
-      const parsedOperaName = JSON.parse(operaKeyJSON);
-      setOperaName(parsedOperaName?.name || null);
-    }
-  }, 100);
-  return () => {
-    clearTimeout(timeoutId);
-  };
-}, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
+    const timeoutId = setTimeout(() => {
+      // Tengo que poner un delay de 0,1 seg para que no coja el valor "null" que tiene el campo theatreName al principio.
+      const operaKeyJSON = localStorage.getItem(OPERA_KEY);
+      if (operaKeyJSON) {
+        const parsedOperaName = JSON.parse(operaKeyJSON);
+        setOperaName(parsedOperaName?.name || null);
+      }
+    }, 100);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
 
   return (
     <Box

@@ -13,13 +13,13 @@ interface Singer {
 }
 
 const clearLocalStorageKey = () => {
-  localStorage.removeItem('T_K');
-  localStorage.removeItem('O_K');
-  localStorage.removeItem('S_K');
-  localStorage.removeItem('E_K');
-  localStorage.removeItem('F_E');
-  localStorage.removeItem('F_U');
-  localStorage.removeItem('F_W');
+  localStorage.removeItem("T_K");
+  localStorage.removeItem("O_K");
+  localStorage.removeItem("S_K");
+  localStorage.removeItem("E_K");
+  localStorage.removeItem("F_E");
+  localStorage.removeItem("F_U");
+  localStorage.removeItem("F_W");
 };
 
 export default function Singers() {
@@ -45,6 +45,7 @@ export default function Singers() {
             // alert("Cantante no encontrado");
           } else {
             const data: Singer[] = await response.json();
+            data.sort((a, b) => (a.name > b.name ? 1 : -1));
             setSingers(data);
             // setMessage(null);
           }
@@ -61,9 +62,5 @@ export default function Singers() {
   // Estos corchetes de arriba los ponemos vacíos en otros hooks useEffect que llevan fetch sin "parámetros $" para evitar
   // que se ejecute ese useEffect en todos y cada uno de los render que haga con el setCharacters.
 
-  return (
-    <SingersView
-      singers={singers || []}
-    />
-  );
+  return <SingersView singers={singers || []} />;
 }

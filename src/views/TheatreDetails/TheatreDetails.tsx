@@ -7,6 +7,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 // import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
 import FinderEngine_Theatre from "../../components/FinderEngine_Theatre/FinderEngine_Theatre";
+import Carousel from "nuka-carousel";
 import { useTranslation } from "react-i18next";
 
 const THEATRE_KEY = "T_K";
@@ -20,6 +21,8 @@ interface Theatre {
   telephone: number;
   website: string;
   image: string;
+  image2: string;
+  image3: string;
 }
 
 export default function TheatreDetails() {
@@ -72,22 +75,51 @@ export default function TheatreDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>{t("THEATREDETAILS_title")}</h3>
-              <img src={theatre?.image} alt={theatre?.image} height={300} />
-              <h5>{t("THEATREDETAILS_name")} {theatre?.name}</h5>
-              <h5>{t("THEATREDETAILS_city")} {theatre?.city}</h5>
-              <h5>{t("THEATREDETAILS_address")} {theatre?.address}</h5>
-              <h5>{t("THEATREDETAILS_telephone")} {theatre?.telephone}</h5>
-              <h5>{t("THEATREDETAILS_website")} <a href={theatre?.website} target="_blank">
+              <div className="container d-flex">
+                <Carousel
+                  autoplay={true}
+                  autoplayInterval={1500}
+                  wrapAround={true}
+                  withoutControls={true}
+                  slidesToShow={3}
+                  // cellSpacing={32}
+                  className="carouselFrame"
+                  // className="card"
+                >
+                  {/* <img src={theatre?.image} alt={theatre?.image} width={533} height={400} /> */}
+                  <img src={theatre?.image} alt={theatre?.image} />
+                  <img src={theatre?.image2} alt={theatre?.image2} />
+                  <img src={theatre?.image3} alt={theatre?.image3} />
+                </Carousel>
+              </div>
+              <h5>
+                {t("THEATREDETAILS_name")} {theatre?.name}
+              </h5>
+              <h5>
+                {t("THEATREDETAILS_city")} {theatre?.city}
+              </h5>
+              <h5>
+                {t("THEATREDETAILS_address")} {theatre?.address}
+              </h5>
+              <h5>
+                {t("THEATREDETAILS_telephone")} {theatre?.telephone}
+              </h5>
+              <h5>
+                {t("THEATREDETAILS_aphorus")} {theatre?.aphoras}{" "}
+                {t("THEATREDETAILS_aphorus2")}
+              </h5>
+              <h5>
+                {t("THEATREDETAILS_website")}{" "}
+                <a href={theatre?.website} target="_blank">
                   {theatre?.website}
                 </a>
               </h5>
-              <h5>{t("THEATREDETAILS_aphorus")} {theatre?.aphoras} {t("THEATREDETAILS_aphorus2")}</h5>
               {/* <FinderEngineWithIdProvided theatreName={theatre?.name} /> */}
               {/* <FinderEngineWithIdProvided /> */}
               <FinderEngine_Theatre />
               <div className="registro">
                 <Link to="/theatres" onClick={removeTheatreKey}>
-                {t("THEATREDETAILS_link")}
+                  {t("THEATREDETAILS_link")}
                 </Link>
               </div>
             </div>

@@ -32,8 +32,16 @@ export default function SearchWordPageView({
 
   const foundWordJSON = localStorage.getItem(FOUND_WORD);
   const foundWord: FoundWord[] | null = foundWordJSON
-  ? JSON.parse(foundWordJSON)
-  : null;
+    ? JSON.parse(foundWordJSON)
+    : null;
+
+  // Esto que sigue es para evitar los errores del inspector al mostrar resultados que tengan el mismo ID:
+  const groupedFoundWord: { [id: number]: FoundWord } = {};
+  if (foundWord) {
+    foundWord.forEach((word) => {
+      groupedFoundWord[word.id] = word;
+    });
+  }
 
   return (
     <Box
@@ -75,9 +83,11 @@ export default function SearchWordPageView({
       <br />
       <h4>{t("SEARCHWORDPAGE_subtitle")}</h4>
 
-      {foundWord && foundWord.length > 0 ? (
+      {/* {foundWord && foundWord.length > 0 ? ( // Cambio esta línea por lo de "resultados con ID duplicado" */}
+      {foundWord && Object.values(groupedFoundWord).length > 0 ? (
         <div>
-          {foundWord.map((obj) => (
+          {/* {foundWord.map((obj) => ( // "Cambio esta línea por lo de resultados con ID duplicado" */}
+          {Object.values(groupedFoundWord).map((obj) => (
             <div key={obj.id}>
               <hr />
               <img src={obj?.image} alt={obj?.image} height={100} />
@@ -92,8 +102,10 @@ export default function SearchWordPageView({
                 {/* {obj.telephone} */}
                 {obj.telephone}
                 <br />
-                {obj.website}
-                {/* <a href={obj.website} target="_blank">{obj.website}</a> */}
+                {/* {obj.website} */}
+                <a href={obj.website} target="_blank">
+                  {obj.website}
+                </a>
               </p>
             </div>
           ))}

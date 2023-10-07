@@ -30,9 +30,7 @@ export default function RegistrationView() {
               <RegistrationForm />
               <br />
               <div className="registro">
-                <Link to="/home">
-                {t("REGISTRATION_link")}
-                </Link>
+                <Link to="/home">{t("REGISTRATION_link")}</Link>
               </div>
             </div>
           </div>

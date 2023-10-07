@@ -17,18 +17,27 @@ interface FoundObject {
   address: string;
   aphoras: string;
   telephone: string;
+  website: string;
   image: string;
 }
 
 export default function SearchResultsView() {
   const foundObjectJSON = localStorage.getItem(FOUND_WORD);
-  const foundObject: FoundObject[] | null = foundObjectJSON ? JSON.parse(foundObjectJSON) : null;
+  const foundObject: FoundObject[] | null = foundObjectJSON
+    ? JSON.parse(foundObjectJSON)
+    : null;
 
   const { t } = useTranslation();
 
-  // ESTO ES LO AÑADIDO POR EL TEMA "F5"
-  const [foundObjects, setFoundObjects] = useState<FoundObject[] | null>(foundObject);
-  useEffect(() => {}, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
+  // ATENCIÓN:
+  // COMO EL COMPONENTE "SearchField" (QUE USA ESTA VISTA "SearchResults") DA EL PROBLEMA DE F5,
+  // LO HE ANULADO ("COMENTADO") ENTERO ALLÍ DONDE HACÍA FALTA, ASÍ QUE PUEDO IGNORAR ESTE ERROR DE "setFoundObjects".
+
+  // ESTO ES LO AÑADIDO POR EL TEMA "F5" (creo que no funciona)
+  const [foundObjects, setFoundObjects] = useState<FoundObject[] | null>(
+    foundObject
+  );
+  useEffect(() => {}, []);
 
   return (
     <Box
@@ -55,11 +64,24 @@ export default function SearchResultsView() {
                   {foundObjects.map((obj) => (
                     <div key={obj.id}>
                       <img src={obj?.image} alt={obj?.image} height={100} />
-                      <p>{t("SEARCHRESULTS_data1")} {obj.name}</p>
-                      <p>{t("SEARCHRESULTS_data2")} {obj.city}</p>
-                      <p>{t("SEARCHRESULTS_data3")} {obj.address}</p>
-                      <p>{t("SEARCHRESULTS_data4")} {obj.aphoras}</p>
-                      <p>{t("SEARCHRESULTS_data5")} {obj.telephone}</p>
+                      <p>
+                        {t("SEARCHRESULTS_data1")} {obj.name}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data2")} {obj.city}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data3")} {obj.address}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data4")} {obj.aphoras}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data5")} {obj.telephone}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data6")} {obj.website}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -69,9 +91,7 @@ export default function SearchResultsView() {
 
               <br />
               <div className="registro">
-                <Link to="/userLoggedIn">
-                {t("SEARCHRESULTS_link")}
-                </Link>
+                <Link to="/userLoggedIn">{t("SEARCHRESULTS_link")}</Link>
               </div>
             </div>
           </div>

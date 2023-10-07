@@ -19,7 +19,8 @@ export const RegistrationFormSchema = yup.object().shape({
   password: yup
     .string()
     .matches(passwordRules, {
-      message: "Como mínimo: 5 caracteres, 1 mayúscula, 1 minúscula y 1 número.",
+      message:
+        "Como mínimo: 5 caracteres, 1 mayúscula, 1 minúscula y 1 número.",
     })
     .required("Este campo es obligatorio."),
   repeatPassword: yup

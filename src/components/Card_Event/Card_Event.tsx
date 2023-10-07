@@ -5,7 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { format } from "date-fns";
-import { es } from 'date-fns/locale';
+import { es } from "date-fns/locale";
 import { useTranslation } from "react-i18next";
 
 const cardStyles = (
@@ -62,9 +62,11 @@ export default function Card_Event({
               <br />
               {t("CARD_EVENT_operaName")} <strong>{operaName}</strong>
               <br />
-              {t("CARD_EVENT_singer1Fullname")} <strong>{singer1Fullname}</strong>
+              {t("CARD_EVENT_singer1Fullname")}{" "}
+              <strong>{singer1Fullname}</strong>
               <br />
-              {t("CARD_EVENT_singer2Fullname")} <strong>{singer2Fullname}</strong>
+              {t("CARD_EVENT_singer2Fullname")}{" "}
+              <strong>{singer2Fullname}</strong>
               <br />
               {t("CARD_EVENT_formattedDate")} <strong>{formattedDate}</strong>
             </Typography>

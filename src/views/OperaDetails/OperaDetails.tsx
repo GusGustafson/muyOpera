@@ -7,6 +7,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 // import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
 import FinderEngine_Opera from "../../components/FinderEngine_Opera/FinderEngine_Opera";
+import Carousel from "nuka-carousel";
 import { useTranslation } from "react-i18next";
 
 const OPERA_KEY = "O_K";
@@ -15,11 +16,13 @@ interface Opera {
   id: number;
   name: string;
   composer: string;
-  librettist: string;
   language: string;
   date: number;
   duration: string;
+  website: string;
   image: string;
+  image2: string;
+  image3: string;
 }
 
 export default function OperaDetails() {
@@ -72,19 +75,50 @@ export default function OperaDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>{t("OPERADETAILS_title")}</h3>
-              <img src={opera?.image} alt={opera?.image} height={300} />
-              <h5>{t("OPERADETAILS_name")} {opera?.name}</h5>
-              <h5>{t("OPERADETAILS_composer")} {opera?.composer}</h5>
-              <h5>{t("OPERADETAILS_librettist")} {opera?.librettist}</h5>
-              <h5>{t("OPERADETAILS_language")} {opera?.language}</h5>
-              <h5>{t("OPERADETAILS_date")} {opera?.date}</h5>
-              <h5>{t("OPERADETAILS_duration")} {opera?.duration}</h5>
+              <div className="container d-flex">
+                <Carousel
+                  autoplay={true}
+                  autoplayInterval={1500}
+                  wrapAround={true}
+                  withoutControls={true}
+                  slidesToShow={3}
+                  // cellSpacing={32}
+                  className="carouselFrame"
+                  // className="card"
+                >
+                  {/* <img src={opera?.image} alt={opera?.image} height={300} /> */}
+                  <img src={opera?.image} alt={opera?.image} />
+                  <img src={opera?.image2} alt={opera?.image2} />
+                  <img src={opera?.image3} alt={opera?.image3} />
+                </Carousel>
+              </div>
+              <h5>
+                {t("OPERADETAILS_name")} {opera?.name}
+              </h5>
+              <h5>
+                {t("OPERADETAILS_composer")} {opera?.composer}
+              </h5>
+              <h5>
+                {t("OPERADETAILS_language")} {opera?.language}
+              </h5>
+              <h5>
+                {t("OPERADETAILS_date")} {opera?.date}
+              </h5>
+              <h5>
+                {t("OPERADETAILS_duration")} {opera?.duration}
+              </h5>
+              <h5>
+                {t("OPERADETAILS_website")}{" "}
+                <a href={opera?.website} target="_blank">
+                  {opera?.website}
+                </a>
+              </h5>
               {/* <FinderEngineWithIdProvided operaName={opera?.name} /> */}
               {/* <FinderEngineWithIdProvided /> */}
               <FinderEngine_Opera />
               <div className="registro">
                 <Link to="/operas" onClick={removeOperaKey}>
-                {t("OPERADETAILS_link")}
+                  {t("OPERADETAILS_link")}
                 </Link>
               </div>
             </div>

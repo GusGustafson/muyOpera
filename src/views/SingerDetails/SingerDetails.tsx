@@ -7,6 +7,7 @@ import Navbar_User from "../../components/Navbar_User/Navbar_User";
 import Footer from "../../components/Footer/Footer";
 // import FinderEngineWithIdProvided from "../../components/FinderEngineWitIdProvided/FinderEngineWithIdProvided";
 import FinderEngine_Singer from "../../components/FinderEngine_Singer/FinderEngine_Singer";
+import Carousel from "nuka-carousel";
 import { useTranslation } from "react-i18next";
 
 const SINGER_KEY = "S_K";
@@ -20,6 +21,8 @@ interface Singer {
   nationality: string;
   website: string;
   image: string;
+  image2: string;
+  image3: string;
 }
 
 export default function SingerDetails() {
@@ -72,12 +75,38 @@ export default function SingerDetails() {
           <div className="col">
             <div className="caja destacado">
               <h3>{t("SINGERDETAILS_title")}</h3>
-              <img src={singer?.image} alt={singer?.image} height={300} />
-              <h5>{t("SINGERDETAILS_name")} {singer?.name} {singer?.surname}</h5>
-              <h5>{t("SINGERDETAILS_voice")} {singer?.voice}</h5>
-              <h5>{t("SINGERDETAILS_birthYear")} {singer?.birthYear}</h5>
-              <h5>{t("SINGERDETAILS_nationality")} {singer?.nationality}</h5>
-              <h5>{t("SINGERDETAILS_website")} <a href={singer?.website} target="_blank">
+              <div className="container d-flex">
+                <Carousel
+                  autoplay={true}
+                  autoplayInterval={1500}
+                  wrapAround={true}
+                  withoutControls={true}
+                  slidesToShow={3}
+                  // cellSpacing={32}
+                  className="carouselFrame"
+                  // className="card"
+                >
+                  {/* <img src={singer?.image} alt={singer?.image} height={300} /> */}
+                  <img src={singer?.image} alt={singer?.image} />
+                  <img src={singer?.image2} alt={singer?.image2} />
+                  <img src={singer?.image3} alt={singer?.image3} />
+                </Carousel>
+              </div>
+              <h5>
+                {t("SINGERDETAILS_name")} {singer?.name} {singer?.surname}
+              </h5>
+              <h5>
+                {t("SINGERDETAILS_voice")} {singer?.voice}
+              </h5>
+              <h5>
+                {t("SINGERDETAILS_birthYear")} {singer?.birthYear}
+              </h5>
+              <h5>
+                {t("SINGERDETAILS_nationality")} {singer?.nationality}
+              </h5>
+              <h5>
+                {t("SINGERDETAILS_website")}{" "}
+                <a href={singer?.website} target="_blank">
                   {singer?.website}
                 </a>
               </h5>
@@ -86,7 +115,7 @@ export default function SingerDetails() {
               <FinderEngine_Singer />
               <div className="registro">
                 <Link to="/singers" onClick={removeSingerKey}>
-                {t("SINGERDETAILS_link")}
+                  {t("SINGERDETAILS_link")}
                 </Link>
               </div>
             </div>

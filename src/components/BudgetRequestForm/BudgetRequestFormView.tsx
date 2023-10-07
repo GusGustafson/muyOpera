@@ -28,54 +28,86 @@ export default function BudgetRequestFormView({
   formik,
 }: BudgetRequestFormViewProps) {
   const { errorMessage } = useAuthContext();
-  // const { values, touched, errors, handleChange, handleSubmit } = formik;
   const { handleSubmit } = formik;
   const { t } = useTranslation();
 
   const ticketsQuestion = [
-    { label: t("BUDGETREQUESTFORM_labelYes") },
-    { label: "No" },
+    // { label: t("BUDGETREQUESTFORM_labelYes") },
+    // { label: "No" },
+    t("BUDGETREQUESTFORM_labelYes"),
+    "No",
   ];
   const tickets = [
-    { label: "0" },
-    { label: "1" },
-    { label: "2" },
-    { label: "3" },
-    { label: "4" },
+    // { label: "0" },
+    // { label: "1" },
+    // { label: "2" },
+    // { label: "3" },
+    // { label: "4" },
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
   ];
   const theatreZone = [
-    { label: t("BUDGETREQUESTFORM_labelIndifferent") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone1") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone2") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone3") },
-    { label: t("BUDGETREQUESTFORM_labelTheatreZone4") },
+    // { label: t("BUDGETREQUESTFORM_labelIndifferent") },
+    // { label: t("BUDGETREQUESTFORM_labelTheatreZone1") },
+    // { label: t("BUDGETREQUESTFORM_labelTheatreZone2") },
+    // { label: t("BUDGETREQUESTFORM_labelTheatreZone3") },
+    // { label: t("BUDGETREQUESTFORM_labelTheatreZone4") },
+    t("BUDGETREQUESTFORM_labelIndifferent"),
+    t("BUDGETREQUESTFORM_labelTheatreZone1"),
+    t("BUDGETREQUESTFORM_labelTheatreZone2"),
+    t("BUDGETREQUESTFORM_labelTheatreZone3"),
+    t("BUDGETREQUESTFORM_labelTheatreZone4"),
   ];
   const travelQuestion = [
-    { label: t("BUDGETREQUESTFORM_labelYes") },
-    { label: "No" },
+    // { label: t("BUDGETREQUESTFORM_labelYes") },
+    // { label: "No" },
+    t("BUDGETREQUESTFORM_labelYes"),
+    "No",
   ];
   const travel = [
-    { label: t("BUDGETREQUESTFORM_labelTravel1") },
-    { label: t("BUDGETREQUESTFORM_labelTravel2") },
-    { label: t("BUDGETREQUESTFORM_labelTravel3") },
+    // { label: t("BUDGETREQUESTFORM_labelTravel1") },
+    // { label: t("BUDGETREQUESTFORM_labelTravel2") },
+    // { label: t("BUDGETREQUESTFORM_labelTravel3") },
+    t("BUDGETREQUESTFORM_labelTravel1"),
+    t("BUDGETREQUESTFORM_labelTravel2"),
+    t("BUDGETREQUESTFORM_labelTravel3"),
   ];
   const travelLevel = [
-    { label: t("BUDGETREQUESTFORM_labelIndifferent") },
-    { label: t("BUDGETREQUESTFORM_labelTravelLevel1") },
-    { label: t("BUDGETREQUESTFORM_labelTravelLevel2") },
+    // { label: t("BUDGETREQUESTFORM_labelIndifferent") },
+    // { label: t("BUDGETREQUESTFORM_labelTravelLevel1") },
+    // { label: t("BUDGETREQUESTFORM_labelTravelLevel2") },
+    t("BUDGETREQUESTFORM_labelIndifferent"),
+    t("BUDGETREQUESTFORM_labelTravelLevel1"),
+    t("BUDGETREQUESTFORM_labelTravelLevel2"),
   ];
-  const hotel = [{ label: t("BUDGETREQUESTFORM_labelYes") }, { label: "No" }];
+  const hotel = [
+    // { label: t("BUDGETREQUESTFORM_labelYes") },
+    // { label: "No" },
+    t("BUDGETREQUESTFORM_labelYes"),
+    "No",
+  ];
   const hotelStars = [
-    { label: "0" },
-    { label: "3" },
-    { label: "4" },
-    { label: "5" },
+    // { label: "0" },
+    // { label: "3" },
+    // { label: "4" },
+    // { label: "5" },
+    "0",
+    "3",
+    "4",
+    "5",
   ];
   const hotelNights = [
-    { label: "0" },
-    { label: "1" },
-    { label: "2" },
-    { label: "3" },
+    // { label: "0" },
+    // { label: "1" },
+    // { label: "2" },
+    // { label: "3" },
+    "0",
+    "1",
+    "2",
+    "3",
   ];
 
   return (
@@ -97,7 +129,8 @@ export default function BudgetRequestFormView({
             id="ticketsQuestion"
             options={ticketsQuestion}
             // defaultValue={{ label: "No" }}
-            defaultValue={ticketsQuestion[1]}
+            // defaultValue={ticketsQuestion[1].label}
+            defaultValue={"No"}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -115,7 +148,8 @@ export default function BudgetRequestFormView({
             id="tickets"
             options={tickets}
             // defaultValue={{ label: "0" }}
-            defaultValue={tickets[0]}
+            // defaultValue={tickets[0]}
+            defaultValue={"0"}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -133,7 +167,8 @@ export default function BudgetRequestFormView({
             id="theatreZone"
             options={theatreZone}
             // defaultValue={{ label: t("BUDGETREQUESTFORM_labelIndifferent") }}
-            defaultValue={theatreZone[0]}
+            // defaultValue={theatreZone[0]}
+            defaultValue={t("BUDGETREQUESTFORM_labelIndifferent")}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -154,7 +189,8 @@ export default function BudgetRequestFormView({
             id="travelQuestion"
             options={travelQuestion}
             // defaultValue={{ label: "No" }}
-            defaultValue={travelQuestion[1]}
+            // defaultValue={travelQuestion[1]}
+            defaultValue={"No"}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -172,7 +208,8 @@ export default function BudgetRequestFormView({
             id="travel"
             options={travel}
             // defaultValue={{ label: t("BUDGETREQUESTFORM_labelTravel1") }}
-            defaultValue={travel[0]}
+            // defaultValue={travel[0]}
+            defaultValue={t("BUDGETREQUESTFORM_labelTravel1")}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -190,7 +227,8 @@ export default function BudgetRequestFormView({
             id="travelLevel"
             options={travelLevel}
             // defaultValue={{ label: t("BUDGETREQUESTFORM_labelIndifferent") }}
-            defaultValue={travelLevel[0]}
+            // defaultValue={travelLevel[0]}
+            defaultValue={t("BUDGETREQUESTFORM_labelIndifferent")}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -211,7 +249,8 @@ export default function BudgetRequestFormView({
             id="hotel"
             options={hotel}
             // defaultValue={{ label: "No" }}
-            defaultValue={hotel[1]}
+            // defaultValue={hotel[1]}
+            defaultValue={"No"}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -229,7 +268,8 @@ export default function BudgetRequestFormView({
             id="hotelStars"
             options={hotelStars}
             // defaultValue={{ label: "0" }}
-            defaultValue={hotelStars[0]}
+            // defaultValue={hotelStars[0]}
+            defaultValue={"0"}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (
@@ -248,7 +288,8 @@ export default function BudgetRequestFormView({
             id="hotelNights"
             options={hotelNights}
             // defaultValue={{ label: "0" }}
-            defaultValue={hotelNights[0]}
+            // defaultValue={hotelNights[0]}
+            defaultValue={"0"}
             clearIcon={false}
             sx={{ width: 250 }}
             renderInput={(params) => (

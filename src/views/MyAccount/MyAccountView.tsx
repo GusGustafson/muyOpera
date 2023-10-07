@@ -8,18 +8,18 @@ import UpdateUserDataForm from "../../components/UpdateUserDataForm/UpdateUserDa
 import "../../style.css";
 import { useTranslation } from "react-i18next";
 
-const USER_KEY = "U_K";
+// const USER_KEY = "U_K";
 
-interface User {
-  id: number;
-  name: string;
-  surname: string;
-  email: string;
-}
+// interface User {
+//   id: number;
+//   name: string;
+//   surname: string;
+//   email: string;
+// }
 
 export default function MyAccountView() {
-  const userJSON = localStorage.getItem(USER_KEY);
-  const user: User | null = userJSON ? JSON.parse(userJSON) : null;
+  // const userJSON = localStorage.getItem(USER_KEY);
+  // const user: User | null = userJSON ? JSON.parse(userJSON) : null;
 
   const { t } = useTranslation();
 
@@ -45,9 +45,7 @@ export default function MyAccountView() {
               <UpdateUserDataForm />
               <br />
               <div className="registro">
-                <Link to="/userLoggedIn">
-                {t("MYACCOUNT_link")}
-                </Link>
+                <Link to="/userLoggedIn">{t("MYACCOUNT_link")}</Link>
               </div>
             </div>
           </div>

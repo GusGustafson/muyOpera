@@ -37,10 +37,10 @@ export default function SearchUserPage() {
       const newData = await searchUser(email);
       // ESTO ES LO AÑADIDO POR EL TEMA "F5"
       setFoundUser(newData);
-  } catch (error) {
-    console.error("Error al hacer fetch de los datos:", error);
+    } catch (error) {
+      console.error("Error al hacer fetch de los datos:", error);
+    }
   }
-}
 
   return (
     <Formik<UserValues>

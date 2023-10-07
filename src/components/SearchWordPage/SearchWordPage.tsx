@@ -4,16 +4,16 @@ import SearchWordPageView from "./SearchWordPageView";
 import { useAuthContext } from "../../contexts/AuthContext";
 
 type ObjectValues = {
-    id: number;
-    name: string;
-    city: string;
-    address: string;
-    aphoras: string;
-    telephone: string;
-    website: string;
-    image: string;
-    searchQuery: string;
-  };
+  id: number;
+  name: string;
+  city: string;
+  address: string;
+  aphoras: string;
+  telephone: string;
+  website: string;
+  image: string;
+  searchQuery: string;
+};
 
 export default function SearchWordPage() {
   const { searchWord } = useAuthContext();
@@ -39,10 +39,10 @@ export default function SearchWordPage() {
       const newData = await searchWord(searchQuery);
       // ESTO ES LO AÑADIDO POR EL TEMA "F5"
       setFoundWord(newData);
-  } catch (error) {
-    console.error("Error al hacer fetch de los datos:", error);
+    } catch (error) {
+      console.error("Error al hacer fetch de los datos:", error);
+    }
   }
-}
 
   return (
     <Formik<ObjectValues>

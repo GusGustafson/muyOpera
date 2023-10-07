@@ -8,7 +8,9 @@ interface UpdateUserDataFormViewProps {
   formik: FormikValues;
 }
 
-export default function UpdateUserDataFormView({ formik }: UpdateUserDataFormViewProps) {
+export default function UpdateUserDataFormView({
+  formik,
+}: UpdateUserDataFormViewProps) {
   const { errorMessage } = useAuthContext();
   const { values, touched, errors, handleChange, handleSubmit } = formik;
   const { t } = useTranslation();

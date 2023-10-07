@@ -182,7 +182,7 @@ export default function FinderEngineView({
 
           <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="theatreName_Label" color="warning">
-            {t("FINDERENGINE_theatre")}
+              {t("FINDERENGINE_theatre")}
             </InputLabel>
             <Select
               labelId="theatreName_Label"
@@ -211,7 +211,7 @@ export default function FinderEngineView({
 
           <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="operaName_Label" color="warning">
-            {t("FINDERENGINE_opera")}
+              {t("FINDERENGINE_opera")}
             </InputLabel>
             <Select
               labelId="operaName_Label"
@@ -276,7 +276,7 @@ export default function FinderEngineView({
 
           <FormControl variant="filled" margin="dense" fullWidth>
             <InputLabel id="singerAnyFullname_Label" color="warning">
-            {t("FINDERENGINE_singer")}
+              {t("FINDERENGINE_singer")}
             </InputLabel>
             <Select
               labelId="singerAnyFullname_Label"

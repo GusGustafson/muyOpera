@@ -20,7 +20,6 @@ type EventValues = {
 };
 
 export default function FinderEngine_Singer() {
-
   const [singerAnyFullName, setSingerName] = useState<string | null>(null);
   useEffect(() => {
     const singerKeyJSON = localStorage.getItem(SINGER_KEY);

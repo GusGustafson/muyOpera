@@ -8,7 +8,9 @@ interface RegistrationFormViewProps {
   formik: FormikValues;
 }
 
-export default function RegistrationFormView({ formik }: RegistrationFormViewProps) {
+export default function RegistrationFormView({
+  formik,
+}: RegistrationFormViewProps) {
   const { errorMessage } = useAuthContext();
   const { values, touched, errors, handleChange, handleSubmit } = formik;
   const { t } = useTranslation();

@@ -36,9 +36,9 @@ export default function Card_Theatre({
   // image,
   name,
   city,
-  // address,
-  // aphoras,
-}: Card_Theatre) {
+}: // address,
+// aphoras,
+Card_Theatre) {
   const { t } = useTranslation();
   return (
     <Container>

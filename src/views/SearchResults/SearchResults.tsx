@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import background from "../../assets/background.jpg";
@@ -15,13 +15,16 @@ interface FoundObject {
   address: string;
   aphoras: string;
   telephone: string;
+  website: string;
   image: string;
 }
 
 // export default function SearchResults(searchQuery: string) {
 export default function SearchResults() {
   const { results } = useParams();
-  const parsedResults: FoundObject[] | undefined = results ? JSON.parse(decodeURIComponent(results)) : undefined;
+  const parsedResults: FoundObject[] | undefined = results
+    ? JSON.parse(decodeURIComponent(results))
+    : undefined;
   console.log(parsedResults);
 
   // const [foundData, setFoundData] = useState<FoundObject[] | null>(null);
@@ -95,11 +98,24 @@ export default function SearchResults() {
                   {parsedResults.map((obj) => (
                     <div key={obj.id}>
                       <img src={obj?.image} alt={obj?.image} height={100} />
-                      <p>{t("SEARCHRESULTS_data1")} {obj.name}</p>
-                      <p>{t("SEARCHRESULTS_data2")} {obj.city}</p>
-                      <p>{t("SEARCHRESULTS_data3")} {obj.address}</p>
-                      <p>{t("SEARCHRESULTS_data4")} {obj.aphoras}</p>
-                      <p>{t("SEARCHRESULTS_data5")} {obj.telephone}</p>
+                      <p>
+                        {t("SEARCHRESULTS_data1")} {obj.name}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data2")} {obj.city}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data3")} {obj.address}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data4")} {obj.aphoras}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data5")} {obj.telephone}
+                      </p>
+                      <p>
+                        {t("SEARCHRESULTS_data6")} {obj.website}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -107,12 +123,9 @@ export default function SearchResults() {
                 <p>{t("SEARCHRESULTS_notFound")}</p>
               )}
 
-
               <br />
               <div className="registro">
-                <Link to="/userLoggedIn">
-                {t("SEARCHRESULTS_link")}
-                </Link>
+                <Link to="/userLoggedIn">{t("SEARCHRESULTS_link")}</Link>
               </div>
             </div>
           </div>

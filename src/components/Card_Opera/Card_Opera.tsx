@@ -36,9 +36,9 @@ export default function Card_Opera({
   // image,
   name,
   composer,
-  // language,
-  // date,
-}: Card_Opera) {
+}: // language,
+// date,
+Card_Opera) {
   const { t } = useTranslation();
   return (
     <Container>

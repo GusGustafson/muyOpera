@@ -31,8 +31,8 @@ export default function Landing() {
             <em>muyÓpera</em>
           </strong>
         </h2>
-        </Box>
-        <Box
+      </Box>
+      <Box
         sx={{
           position: "absolute",
           bottom: "4%",

@@ -16,7 +16,7 @@ import SearchWord from "./views/SearchWord";
 import Admin from "./views/Admin";
 import DeleteUser from "./views/DeleteUser";
 import MyAccount from "./views/MyAccount";
-import SearchResults from "./views/SearchResults";
+// import SearchResults from "./views/SearchResults";
 import Unauthorized from "./views/Unauthorized";
 import NotFound from "./views/NotFound";
 import Layout from "./components/Layout";
@@ -25,7 +25,6 @@ import PrivateRoute from "./components/router/PrivateRoute";
 import { roles } from "./const/roles";
 
 export default function App() {
-
   return (
     <BrowserRouter>
       <AuthContextProvider>

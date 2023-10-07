@@ -20,7 +20,6 @@ type EventValues = {
 };
 
 export default function FinderEngineWithIdProvided() {
-
   const [operaName, setOperaName] = useState<string | null>(null);
   useEffect(() => {
     const operaKeyJSON = localStorage.getItem(OPERA_KEY);

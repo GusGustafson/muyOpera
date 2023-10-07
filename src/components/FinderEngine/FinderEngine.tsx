@@ -18,7 +18,6 @@ type EventValues = {
 };
 
 export default function FinderEngine() {
-
   const eventValues: EventValues = {
     id: 0,
     idTheatre: 0,

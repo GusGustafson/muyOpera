@@ -20,12 +20,12 @@ export default function Navbar_User() {
   // const [searchQuery, setSearchQuery] = useState<string>("");
   // useEffect(() => {}, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
   // function handleSearchInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    // setSearchQuery(event.target.value);
+  // setSearchQuery(event.target.value);
   // }
 
   // async function handleSearchSubmit(event: React.FormEvent<HTMLFormElement>) {
-    // event.preventDefault();
-    // try {
+  // event.preventDefault();
+  // try {
   //     console.log("Input del usuario para la query de búsqueda:", searchQuery);
   //     const results = await searchWord(searchQuery);
   //     console.log("Resultados de la búsqueda:", results);
@@ -52,7 +52,9 @@ export default function Navbar_User() {
             <Link to="/singers">{t("NAVBAR_singers")}</Link>
           </li>
           <li>
-            <Link to="/finder"><em>{t("NAVBAR_finder")}</em></Link>
+            <Link to="/finder">
+              <em>{t("NAVBAR_finder")}</em>
+            </Link>
           </li>
           <li>
             <Link to="/searchWord">{t("NAVBAR_search")}</Link>

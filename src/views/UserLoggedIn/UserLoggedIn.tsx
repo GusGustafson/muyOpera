@@ -9,13 +9,13 @@ import Ecco_MP3 from "../../assets/AngelesCastro_EccoRespiroAppena.mp3";
 import { useTranslation } from "react-i18next";
 
 const clearLocalStorageKey = () => {
-  localStorage.removeItem('T_K');
-  localStorage.removeItem('O_K');
-  localStorage.removeItem('S_K');
-  localStorage.removeItem('E_K');
-  localStorage.removeItem('F_E');
-  localStorage.removeItem('F_U');
-  localStorage.removeItem('F_W');
+  localStorage.removeItem("T_K");
+  localStorage.removeItem("O_K");
+  localStorage.removeItem("S_K");
+  localStorage.removeItem("E_K");
+  localStorage.removeItem("F_E");
+  localStorage.removeItem("F_U");
+  localStorage.removeItem("F_W");
 };
 
 export default function UserLoggedIn() {
@@ -47,7 +47,9 @@ export default function UserLoggedIn() {
                   <strong>muyÓpera</strong>
                 </span>
               </h3>
-              <p  dangerouslySetInnerHTML={{ __html: t("USERLOGGEDIN_subtitle") }} />
+              <p
+                dangerouslySetInnerHTML={{ __html: t("USERLOGGEDIN_subtitle") }}
+              />
               {/* <br /> */}
               <p>{t("USERLOGGEDIN_p1")}</p>
               <p>{t("USERLOGGEDIN_p2")}</p>

@@ -37,17 +37,18 @@ export default function FinderEngine_TheatreView({
 
   const [theatreName, setTheatreName] = useState<string | null>(null);
   useEffect(() => {
-    const timeoutId = setTimeout(() => { // Tengo que poner un delay de 0,1 seg para que no coja el valor "null" que tiene el campo theatreName al principio.
-    const theatreKeyJSON = localStorage.getItem(THEATRE_KEY);
-    if (theatreKeyJSON) {
-      const parsedTheatreName = JSON.parse(theatreKeyJSON);
-      setTheatreName(parsedTheatreName?.name || null);
-    }
-  }, 100);
-  return () => {
-    clearTimeout(timeoutId);
-  };
-}, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
+    const timeoutId = setTimeout(() => {
+      // Tengo que poner un delay de 0,1 seg para que no coja el valor "null" que tiene el campo theatreName al principio.
+      const theatreKeyJSON = localStorage.getItem(THEATRE_KEY);
+      if (theatreKeyJSON) {
+        const parsedTheatreName = JSON.parse(theatreKeyJSON);
+        setTheatreName(parsedTheatreName?.name || null);
+      }
+    }, 100);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
 
   return (
     <Box

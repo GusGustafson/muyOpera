@@ -24,16 +24,11 @@ interface FoundUser {
 export default function SearchUserFormView({
   formik,
   onSubmit_Search,
-  // onSubmit_Update,
-}: SearchUserFormViewProps) {
+}: // onSubmit_Update,
+SearchUserFormViewProps) {
   const { errorMessage } = useAuthContext();
-  const {
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = formik;
+  // const { values, touched, errors, handleChange, handleSubmit } = formik;
+  const { touched, errors, handleChange, handleSubmit } = formik;
 
   const foundUserJSON = localStorage.getItem(FOUND_USER);
   const foundUser: FoundUser | null = foundUserJSON
@@ -51,7 +46,9 @@ export default function SearchUserFormView({
       }}
     >
       <p>
-        Usuario encontrado: ID: {foundUser?.id} - Nombre: {foundUser?.name} - Apellidos: {foundUser?.surname} - Correo: {foundUser?.email} - Rol: {foundUser?.userRole}
+        Usuario encontrado: ID: {foundUser?.id} - Nombre: {foundUser?.name} -
+        Apellidos: {foundUser?.surname} - Correo: {foundUser?.email} - Rol:{" "}
+        {foundUser?.userRole}
       </p>
       <Form onSubmit={handleSubmit}>
         <TextField

@@ -17,13 +17,15 @@ export default function Unauthorized() {
     <>
       <Header />
       <br />
-      <h1><p dangerouslySetInnerHTML={{ __html: t("UNAUTHORIZED_title") }} /></h1>
+      <h1>
+        <p dangerouslySetInnerHTML={{ __html: t("UNAUTHORIZED_title") }} />
+      </h1>
       <br />
       <p>{t("UNAUTHORIZED_p1")}</p>
       <br />
       <Link to="/home" onClick={loggingOut}>
         <Button variant="contained" color="warning">
-        {t("UNAUTHORIZED_button")}
+          {t("UNAUTHORIZED_button")}
         </Button>
       </Link>
       {/* <Footer /> */}

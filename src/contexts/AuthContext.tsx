@@ -437,12 +437,15 @@ export default function AuthContextProvider({
 
   async function searchWord(searchQuery: string): Promise<ObjectValues | null> {
     try {
-      const response = await fetch(`http://localhost:3000/object/${searchQuery}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `http://localhost:3000/object/${searchQuery}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (response.ok) {
         const wordData: ObjectValues = await response.json();
         console.log("Palabra localizada correctamente");
@@ -452,7 +455,7 @@ export default function AuthContextProvider({
         return wordData;
       } else {
         console.log(
-          "Palabra no encontrada en la base de datos. Revisa la palabra e inténtalo de nuevo."
+          "Palabra no encontrada en la base de datos. Revise la palabra e inténtelo de nuevo."
         );
         alert(t("alerts.SEARCHWORD_error"));
         setErrorMessage(t("alerts.SEARCHWORD_message"));
@@ -463,7 +466,6 @@ export default function AuthContextProvider({
       return null;
     }
   }
-
 
   const value: AuthContextType = {
     user,

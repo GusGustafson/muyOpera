@@ -10,7 +10,7 @@ const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: orange[500],
-  '&:hover': {
+  "&:hover": {
     backgroundColor: orange[400],
   },
   marginLeft: 0,
@@ -52,15 +52,15 @@ export default function SearchField() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Buscar palabra…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Buscar palabra…"
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Search>
         </Toolbar>
       </AppBar>
     </Box>

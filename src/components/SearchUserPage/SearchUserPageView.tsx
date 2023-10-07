@@ -76,15 +76,23 @@ export default function SearchUserPageView({
       </Form>
       <br />
       <h4>{t("SEARCHUSERPAGE_subtitle")}</h4>
-      <h5>{t("SEARCHUSERPAGE_id")} {foundUser?.id}</h5>
-      <h5>{t("SEARCHUSERPAGE_name")} {foundUser?.name}</h5>
-      <h5>{t("SEARCHUSERPAGE_surname")} {foundUser?.surname}</h5>
-      <h5>{t("SEARCHUSERPAGE_email")} {foundUser?.email}</h5>
-      <h5>{t("SEARCHUSERPAGE_userRole")} {foundUser?.userRole}</h5>
+      <h5>
+        {t("SEARCHUSERPAGE_id")} {foundUser?.id}
+      </h5>
+      <h5>
+        {t("SEARCHUSERPAGE_name")} {foundUser?.name}
+      </h5>
+      <h5>
+        {t("SEARCHUSERPAGE_surname")} {foundUser?.surname}
+      </h5>
+      <h5>
+        {t("SEARCHUSERPAGE_email")} {foundUser?.email}
+      </h5>
+      <h5>
+        {t("SEARCHUSERPAGE_userRole")} {foundUser?.userRole}
+      </h5>
       <div className="registro">
-        <Link to="/deleteUser">
-        {t("SEARCHUSERPAGE_link")}
-        </Link>
+        <Link to="/deleteUser">{t("SEARCHUSERPAGE_link")}</Link>
       </div>
     </Box>
   );

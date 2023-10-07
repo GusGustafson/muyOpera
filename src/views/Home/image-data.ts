@@ -12,4 +12,17 @@ import turandot from "../../assets/operas/Turandot_small2.jpg";
 import norma from "../../assets/operas/Norma_small2.jpg";
 import boheme from "../../assets/operas/Boheme_small2.jpg";
 
-export const images = [madrid, rigoletto, malaga, figaro, oviedo, traviata, barcelona, turandot, sevilla, norma, lasPalmas, boheme];
+export const images = [
+  madrid,
+  rigoletto,
+  malaga,
+  figaro,
+  oviedo,
+  traviata,
+  barcelona,
+  turandot,
+  sevilla,
+  norma,
+  lasPalmas,
+  boheme,
+];

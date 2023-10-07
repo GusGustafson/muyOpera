@@ -80,15 +80,15 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
       <div className="carousel-images">
         <AnimatePresence>
           {/* <Ticker> */}
-            <motion.img
-              key={currentIndex}
-              src={images[currentIndex]}
-              // initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
-              initial={direction === "left" ? "hiddenLeft" : "hiddenRight"}
-              animate="visible"
-              exit="exit"
-              variants={slideVariants}
-            />
+          <motion.img
+            key={currentIndex}
+            src={images[currentIndex]}
+            // initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
+            initial={direction === "left" ? "hiddenLeft" : "hiddenRight"}
+            animate="visible"
+            exit="exit"
+            variants={slideVariants}
+          />
           {/* </Ticker> */}
         </AnimatePresence>
         <div className="slide_direction">

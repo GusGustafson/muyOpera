@@ -23,7 +23,6 @@ interface User {
 }
 
 export default function AdminView() {
-
   // Aquí uso "useEffect" para eliminar el valor de USER_KEY del localStorage cuando se carga el componente - ESTO NO FUNCIONA
   // useEffect(() => {
   //   localStorage.removeItem(USER_KEY);

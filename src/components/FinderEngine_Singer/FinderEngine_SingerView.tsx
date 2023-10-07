@@ -35,19 +35,26 @@ export default function FinderEngine_SingerView({
   const { values, handleChange, handleSubmit } = formik;
   const { t } = useTranslation();
 
-  const [singerAnyFullName, setSingerAnyFullName] = useState<string | null>(null);
+  const [singerAnyFullName, setSingerAnyFullName] = useState<string | null>(
+    null
+  );
   useEffect(() => {
-    const timeoutId = setTimeout(() => { // Tengo que poner un delay de 0,1 seg para que no coja el valor "null" que tiene el campo theatreName al principio.
-    const singerKeyJSON = localStorage.getItem(SINGER_KEY);
-    if (singerKeyJSON) {
-      const parsedSingerName = JSON.parse(singerKeyJSON);
-      setSingerAnyFullName((parsedSingerName?.name || "") + " " + (parsedSingerName?.surname || ""));
-    }
-  }, 100);
-  return () => {
-    clearTimeout(timeoutId);
-  };
-}, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
+    const timeoutId = setTimeout(() => {
+      // Tengo que poner un delay de 0,1 seg para que no coja el valor "null" que tiene el campo theatreName al principio.
+      const singerKeyJSON = localStorage.getItem(SINGER_KEY);
+      if (singerKeyJSON) {
+        const parsedSingerName = JSON.parse(singerKeyJSON);
+        setSingerAnyFullName(
+          (parsedSingerName?.name || "") +
+            " " +
+            (parsedSingerName?.surname || "")
+        );
+      }
+    }, 100);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []); // El array de dependencias vacío garantiza que el efecto solo se ejecute una vez
 
   return (
     <Box

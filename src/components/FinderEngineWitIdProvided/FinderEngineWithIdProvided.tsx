@@ -28,7 +28,6 @@ type EventValues = {
 //   console.log(theatreName);
 
 export default function FinderEngineWithIdProvided() {
-
   const [theatreName, setTheatreName] = useState<string | null>(null);
   const [operaName, setOperaName] = useState<string | null>(null);
   const [singerAnyFullName, setSingerName] = useState<string | null>(null);
