@@ -78,18 +78,18 @@ export default function OperaDetails() {
               <div className="container d-flex">
                 <Carousel
                   autoplay={true}
-                  autoplayInterval={1500}
+                  autoplayInterval={2000}
                   wrapAround={true}
                   withoutControls={true}
                   slidesToShow={3}
-                  // cellSpacing={32}
+                  cellSpacing={1}
                   className="carouselFrame"
                   // className="card"
                 >
                   {/* <img src={opera?.image} alt={opera?.image} height={300} /> */}
-                  <img src={opera?.image} alt={opera?.image} />
-                  <img src={opera?.image2} alt={opera?.image2} />
-                  <img src={opera?.image3} alt={opera?.image3} />
+                  <img src={opera?.image} />
+                  <img src={opera?.image2} />
+                  <img src={opera?.image3} />
                 </Carousel>
               </div>
               <h5>

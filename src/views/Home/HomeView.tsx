@@ -41,11 +41,11 @@ export default function HomeView() {
       <div className="container d-flex mt-3">
         <Carousel
           autoplay={true}
-          autoplayInterval={2500}
+          autoplayInterval={2000}
           wrapAround={true}
           withoutControls={true}
           slidesToShow={3}
-          // cellSpacing={16}
+          // cellSpacing={1}
           className="carouselFrame"
           // className="card"
         >

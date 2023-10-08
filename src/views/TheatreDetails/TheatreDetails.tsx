@@ -78,18 +78,18 @@ export default function TheatreDetails() {
               <div className="container d-flex">
                 <Carousel
                   autoplay={true}
-                  autoplayInterval={1500}
+                  autoplayInterval={2000}
                   wrapAround={true}
                   withoutControls={true}
                   slidesToShow={3}
-                  // cellSpacing={32}
+                  cellSpacing={1}
                   className="carouselFrame"
                   // className="card"
                 >
                   {/* <img src={theatre?.image} alt={theatre?.image} width={533} height={400} /> */}
-                  <img src={theatre?.image} alt={theatre?.image} />
-                  <img src={theatre?.image2} alt={theatre?.image2} />
-                  <img src={theatre?.image3} alt={theatre?.image3} />
+                  <img src={theatre?.image} />
+                  <img src={theatre?.image2} />
+                  <img src={theatre?.image3} />
                 </Carousel>
               </div>
               <h5>

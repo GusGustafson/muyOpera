@@ -78,18 +78,18 @@ export default function SingerDetails() {
               <div className="container d-flex">
                 <Carousel
                   autoplay={true}
-                  autoplayInterval={1500}
+                  autoplayInterval={2000}
                   wrapAround={true}
                   withoutControls={true}
                   slidesToShow={3}
-                  // cellSpacing={32}
+                  cellSpacing={1}
                   className="carouselFrame"
                   // className="card"
                 >
                   {/* <img src={singer?.image} alt={singer?.image} height={300} /> */}
-                  <img src={singer?.image} alt={singer?.image} />
-                  <img src={singer?.image2} alt={singer?.image2} />
-                  <img src={singer?.image3} alt={singer?.image3} />
+                  <img src={singer?.image} />
+                  <img src={singer?.image2} />
+                  <img src={singer?.image3} />
                 </Carousel>
               </div>
               <h5>
