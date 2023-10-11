@@ -89,7 +89,7 @@ export default function SearchWordPageView({
           {/* {foundWord.map((obj) => ( // "Cambio esta línea por lo de resultados con ID duplicado" */}
           {Object.values(groupedFoundWord).map((obj) => (
             <div key={obj.id}>
-              <hr />
+              {/* <hr /> */}
               <img src={obj?.image} alt={obj?.image} height={100} />
               <p>
                 {obj.name}
@@ -107,6 +107,7 @@ export default function SearchWordPageView({
                   {obj.website}
                 </a>
               </p>
+              <hr />
             </div>
           ))}
         </div>

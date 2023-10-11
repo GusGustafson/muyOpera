@@ -92,6 +92,7 @@ export default function TheatreDetails() {
                   <img src={theatre?.image3} />
                 </Carousel>
               </div>
+              {/* <br/> */}
               <h5>
                 {t("THEATREDETAILS_name")} {theatre?.name}
               </h5>

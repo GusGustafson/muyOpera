@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import DeleteUserView from "./DeleteUserView";
 import { useAuthContext } from "../../contexts/AuthContext";
 
@@ -16,7 +15,6 @@ interface FoundUser {
 
 export default function DeleteUser() {
   const { deleteUser } = useAuthContext();
-  const navigate = useNavigate();
 
   const foundUserJSON = localStorage.getItem(FOUND_USER);
   const foundUser: FoundUser | null = foundUserJSON
@@ -24,13 +22,8 @@ export default function DeleteUser() {
     : null;
   const id = foundUser?.id || 0;
 
-  async function onSubmit() {
-    try {
-      await deleteUser(id);
-      navigate("/admin");
-    } catch (error) {
-      console.error("Error al eliminar el usuario:", error);
-    }
+  function onSubmit() {
+    deleteUser(id);
   }
 
   return <DeleteUserView onSubmit={onSubmit} />;
